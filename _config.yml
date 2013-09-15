@@ -7,14 +7,14 @@ url:              http://your-site.com
 # Owner/author information
 owner:
   name:           Fábio Rehm
-  avatar:         bio-photo.jpg
-  bio:            "Describe your self."
+  avatar:         'http://s.gravatar.com/avatar/a198addd98dd9f149c7964a1340c9772?s=80&r=g'
+  bio:            # blank
   email:          fgrehm@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:        fgrehm
-  facebook:
+  facebook:       # blank
   github:         fgrehm
-  linkedin:       fabio.rehm
+  linkedin:       fabiorehm
   instagram:
   lastfm:
   tumblr:
