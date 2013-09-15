@@ -1,0 +1,29 @@
+---
+layout: post
+title: 'Vundler is now Bindler!'
+tags:
+- vagrant
+- vundler
+- bundler
+- bindler
+category: blog
+---
+
+<figure class="half">
+  <img class="caption" src="http://gallerydriver.com/Art/bindle_72dpi.jpg" alt="bindle" title="bindle" width="150" height="202">
+  <figcaption><a href="http://jonathanlevinegallery.com/?method=Exhibit.ExhibitArt&amp;exhibitID=63485F0C-19DB-5802-E0993469955A3542&amp;artidx=35&amp;artistidx=1">Image by James Jean</a></figcaption>
+</figure>
+
+Quick update about [Vundler](/blog/2013/07/15/vundler-dead-easy-plugin-management-for-vagrant):
+lots of people got confused about the plugin name because of [Vim's Vundle](https://github.com/gmarik/vundle)
+so we decided to rename it to _Bindler_. The name was originally [proposed](https://github.com/mitchellh/vagrant/issues/1789#issuecomment-21018873)
+by [Patrick Connolly](https://github.com/patcon) and after seeing the pictures
+[he pointed out](https://www.google.ca/search?q=bindle&tbm=isch) (just forget
+about the first row ;) I thought that it'd fit nicely with a vagrant :)
+
+Please note that you'll need to [uninstall and revert](https://github.com/fgrehm/bindler#notice)
+Vundler's installation before upgrading to Bindler. Vundler wasn't even `0.1.0`
+and is still highly experimental so I decided not to worry about keeping it
+backwards compatible.
+
+So who's up for creating our logo? ;)
