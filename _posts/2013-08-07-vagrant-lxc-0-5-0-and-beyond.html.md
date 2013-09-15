@@ -38,24 +38,28 @@ As stated on the [the README](https://github.com/fgrehm/vagrant-lxc#avoiding-sud
 right now the script I'm using is **really dumb AND INSECURE** but it does the
 trick. It's basically a ruby script that acts as a proxy for executing the commands:
 
-    :::ruby
-    #!/usr/bin/env ruby
-    exec ARGV.join(' ')
+{% highlight ruby %}
+#!/usr/bin/env ruby
+exec ARGV.join(' ')
+{% endhighlight %}
 
 With that in place we can then add a single entry to our `/usr/bin/lxc-vagrant-wrapper`
 like the one below:
 
-    USERNAME ALL=NOPASSWD:/usr/bin/lxc-vagrant-wrapper
+{% highlight bash %}
+USERNAME ALL=NOPASSWD:/usr/bin/lxc-vagrant-wrapper
+{% endhighlight %}
 
 And tell vagrant-lxc to use it on our `Vagrantfile`s:
 
-    :::ruby
-    # Protip: Drop this into your ~/.vagrant.d/Vagrantfile to apply the configuration to all vagrant-lxc VMs
-    Vagrant.configure("2") do |config|
-      config.vm.provider :lxc do |lxc|
-        lxc.sudo_wrapper = '/usr/bin/lxc-vagrant-wrapper'
-      end
-    end
+{% highlight ruby %}
+# Protip: Drop this into your ~/.vagrant.d/Vagrantfile to apply the configuration to all vagrant-lxc VMs
+Vagrant.configure("2") do |config|
+  config.vm.provider :lxc do |lxc|
+    lxc.sudo_wrapper = '/usr/bin/lxc-vagrant-wrapper'
+  end
+end
+{% endhighlight %}
 
 That's it, no more typing in your password when using vagrant-lxc boxes :)
 
@@ -75,23 +79,23 @@ hitting the guest container directy from the host machine. Starting with 0.5.0 t
 up now works out of the box because the port forwarding will work for any of the
 configured VBox IP.
 
-    :::ruby
+{% highlight ruby %}
+Vagrant.configure("2") do |config|
+  config.vm.box = "quantal64"
 
-    Vagrant.configure("2") do |config|
-      config.vm.box = "quantal64"
+  config.vm.define :vbox do |vb_config|
+    # Exposes access to the container
+    vb_config.vm.network :forwarded_port, guest: 8000, host: 8080
+    vb_config.vm.network :forwarded_port, guest: 2221, host: 2000
+  end
 
-      config.vm.define :vbox do |vb_config|
-        # Exposes access to the container
-        vb_config.vm.network :forwarded_port, guest: 8000, host: 8080
-        vb_config.vm.network :forwarded_port, guest: 2221, host: 2000
-      end
-
-      config.vm.define :lxc do |lxc_config|
-        # Exposes a web server and SSH access
-        lxc_config.vm.network :forwarded_port, guest: 80, host: 8000
-        lxc_config.vm.network :forwarded_port, guest: 22, host: 2221
-      end
-    end
+  config.vm.define :lxc do |lxc_config|
+    # Exposes a web server and SSH access
+    lxc_config.vm.network :forwarded_port, guest: 80, host: 8000
+    lxc_config.vm.network :forwarded_port, guest: 22, host: 2221
+  end
+end
+{% endhighlight %}
 
 So using a Vagrantfile similiar to the one above you should be able to SSH into
 the `vbox` VM, bring up the `lxc` container and hit a web server running on the

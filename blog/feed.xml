@@ -1,5 +1,6 @@
 ---
 layout: none
+category: blog
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
@@ -15,7 +16,7 @@ layout: none
   <uri>{{ site.url }}/</uri>
   <email>{{ site.owner.email }}</email>
 </author>
-{% for post in site.posts limit:20 %}
+{% for post in site.posts limit:30 %}
 
 <entry>
   <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>

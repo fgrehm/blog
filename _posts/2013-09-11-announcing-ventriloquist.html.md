@@ -72,14 +72,15 @@ To give you an idea, this is what it takes to configure a Vagrant VM ready
 for development on [Discourse](http://www.discourse.org/) (and probably a whole
 lot of other Ruby On Rails apps):
 
-    :::ruby
-     Vagrant.configure("2") do |config|
-       # ... your other Vagrant configs ...
-       config.vm.provision :ventriloquist do |env|
-         env.services  = %w( redis pg:9.1 )
-         env.platforms = %w( nodejs ruby:1.9.3 )
-       end
-     end
+{% highlight ruby %}
+Vagrant.configure("2") do |config|
+  # ... your other Vagrant configs ...
+  config.vm.provision :ventriloquist do |env|
+    env.services  = %w( redis pg:9.1 )
+    env.platforms = %w( nodejs ruby:1.9.3 )
+  end
+end
+{% endhighlight %}
 
 As another example, [this](https://github.com/fgrehm/rails-base-box/commit/69021b08dab0ff9ed78a17b16344d207dafb045c#L0L78)
 is what I ended up removing from my own [rails-base-box](https://github.com/fgrehm/rails-base-box)

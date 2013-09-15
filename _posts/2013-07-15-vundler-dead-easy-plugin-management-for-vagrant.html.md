@@ -76,11 +76,12 @@ Once things are properly set up, you should be able to add a `plugins.json` file
 like the one below to your project and just run `vagrant plugin bundle` to install
 the required dependencies:
 
-    :::json
-    [
-      "vagrant-lxc",
-      {"vagrant-cachier": "0.2.0"}
-    ]
+{% highlight json %}
+[
+  "vagrant-lxc",
+  {"vagrant-cachier": "0.2.0"}
+]
+{% endhighlight %}
 
 And that's it! Vundler will even be little bit smart and will only install the plugins
 that you haven't installed yet ;)

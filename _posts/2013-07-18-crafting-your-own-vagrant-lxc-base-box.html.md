@@ -31,15 +31,19 @@ The first thing we'll do is create the base container with `lxc-create` with
 [vanilla templates](https://github.com/lxc/lxc/tree/staging/templates), for
 Ubuntu guests that means:
 
-    RELEASE=precise
-    ARCH=amd64
-    sudo lxc-create -n ${RELEASE}-base -t ubuntu -- --release ${RELEASE} --arch ${ARCH}
+{% highlight bash %}
+RELEASE=precise
+ARCH=amd64
+sudo lxc-create -n ${RELEASE}-base -t ubuntu -- --release ${RELEASE} --arch ${ARCH}
+{% endhighlight %}
 
 And for Debian guests:
 
-    SUITE=squeeze
-    RELEASE=$SUITE
-    sudo lxc-create -n ${RELEASE}-base -t debian
+{% highlight bash %}
+SUITE=squeeze
+RELEASE=$SUITE
+sudo lxc-create -n ${RELEASE}-base -t debian
+{% endhighlight %}
 
 _Before you ask, I decided to set both a `SUITE` and a `RELEASE` variables because
 the debian template [expects](https://github.com/lxc/lxc/blob/staging/templates/lxc-debian.in#L23)
@@ -52,17 +56,19 @@ If you want to know more about the parameters a template accepts, try running
 To finish up this initial setup, some aditional steps are required to make sure
 the Debian containers will get to play well with Vagrant / vagrant-lxc:
 
-    rootfs="/var/lib/lxc/${RELEASE}-base/rootfs"
+{% highlight bash %}
+rootfs="/var/lib/lxc/${RELEASE}-base/rootfs"
 
-    # This fixes some networking issues
-    # See https://github.com/fgrehm/vagrant-lxc/issues/91 for more info
-    sudo sed -i -e "s/\(127.0.0.1\s\+localhost\)/\1\n127.0.1.1\t${RELEASE}-base\n/g" ${rootfs}/etc/hosts
+# This fixes some networking issues
+# See https://github.com/fgrehm/vagrant-lxc/issues/91 for more info
+sudo sed -i -e "s/\(127.0.0.1\s\+localhost\)/\1\n127.0.1.1\t${RELEASE}-base\n/g" ${rootfs}/etc/hosts
 
-    # This ensures that `/tmp` does not get cleared on halt
-    # See https://github.com/fgrehm/vagrant-lxc/issues/68 for more info
-    sudo chroot $rootfs /usr/sbin/update-rc.d -f checkroot-bootclean.sh remove
-    sudo chroot $rootfs /usr/sbin/update-rc.d -f mountall-bootclean.sh remove
-    sudo chroot $rootfs /usr/sbin/update-rc.d -f mountnfs-bootclean.sh remove
+# This ensures that `/tmp` does not get cleared on halt
+# See https://github.com/fgrehm/vagrant-lxc/issues/68 for more info
+sudo chroot $rootfs /usr/sbin/update-rc.d -f checkroot-bootclean.sh remove
+sudo chroot $rootfs /usr/sbin/update-rc.d -f mountall-bootclean.sh remove
+sudo chroot $rootfs /usr/sbin/update-rc.d -f mountnfs-bootclean.sh remove
+{% endhighlight %}
 
 
 ## Configure the vagrant user
@@ -72,19 +78,25 @@ an `ubuntu` user by default and we'll just rename it to `vagrant` in order to
 avoid the need to specify [Vagrant's](http://docs.vagrantup.com/v2/vagrantfile/ssh_settings.html)
 `config.default.username` on our Vagrantfiles:
 
-    ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
-    sudo chroot ${ROOTFS} usermod -l vagrant -d /home/vagrant ubuntu
+{% highlight bash %}
+ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
+sudo chroot ${ROOTFS} usermod -l vagrant -d /home/vagrant ubuntu
+{% endhighlight %}
 
 The Debian template does not create any user so we'll just add it with `adduser`:
 
-    ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
-    sudo chroot ${ROOTFS} useradd --create-home -s /bin/bash vagrant
+{% highlight bash %}
+ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
+sudo chroot ${ROOTFS} useradd --create-home -s /bin/bash vagrant
+{% endhighlight %}
 
 At this point it is a good idea to set `vagrant` as the password too since most
 boxes I've used had this set up like that. The following applies to both Debian
 and Ubuntu guests:
 
-    echo -n 'vagrant:vagrant' | sudo chroot ${ROOTFS} chpasswd
+{% highlight bash %}
+echo -n 'vagrant:vagrant' | sudo chroot ${ROOTFS} chpasswd
+{% endhighlight %}
 
 ### Set up SSH access and passwordless `sudo`
 
@@ -96,22 +108,26 @@ for things to work properly.
 Before we get to that, make sure that `sudo` is installed on Debian guests and
 that the `vagrant` user belongs to the `sudo` group by running:
 
-    sudo chroot ${ROOTFS} apt-get install sudo -y --force-yes
-    sudo chroot ${ROOTFS} adduser vagrant sudo
+{% highlight bash %}
+sudo chroot ${ROOTFS} apt-get install sudo -y --force-yes
+sudo chroot ${ROOTFS} adduser vagrant sudo
+{% endhighlight %}
 
 If everything went fine, you should now be able to run the commands
 below to set up SSH access and enable passwordless `sudo`:
 
-    # Configure SSH access
-    sudo mkdir -p ${ROOTFS}/home/vagrant/.ssh
-    sudo wget https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -O ${ROOTFS}/home/vagrant/.ssh/authorized_keys
-    sudo chroot ${ROOTFS} chown -R vagrant:vagrant /home/vagrant/.ssh
+{% highlight bash %}
+# Configure SSH access
+sudo mkdir -p ${ROOTFS}/home/vagrant/.ssh
+sudo wget https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -O ${ROOTFS}/home/vagrant/.ssh/authorized_keys
+sudo chroot ${ROOTFS} chown -R vagrant:vagrant /home/vagrant/.ssh
 
-    # Enable passwordless sudo for users under the "sudo" group
-    sudo cp ${ROOTFS}/etc/sudoers{,.orig}
-    sudo sed -i -e \
-          's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
-          ${ROOTFS}/etc/sudoers
+# Enable passwordless sudo for users under the "sudo" group
+sudo cp ${ROOTFS}/etc/sudoers{,.orig}
+sudo sed -i -e \
+      's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
+      ${ROOTFS}/etc/sudoers
+{% endhighlight %}
 
 This is basically enough for us to [export the container's rootfs and prepare
 the vagrant-lxc box](#build_box_package) but the container is pretty <s>dumb</s> rough
@@ -133,40 +149,50 @@ If you try to install some package on the container you'll notice that a warning
 shows up saying that the packages cannot be authenticated. In order to make it go
 away you'll need to install the `ca-certificates` package and run a `apt-get update`:
 
-    sudo apt-get install -y --force-yes ca-certificates
-    sudo apt-get update
+{% highlight bash %}
+sudo apt-get install -y --force-yes ca-certificates
+sudo apt-get update
+{% endhighlight %}
 
 ### Add some basic packages
 
 Make your container a better place and install some "must-have" packages:
 
-    PACKAGES=(vim curl wget manpages bash-completion)
-    sudo apt-get install ${PACKAGES[*]} -y --force-yes
+{% highlight bash %}
+PACKAGES=(vim curl wget manpages bash-completion)
+sudo apt-get install ${PACKAGES[*]} -y --force-yes
+{% endhighlight %}
 
 ### Install Chef
 
 If you want to have [Chef](http://www.opscode.com/chef/) pre installed on the
 base box, you can run:
 
-    curl -L https://www.opscode.com/chef/install.sh -k | sudo bash
+{% highlight bash %}
+curl -L https://www.opscode.com/chef/install.sh -k | sudo bash
+{% endhighlight %}
 
 ### Install Puppet
 
 If you want to have [Puppet](https://puppetlabs.com/) pre installed on the base
 box, you can run:
 
-    wget http://apt.puppetlabs.com/puppetlabs-release-stable.deb -O "/tmp/puppetlabs-release-stable.deb"
-    dpkg -i "/tmp/puppetlabs-release-stable.deb"
-    sudo apt-get update
-    sudo apt-get install puppet -y --force-yes
+{% highlight bash %}
+wget http://apt.puppetlabs.com/puppetlabs-release-stable.deb -O "/tmp/puppetlabs-release-stable.deb"
+dpkg -i "/tmp/puppetlabs-release-stable.deb"
+sudo apt-get update
+sudo apt-get install puppet -y --force-yes
+{% endhighlight %}
 
 ### Free up some disk space
 
 When you are done configuring the container, make sure you run the code below from
 within the container to reduce the rootfs / box size:
 
-    sudo rm -rf /tmp/*
-    sudo apt-get clean
+{% highlight bash %}
+sudo rm -rf /tmp/*
+sudo apt-get clean
+{% endhighlight %}
 
 
 ## Build box package
@@ -174,23 +200,25 @@ within the container to reduce the rootfs / box size:
 After configuring the container, shut it down by running `sudo halt` and follow
 the steps below from the host to build the `.box` file:
 
-    # Set up a working dir
-    mkdir -p /tmp/vagrant-lxc-${RELEASE}
+{% highlight bash %}
+# Set up a working dir
+mkdir -p /tmp/vagrant-lxc-${RELEASE}
 
-    # Compress container's rootfs
-    cd /var/lib/lxc/${RELEASE}-base
-    sudo tar --numeric-owner -czf /tmp/vagrant-lxc-${RELEASE}/rootfs.tar.gz ./rootfs/*
+# Compress container's rootfs
+cd /var/lib/lxc/${RELEASE}-base
+sudo tar --numeric-owner -czf /tmp/vagrant-lxc-${RELEASE}/rootfs.tar.gz ./rootfs/*
 
-    # Prepare package contents
-    cd /tmp/vagrant-lxc-${RELEASE}
-    sudo chown $USER:`id -gn` rootfs.tar.gz
-    wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/lxc-template
-    wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/lxc.conf
-    wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/metadata.json
-    chmod +x lxc-template
+# Prepare package contents
+cd /tmp/vagrant-lxc-${RELEASE}
+sudo chown $USER:`id -gn` rootfs.tar.gz
+wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/lxc-template
+wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/lxc.conf
+wget https://raw.github.com/fgrehm/vagrant-lxc/master/boxes/common/metadata.json
+chmod +x lxc-template
 
-    # Vagrant box!
-    tar -czf vagrant-lxc-${RELEASE}.box ./*
+# Vagrant box!
+tar -czf vagrant-lxc-${RELEASE}.box ./*
+{% endhighlight %}
 
 
 ## Try it out
@@ -198,9 +226,11 @@ the steps below from the host to build the `.box` file:
 To make sure you are able to use the container with vagrant-lxc, try importing
 the base box and bring it up with:
 
-    mkdir -p /tmp/test-import && cd /tmp/test-import
-    vagrant init my-box /tmp/vagrant-lxc-${RELEASE}/vagrant-lxc-${RELEASE}.box
-    vagrant up --provider=lxc
+{% highlight bash %}
+mkdir -p /tmp/test-import && cd /tmp/test-import
+vagrant init my-box /tmp/vagrant-lxc-${RELEASE}/vagrant-lxc-${RELEASE}.box
+vagrant up --provider=lxc
+{% endhighlight %}
 
 If everything went fine, you should be able to SSH into it with `vagrant ssh`
 without issues.
