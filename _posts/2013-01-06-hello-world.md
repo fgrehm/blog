@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Hello world!
+description: 'Every blog needs to have one right?'
 category: blog
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Improving vagrant-lxc boxes
+description: 'Updates about V3 vagrant-lxc base boxes'
 tags:
 - vagrant
 - vagrant-lxc

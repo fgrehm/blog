@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Stop wasting bandwith with vagrant-cachier
+description: 'Reduce Vagrant provisioning time with a local cache'
 tags:
 - vagrant
 - cache

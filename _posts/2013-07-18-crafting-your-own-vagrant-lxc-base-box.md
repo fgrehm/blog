@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Crafting your own vagrant-lxc base box
+description: 'How to build your own vagrant-lxc base boxes'
 tags:
 - vagrant
 - vagrant-lxc

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How do you find out about new gems?
-summary: 'How do you keep up to the with the RubyGems "ecossystem"?'
+description: 'How do you keep up to the with the RubyGems "ecossystem"?'
 category: blog
 tags:
 - ruby

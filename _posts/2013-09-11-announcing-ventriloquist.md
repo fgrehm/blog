@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Announcing Ventriloquist
+description: 'Development environments made easy'
 tags:
 - vagrant
 - docker

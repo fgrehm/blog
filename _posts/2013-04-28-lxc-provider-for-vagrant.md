@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'LXC provider for Vagrant'
+description: "Run your Vagrant boxes as Linux Containers"
 tags:
 - vagrant
 - lxc

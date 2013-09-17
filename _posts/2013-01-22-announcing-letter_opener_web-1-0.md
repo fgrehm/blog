@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Announcing letter_opener_web 1.0
+description: 'An inbox for Ruby on Rails ActionMailer on your browser'
 tags:
 - ruby
 - rails
@@ -13,8 +14,8 @@ category: blog
   <a href="/images/posts/letter_opener_web-ui.png"><img src="/images/posts/letter_opener_web-ui.png"></a>
 </figure>
 
-One of the things I missed the most after going [100% on Vagrant](/blog/2013-01-17-100-percent-on-vagrant.html)
- was the ability to preview Rails apps sent mails on my browser. I got used to the
+One of the things I missed the most after going [100% on Vagrant](/blog/2013-01-17-100-percent-on-vagrant)
+was the ability to preview Rails apps sent mails on my browser. I got used to the
 awesome [letter_opener](https://github.com/ryanb/letter_opener) gem which depends
 on [launchy](https://github.com/copiousfreetime/launchy) to fire up a new browser
 window with the email preview instead of sending. As `launchy` on its own wouldn't
