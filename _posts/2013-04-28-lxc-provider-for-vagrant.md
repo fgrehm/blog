@@ -168,8 +168,7 @@ when the VBox machine goes up to save you some trouble.
 <s>Before you alt-tab to try it out, please keep in mind that on its current
 state it won't work out of the box but I believe that it wouldn't be hard to automate
 that process and [I do have plans](https://github.com/fgrehm/vagrant-lxc/issues/23)
-to make it a no brainer as well</s>.
-
+to make it a no brainer as well.</s>
 _**UPDATE** (07 AUG 2013): As of [vagrant-lxc 0.5.0](/blog/2013/08/02/vagrant-lxc-0-5-0-and-beyond#promiscuous-port-forwarding)
 that now works!_
 
