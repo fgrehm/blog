@@ -1,2 +1,2 @@
-jekyll: bundle exec jekyll serve -w --verbose --lsi -c _config.yml,_config.yml.dev
+jekyll: bundle exec jekyll serve -w --verbose --drafts -c _config.yml,_config.yml.dev
 grunt: grunt watch
