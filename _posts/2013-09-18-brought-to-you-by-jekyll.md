@@ -10,7 +10,7 @@ category: blog
 ---
 
 If you came across this blog before you have probably noticed that the layout has
-changed a lot. That is thanks to [Michael Rose](http://mademistakes.com/about.html)
+changed a lot. This is thanks to [Michael Rose](http://mademistakes.com/about.html)
 and his awesome <a href="http://mademistakes.com/">Minimal Mistakes</a>
 theme for [jekyll](http://jekyllrb.com/) that recently replaced the "old school"
 [octopress](http://octopress.org/) theme I had in place.
