@@ -1,1 +1,3 @@
-TALK ABOUT ELASTICSEARCH
+TALK ABOUT ELASTICSEARCH + rethinkdb
+
+ver o outro post
