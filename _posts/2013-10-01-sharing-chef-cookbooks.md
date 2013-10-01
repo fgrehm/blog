@@ -127,7 +127,7 @@ DEBUG:
 </div>
 
 Looking at that stacktrace I noticed that the `User-id` was missing and I went
-off to Chef sources to find out what where that should come from. Looking at [these lines](https://github.com/opscode/chef/blob/56a5ae1f9b7f7d5854c6532566995d1c8a276e6e/lib/chef/knife/cookbook_site_share.rb#L67)
+off to Chef sources to find out where that should come from. Looking at [these lines](https://github.com/opscode/chef/blob/56a5ae1f9b7f7d5854c6532566995d1c8a276e6e/lib/chef/knife/cookbook_site_share.rb#L67)
 I found out that that parameter comes from the `node_name` defined on our knife
 configs and I added it my `~/.chef/knife.rb`:
 
