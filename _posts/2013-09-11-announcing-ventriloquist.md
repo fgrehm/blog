@@ -77,8 +77,8 @@ lot of other Ruby On Rails apps):
 Vagrant.configure("2") do |config|
   # ... your other Vagrant configs ...
   config.vm.provision :ventriloquist do |env|
-    env.services  = %w( redis pg:9.1 )
-    env.platforms = %w( nodejs ruby:1.9.3 )
+    env.services  << %w( redis pg:9.1 )
+    env.platforms << %w( nodejs ruby:1.9.3 )
   end
 end
 {% endhighlight %}
