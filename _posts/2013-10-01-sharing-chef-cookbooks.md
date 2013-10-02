@@ -158,3 +158,14 @@ Generating metadata for dokku from /tmp/chef-dokku-build20131001-16730-1rlofvz/d
 Making tarball dokku.tgz
 Upload complete!</pre>
 </div>
+
+Summing up, here's what you need to share your cookbook:
+
+* Ruby 1.9
+* Chef gem
+* [An account at Opscode](https://getchef.opscode.com/signup?ref=community)
+* Make sure the cookbooks are kept on a folder with the same name as the cookbook itself (ex: `chef-dokku` should be cloned to `dokku`)
+* `~/.chef/knife.rb` or `./.chef/knife.rb` configured with:
+  * `client_key`: you should have seen it while registering with Opscode, if you didn't save it get a new one at [https://www.opscode.com/account/password](https://www.opscode.com/account/password)
+  * `node_name`: your Opscode username
+  * `cookbook_path`: this is optional and will allow you to omit the `-o` parameter when sharing your cookbooks
