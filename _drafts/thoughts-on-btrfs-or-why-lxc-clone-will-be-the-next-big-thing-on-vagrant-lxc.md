@@ -1,11 +1,13 @@
 ---
-title: 'Thoughts on BTRFS (or why lxc-clone will be the next "big thing" on vagrant-lxc)'
-# date: TBD When publishing
+layout: post
+title: 'Getting to know BTRFS'
+description: 'AKA why lxc-clone will be the next "big thing" on vagrant-lxc'
 tags:
 - vagrant
 - lxc
 - btrfs
 - copy on write
+category: blog
 ---
 
 NO THOUGHTS!
@@ -17,9 +19,9 @@ http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/
 While trying out [Docker](http://docker.io) I came across [AUFS](http://aufs.sourceforge.net/aufs.html)
 and its [Copy On Write](http://en.wikipedia.org/wiki/Copy-on-write) capabilities,
 I've also happen to watch the [project](https://github.com/dotcloud/docker) on
-GitHub and got to know [BTRFS](http://en.wikipedia.org/wiki/Btrfs) because of
-this [GitHub issue](https://github.com/dotcloud/docker/issues/443) on Docker's
-issue tracker and [this bug](https://github.com/fgrehm/vagrant-lxc/issues/81)
+GitHub and got to know [BTRFS](http://en.wikipedia.org/wiki/Btrfs) a while ago
+because of this [GitHub issue](https://github.com/dotcloud/docker/issues/443) on
+Docker's issue tracker + [this bug](https://github.com/fgrehm/vagrant-lxc/issues/81)
 filled for vagrant-lxc. After playing a bit more with Docker I went ahead and
 started looking around to understand what a Copy On Write File System really
 means and thought that it would be nice to share my initial findings.
@@ -128,21 +130,12 @@ MENTION RARING!!!!!
 So can you guess what does that mean for vagrant-lxc? Basically even faster container
 creation times as you probably noticed that `lxc-clone` + BTRFS snapshotting was pretty
 fast (under 1 second). It also means support for container [snapshots](https://github.com/fgrehm/vagrant-lxc/issues/32)
-should be easier to implement while keeping disk usage low.
+should be easier to implement while keeping disk usage pretty low.
 
 ## Coming up
 
-One of the things I wanted to do after released the last vagrant-lxc version was
-understand about lxc surroundings and improving
-
-Postponed internal refactorings until networking issues are solved
-
-What about cloning on a EXT4 partition?
-
-I'm really experimenting with BTRFS and I have no idea how it behaves on the wild,
-the upcoming vagrant-lxc 0.4.0 will reflect that and will probably ship with some
-experimental support for it. I'm not really sure how that will look like but on
+I've only done some initial experiments with BTRFS and I have no idea how it behaves
+on the wild but I'm willing to add some experimental support for `lxc-clone` in a
+future vagrant-lxc version. I'm not really sure how that will look like but on
 the spirit of eating my own dog food I'll create a BTRFS partition on my physical
 HD to see how it goes.
-
-need to wait for new boxes, link to btrfs friendly issue
