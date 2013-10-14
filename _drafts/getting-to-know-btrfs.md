@@ -99,20 +99,21 @@ some things to keep in mind:
 ## Trying it out (aka "What it means for vagrant-lxc?")
 
 Enough theory and copy and pasting! Because an [asciicast](http://asciinema.org/) is
-worth more than a thousand words, check out the one below. I used the `raring64`
+worth more than a thousand words, check out the one below. I used the `raring`
 machine from [vagrant-lxc-vbox-hosts](https://github.com/fgrehm/vagrant-lxc-vbox-hosts)
 to fire up a VBox machine ready to rock and recorded the asciicast from there.
 
-<div class="asciicast">
-  <div>
-    <iframe src="http://ascii.io/a/3490/raw" frameborder="0"></iframe>
-  </div>
-  <p>
-    You can find out more about and play with BTRFS by looking at
-    <a href="http://www.funtoo.org/BTRFS_Fun">this entry</a> from
-    <a href="http://www.funtoo.org/wiki/Welcome">Funtoo Linux</a> Wiki.
-  </p>
+<div class="asciicast-container">
+  <script type="text/javascript" src="http://asciinema.org/a/5900.js" id="asciicast-5900" async="true"></script>
 </div>
+
+<center>
+You can find out more about and play with BTRFS by looking at
+<a href="http://www.funtoo.org/BTRFS_Fun">this entry</a> from
+<a href="http://www.funtoo.org/wiki/Welcome">Funtoo Linux</a> Wiki.
+</center>
+
+<br>
 
 So can you guess what does that mean for vagrant-lxc? Basically even faster container
 creation times as you probably noticed that `lxc-clone` + BTRFS snapshotting was pretty
