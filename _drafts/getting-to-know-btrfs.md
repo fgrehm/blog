@@ -10,12 +10,6 @@ tags:
 category: blog
 ---
 
-NO THOUGHTS!
-RENAME TO: BTRFS + lxc-clone = <3 (or why lxc-clone will be the next "big thing" on vagrant-lxc)'
-
-http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/
-
-
 While trying out [Docker](http://docker.io) I came across [AUFS](http://aufs.sourceforge.net/aufs.html)
 and its [Copy On Write](http://en.wikipedia.org/wiki/Copy-on-write) capabilities,
 I've also happen to watch the [project](https://github.com/dotcloud/docker) on
@@ -104,17 +98,10 @@ some things to keep in mind:
 
 ## Trying it out (aka "What it means for vagrant-lxc?")
 
-Enough theory and copy and pasting! Because an [Asciicast](http://ascii.io/) is
-worth more than a thousand words, check out the one below. I used [this Vagrantfile](https://gist.github.com/fgrehm/b07c6370a710be622807)
-to fire up a VBox machine ready to rock, a V3 base box and a custom built
-vagrant-lxc from the V3 boxes branch to record the asciicast:
-
-
-CHECK IF GUARD WILL WORK
-
-
-MENTION RARING!!!!!
-
+Enough theory and copy and pasting! Because an [asciicast](http://asciinema.org/) is
+worth more than a thousand words, check out the one below. I used the `raring64`
+machine from [vagrant-lxc-vbox-hosts](https://github.com/fgrehm/vagrant-lxc-vbox-hosts)
+to fire up a VBox machine ready to rock and recorded the asciicast from there.
 
 <div class="asciicast">
   <div>
@@ -132,10 +119,11 @@ creation times as you probably noticed that `lxc-clone` + BTRFS snapshotting was
 fast (under 1 second). It also means support for container [snapshots](https://github.com/fgrehm/vagrant-lxc/issues/32)
 should be easier to implement while keeping disk usage pretty low.
 
+
 ## Coming up
 
 I've only done some initial experiments with BTRFS and I have no idea how it behaves
 on the wild but I'm willing to add some experimental support for `lxc-clone` in a
 future vagrant-lxc version. I'm not really sure how that will look like but on
 the spirit of eating my own dog food I'll create a BTRFS partition on my physical
-HD to see how it goes.
+HD soon to see how it goes.
