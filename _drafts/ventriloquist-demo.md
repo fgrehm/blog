@@ -35,45 +35,92 @@ reason why it is used as an example on the project's README BTW ;) While I could
 contribute back a set of Chef cookbooks, I decided to set Discourse needs as my
 target for deciding when to open source Ventriloquist.
 
-If you want to see the Ventriloquist in action check out the Asciicast below or
-follow the steps described right below it.
-
+If you want to see the Ventriloquist in action check out the following Asciicast
+or read the step by step right below it.
 
 git clone https://github.com/discourse/discourse.git
 cd discourse
 
-vim Vagrantfile
-# Change box to raring64
-# Add vagrant-lxc configs
-# Add ventriloquist block
+rm config/database.yml
+rm config/redis.yml
+rm .env
+dropdb discourse_development
+dropdb discourse_test
 
+tmux!
+
+# We'll be using a custom Vagrantfile so let's bring it in
+wget -q -O Vagrantfile https://gist.github.com/fgrehm/db49cf1207d062f6f8ce/raw/f1f844b97fe9c22494d8affd66b60df6c8c00535/Vagrantfile
+
+vim Vagrantfile
+# Show where the magic happens
+
+# We'll start with an empty Vagrant machine
 vagrant up --no-provision
 vagrant ssh
 
+# No docker, rvm, nodejs...
 sudo docker ps -a
-which ruby
+rvm -v
 which node
 exit
 
+# On this Asciicast it will look like this is "relatively fast" because we are on a
+# DigitalOcean Droplet and we have some packages cached with vagrant-cachier, but
+# it will probably take longer on your machine ;)
 time vagrant provision
-# 14m
+# 5m
 
+# Check this out
 vagrant ssh
 
 sudo docker ps -a
 which ruby
 node -v
-cd /vagrant
-bundle install
 
-* database.....
-* rake spec
-* curl localhost
-* showcase vagrant-lxc
+# Let's configure Discourse
+cd /vagrant
+./script/setup_dev
+rake db:test:prepare
+gem install foreman --no-ri --no-rdoc
+cp .env.sample .env
+echo -e "\nPORT=3000" >> .env
+
+# Better run the specs to make sure we are good to go
+rake spec
+
+# Ctrl-C
+
+# This will take at least 5 minutes to run so I'll save you some wait time ;)
+
+exit
+
+# CLEAR
+
+vagrant ssh
+cd /vagrant
+foreman start
+
+# Split vertical
+
+# Can I reach it from my machine?
+curl localhost:4000
+
+# And from inside the VM?
+vagrant ssh
+curl localhost:3000
+
+# CLEAR
+
+# exit tmux
+
+# BTW, have you seen that Inception movie? ;)
+htop
 
 <div class="asciicast-container">
   <script type="text/javascript" src="http://ascii.io/a/4193.js" id="asciicast-4193" async="true"></script>
 </div>
+
 
 ## Try it out
 
@@ -82,36 +129,37 @@ First things first, so given you have Vagrant around, do a `vagrant plugin insta
 code on the `Vagrantfile` with the code below:
 
 {% highlight ruby %}
-# TODO
+config.vm.provision :ventriloquist do |env|
+  env.services  << %w( redis pg:9.1 mailcatcher )
+  env.platforms << %w( nodejs ruby:1.9.3 )
+end
 {% endhighlight %}
 
 You'll also need to change the base box used to an Ubuntu 13.04 machine, in my
-case I've used the one from XXXXXXXXXXXXXXXXX so the related Vagrant section looks like:
+case I've used [this](http://bit.ly/vagrant-lxc-raring64-2013-09-28-) vagrant-lxc
+box, so the related Vagrant section looks like:
 
 {% highlight ruby %}
-# TODO
+config.vm.box = 'raring64'
+config.vm.box_url = 'http://bit.ly/vagrant-lxc-raring64-2013-09-28-'
 {% endhighlight %}
 
-At this point your `Vagrantfile` should look like [this one]()
+At this point your `Vagrantfile` should look like [this one](https://gist.github.com/fgrehm/2ee9bff29d34f2b3a50e)
 and you should be able to `vagrant up` the machine to watch Ventriloquist provisioning
 take place. It will take a while to finish depending on your internet connection
 so grab a coffee while it does its magic.
 
 Once provisioning has finished, go ahead and `vagrant ssh` into the VM and run the
-following command to set things up:
+following commands to set things up:
 
 {% highlight bash %}
-cd /vagrant
-bundle install
-gem install foreman
-./script/setup_dev
-echo -e "\nPORT=3000" >> .env
 {% endhighlight %}
 
-To test that things are set up properly, run the specs with `bundle exec rake spec`
+To test that things are set up properly, run the specs with `rake spec`
 and fire up a server with `foreman start`. If everything went fine, you
 should see a green build and verify that Discourse is running by visiting http://localhost:4000
-on your browser and log in with user 'admin' and password 'password'.
+on your browser and signing up. To read the confirmation mail, please visit [MailCatcher]()'s
+web interface at http://localhost:4080.
 
 ## Coming up
 
