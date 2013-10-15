@@ -14,13 +14,13 @@ I've been playing a lot with [Docker](http://docker.io) recently and while learn
 [more about it](http://docs.docker.io/en/latest/terms/layer/#layers) I came across
 ["Another Union File System"](http://aufs.sourceforge.net/aufs.html) (AUFS) + its
 [Copy On Write](http://en.wikipedia.org/wiki/Copy-on-write) (COW) capabilities and have
-been pretty impressed by it. In short, being a COW + [union file system](http://en.wikipedia.org/wiki/Union_mount)
-makes things _really cheap_ when it comes to disk usage.
+been pretty impressed by it. In short, by using a COW + [union file system](http://en.wikipedia.org/wiki/Union_mount)
+Docker makes things _really cheap_ when it comes to disk usage.
 
 The idea of COW filesystems along with [a couple](https://github.com/dotcloud/docker/issues/443)
 [GitHub issues](https://github.com/fgrehm/vagrant-lxc/issues/81), some tweets
 exchanged with [@rcarmo](https://twitter.com/rcarmo) and [this post](http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/)
-on improvements made on `lxc-clone` was enough to trigger my interest on BTRFS
+on improvements made on `lxc-clone` was enough to trigger my interest on [BTRFS](https://btrfs.wiki.kernel.org/index.php/Main_Page)
 and I went out to learn more about it.
 
 ## What's with Copy on Write (aka COW)?
@@ -139,8 +139,8 @@ of [this pull request](https://github.com/mitchellh/vagrant/pull/2327) which ena
 us to [hook](https://github.com/mitchellh/vagrant/pull/2327/files#diff-5d84fa7a300da3b9958d69831795c066R49)
 into Vagrant's process of removing base boxes. The reason behind that is that
 we'll need to keep a "base container" around in order to create our lxc clones
-from and without that we are not able to automatically remove delete the base
-container rootfs in case the user removes a vagrant-lxc base box, leaving an
+from and without that we are not able to automatically delete the base
+container rootfs in case the user removes a vagrant-lxc base box, leaving
 unused containers behind.
 
 On a side note, I've had some trouble using `lxc-clone` with vagrant-lxc containers
