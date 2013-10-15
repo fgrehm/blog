@@ -10,15 +10,18 @@ tags:
 category: blog
 ---
 
-While trying out [Docker](http://docker.io) I came across [AUFS](http://aufs.sourceforge.net/aufs.html)
-and its [Copy On Write](http://en.wikipedia.org/wiki/Copy-on-write) capabilities,
-I've also happen to watch the [project](https://github.com/dotcloud/docker) on
-GitHub and got to know [BTRFS](http://en.wikipedia.org/wiki/Btrfs) a while ago
-because of this [GitHub issue](https://github.com/dotcloud/docker/issues/443) on
-Docker's issue tracker + [this bug](https://github.com/fgrehm/vagrant-lxc/issues/81)
-filled for vagrant-lxc. After playing a bit more with Docker I went ahead and
-started looking around to understand what a Copy On Write File System really
-means and thought that it would be nice to share my initial findings.
+I've been playing a lot with [Docker](http://docker.io) recently and while learning
+[more about it](http://docs.docker.io/en/latest/terms/layer/#layers) I came across
+["Another Union File System"](http://aufs.sourceforge.net/aufs.html) (AUFS) + its
+[Copy On Write](http://en.wikipedia.org/wiki/Copy-on-write) (COW) capabilities and have
+been pretty impressed by it. In short, being a COW + [union file system](http://en.wikipedia.org/wiki/Union_mount)
+makes things _really cheap_ when it comes to disk usage.
+
+The idea of COW filesystems along with [a couple](https://github.com/dotcloud/docker/issues/443)
+[GitHub issues](https://github.com/fgrehm/vagrant-lxc/issues/81), some tweets
+exchanged with [@rcarmo](https://twitter.com/rcarmo) and [this post](http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/)
+on improvements made on `lxc-clone` was enough to trigger my interest on BTRFS
+and I went out to learn more about it.
 
 ## What's with Copy on Write (aka COW)?
 
@@ -33,19 +36,19 @@ page 19:
 > a new one, is enough.
 
 If you've never heard of COW take the time to grasp those words and think about
-applying that to a File System (if you are more of a [visual person](http://en.wikipedia.org/wiki/Visual_learning),
-check [this](http://www.funtoo.org/BTRFS_Fun#A_story_of_boxes....)
-out).
+applying that to a File System. If you can't get the big picture don't worry, just
+keep reading :)
 
 Going further, Kasampalis writes:
 
 > If at least one of the programs needs at some point
 > write access to the data structure, create a private copy for it. The same holds
 > for each one of the programs which will need write access to the data structure.
-> A new private copy will be created for them. Let's assume that we have an
-> array data structure called "foo", and two programs called "Bob"
-> and "Alice" which need to access it in read/write mode. If during the access,
-> none of the programs tries to change the contents of "foo", both "Bob" and
+> A new private copy will be created for them.
+
+> Let's assume that we have an array data structure called "foo", and two programs
+> called "Bob" and "Alice" which need to access it in read/write mode. If during the
+> access, none of the programs tries to change the contents of "foo", both "Bob" and
 > "Alice" will actually use exactly the same "foo" array. If at some point "Bob"
 > changes the contents of "foo", a private copy of the changed data of "foo" will
 > automatically be created by the COW system and provided to "Bob". Note
@@ -59,8 +62,8 @@ He also highlights the benefits of COW file systems on page 20:
 > integrity with acceptable performance.
 
 As another COW example, we have [Ruby Enterprise Edition](http://www.rubyenterpriseedition.com/faq.html#what_is_this),
-that shipped with a "copy-on-write friendly garbage collector, capable of reducing
-Ruby on Rails applications’ memory usage by 33% on average" and had its EOL
+that shipped with a "_copy-on-write friendly garbage collector, capable of reducing
+Ruby on Rails applications’ memory usage by 33% on average_" and had its EOL
 anounced once a copy-on-write patch was checked into Ruby 2.0. For other use
 cases please refer to [Wikipedia](http://en.wikipedia.org/wiki/Copy-on-write#Other_applications_of_copy-on-write).
 
@@ -99,32 +102,54 @@ some things to keep in mind:
 ## Trying it out (aka "What it means for vagrant-lxc?")
 
 Enough theory and copy and pasting! Because an [asciicast](http://asciinema.org/) is
-worth more than a thousand words, check out the one below. I used the `raring`
+worth more than a thousand words, check out the one below. I used the `quantal`
 machine from [vagrant-lxc-vbox-hosts](https://github.com/fgrehm/vagrant-lxc-vbox-hosts)
 to fire up a VBox machine ready to rock and recorded the asciicast from there.
 
 <div class="asciicast-container">
-  <script type="text/javascript" src="http://asciinema.org/a/5900.js" id="asciicast-5900" async="true"></script>
+  <script type="text/javascript" src="http://asciinema.org/a/5922.js" id="asciicast-5922" async="true"></script>
 </div>
 
-<center>
-You can find out more about and play with BTRFS by looking at
-<a href="http://www.funtoo.org/BTRFS_Fun">this entry</a> from
-<a href="http://www.funtoo.org/wiki/Welcome">Funtoo Linux</a> Wiki.
-</center>
+<p>
+  You can find out more about and play with BTRFS by looking at
+  <a href="http://www.funtoo.org/BTRFS_Fun">this entry</a> from
+  <a href="http://www.funtoo.org/wiki/Welcome">Funtoo Linux</a> Wiki.
+</p>
 
-<br>
+I hope I gave you enough reason to watch the asciicast with the information above
+but if you ended up not watching it, I'd just like to let you know that I was able
+to "break" one of the most basic Physics law that states that two things cannot occupy
+the same space at the same time by using [`lxc-clone` and its snapshotting capabilities](https://help.ubuntu.com/lts/serverguide/lxc.html#lxc-cloning)
+:P Thanks to BTRFS I was capable of fitting **22 GB** of data into just **405MB**!
 
-So can you guess what does that mean for vagrant-lxc? Basically even faster container
-creation times as you probably noticed that `lxc-clone` + BTRFS snapshotting was pretty
-fast (under 1 second). It also means support for container [snapshots](https://github.com/fgrehm/vagrant-lxc/issues/32)
-should be easier to implement while keeping disk usage pretty low.
+So, can you guess what does that mean for vagrant-lxc? Basically even faster container
+creation times (under 0.1 millisecond for `lxc-clone` + BTRFS snapshotting) and lower
+disk usage. This also means that support for vagrant-lxc container [snapshots](https://github.com/fgrehm/vagrant-lxc/issues/32)
+should be _easier_ to implement once the cloning functionality is in place.
 
+## That's awesome! I want it now!
 
-## Coming up
+Well... Unfortunately I'm not sure when this is going to be easily supported from
+vagrant-lxc, so for now you'll need to do things by hand. Please check the asciicast
+in order to find out how to set things up and to "trick" vagrant-lxc into using your
+cloned containers.
 
-I've only done some initial experiments with BTRFS and I have no idea how it behaves
-on the wild but I'm willing to add some experimental support for `lxc-clone` in a
-future vagrant-lxc version. I'm not really sure how that will look like but on
-the spirit of eating my own dog food I'll create a BTRFS partition on my physical
-HD soon to see how it goes.
+One thing that I know for sure is that we'll have to wait for Vagrant 1.4 because
+of [this pull request](https://github.com/mitchellh/vagrant/pull/2327) which enables
+us to [hook](https://github.com/mitchellh/vagrant/pull/2327/files#diff-5d84fa7a300da3b9958d69831795c066R49)
+into Vagrant's process of removing base boxes. The reason behind that is that
+we'll need to keep a "base container" around in order to create our lxc clones
+from and without that we are not able to automatically remove delete the base
+container rootfs in case the user removes a vagrant-lxc base box, leaving an
+unused containers behind.
+
+On a side note, I've had some trouble using `lxc-clone` with vagrant-lxc containers
+on both an Ubuntu 13.04 VBox VM and my own laptop so I had to switch back to a
+12.10 VM in order to record the asciicast. I haven't had the chance to find out
+what's going on yet [but it seems that I'm not the only one having trouble with it](http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/#comment-902).
+
+To finish this up, I want to make clear that I've only done some initial experiments
+with BTRFS and I have no idea how it behaves on the wild but I'll definitely look into
+adding some experimental support for `lxc-clone` in a future vagrant-lxc version. I'm
+not really sure how that will look like but on the spirit of eating my own dog food
+I'll try create a BTRFS partition on my physical HD soon as a start see how it goes :)
