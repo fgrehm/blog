@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Getting to know BTRFS'
-description: 'AKA why lxc-clone will be the next "big thing" on vagrant-lxc'
+description: 'Or why lxc-clone will probably be the next "big thing" on vagrant-lxc'
 tags:
 - vagrant
 - lxc
