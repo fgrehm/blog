@@ -10,6 +10,12 @@ tags:
 category: blog
 ---
 
+
+
+WHAT ABOUT IMAGES?
+
+
+
 Last week [@progrium](https://twitter.com/progrium) striked again with one more
 great example of how we should strive for keeping things simple. Five months after
 releasing [Dokku](http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen)
@@ -22,10 +28,9 @@ written in around **100 lines of Bash**, he has just open sourced [viewdocs](htt
 As with Dokku, the project is pretty small and converts **~200 lines of Golang code**
 into a powerful tool for small to medium sized open source projects hosted on
 GitHub. Viewdocs combines the _dynamics_ of [Read the Docs](https://readthedocs.org/)
-and the _simplicity_ of [Gist.io](http://gist.io/) by automatically rendering
-[Markdown](http://daringfireball.net/projects/markdown/) from your repository's
-`docs` directory as _simple static pages_. It even supports custom layouts and
-rendering specific [git references](http://git-scm.com/book/en/Git-Internals-Git-References)
+and the _simplicity_ of [Gist.io](http://gist.io/) by rendering [Markdown](http://daringfireball.net/projects/markdown/)
+on the fly from your repository's `docs` directory as _simple static pages_.
+It even supports custom layouts and rendering specific [git references](http://git-scm.com/book/en/Git-Internals-Git-References)
 (like a tag, branch or a specific commit). How cool is that? :)
 
 Seriously, the project is so simple that when Jeff opened up the code, it didn't
@@ -64,8 +69,8 @@ it's harder to "enforce updated documentation as part of any Pull Request".
 
 As an alternative to make docs more dynamic, you can use project's Wiki so that
 users can easily contribute back in case they think things can be improved. The
-drawbacks of that are the same of using GitHub Pages as you are not only on a
-separate branch but also on a different repository.
+drawbacks of that are probably the same of using GitHub Pages as you are not only
+on a separate branch but also on a different repository.
 
 With Viewdocs docs _just get updated_ along with the the rest of the project's
 sources right there from `master`. Because it supports git references, you'll
