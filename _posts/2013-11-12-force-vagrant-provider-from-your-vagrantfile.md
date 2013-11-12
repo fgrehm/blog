@@ -14,8 +14,8 @@ your [`VAGRANT_DEFAULT_PROVIDER` environmental variable](http://docs.vagrantup.c
 
 For experienced Ruby users this might seem something trivial to do but since
 Vagrant's community is made of people from many different programming languages
-background, I thought it would be nice to share this little trick I found useful
-when I needed to do that.
+background, I thought it would be nice to share this little trick I find useful
+when I need to make sure the VMs goes up with the right provider.
 
 I personally have [my `VAGRANT_DEFAULT_PROVIDER` set to `lxc`](https://github.com/fgrehm/dotfiles/blob/master/bash/exports#L7)
 by default but there are times that I really don't want to use Vagrant with lxc.
