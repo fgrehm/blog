@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Force a Vagrant provider from your Vagrantfile
+title: Set the default Vagrant provider from your Vagrantfile
 description: 'Just in case you need to do that'
 category: blog
 tags:
