@@ -10,12 +10,6 @@ tags:
 category: blog
 ---
 
-
-
-WHAT ABOUT IMAGES?
-
-
-
 Last week [@progrium](https://twitter.com/progrium) striked again with one more
 great example of how we should strive for keeping things simple. Five months after
 releasing [Dokku](http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen)
@@ -40,9 +34,9 @@ worth of Golang experience I was able to [implement the code to support that](ht
 
 ## Why not [GitHub Pages](http://pages.github.com/) / *\<static site generator of choice>* / Wikis?
 
-If you've never heard of GitHub Pages, [they are](https://help.github.com/articles/what-are-github-pages)
-"public webpages freely hosted and easily published through GitHub's site" or with
-"plain old `git push`". It differs from Viewdocs as it serves _html files_
+If you've never heard about [GitHub Pages](https://help.github.com/articles/what-are-github-pages),
+they are "public webpages freely hosted and easily published through GitHub's site"
+or with "plain old `git push`". It differs from Viewdocs as it serves _html files_
 or _[jekyll sites](https://help.github.com/articles/using-jekyll-with-pages)_
 available on the [`gh-pages`](https://help.github.com/articles/user-organization-and-project-pages#project-pages)
 branch of your project and it comes with an [automatic page generator](https://help.github.com/articles/creating-pages-with-the-automatic-generator)
@@ -67,27 +61,28 @@ forgetting to update the branch after a release. Apart from that, as [@patcon](h
 pointed out on this [vagrant-cachier issue](https://github.com/fgrehm/vagrant-cachier/issues/56#issuecomment-27989250),
 it's harder to "enforce updated documentation as part of any Pull Request".
 
-As an alternative to make docs more dynamic, you can use project's Wiki so that
+An alternative to make docs more dynamic, you can use project's Wiki so that
 users can easily contribute back in case they think things can be improved. The
 drawbacks of that are probably the same of using GitHub Pages as you are not only
 on a separate branch but also on a different repository.
 
-With Viewdocs docs _just get updated_ along with the the rest of the project's
-sources right there from `master`. Because it supports git references, you'll
-get _tagged documentation_ like ([ruby-doc](http://ruby-doc.org/gems/docs/v/vagrant-lxc-0.6.4/))
-for free! For example, if your project goes through some drastic 2.0 changes
-that makes it incompatible with the previous 1.0 releases, you can just add a
-link to `http://<user>.viewdocs.io/<project>~v1.0/` somewhere on the new docs
-so that users can read the docs of the version they are using. Oh, and because
-it works across forks, you can even preview Pull Requests changes by visiting
+The cool thing about Viewdocs is that documentation _just get updated_ along
+with the the rest of the project's sources right there from `master`. Because
+it supports git references, you'll get _tagged documentation_ like
+([ruby-doc](http://ruby-doc.org/gems/docs/v/vagrant-lxc-0.6.4/)) for free!
+For example, if your project goes through some drastic 2.0 changes that makes
+it incompatible with the previous 1.0 releases, you can just add a link to
+`http://<user>.viewdocs.io/<project>~v1.0/` somewhere on the new docs so that
+users can read the docs of the version they are using. Oh, and because it works
+across forks, you can even preview Pull Requests changes by visiting
 `http://<other user>.viewdocs.io/<your project>~<pr-branch>` from _anywhere_,
 there's no need to get into your laptop to run some commands or fire up a server
 in order to look at them.
 
-Please don't get me wrong, GitHub Pages are a great fit if you are working on a
-static website of its own but IMHO Viewdocs is a better tool for maintaining /
-hosting open source project's documentation (and it comes with a  _high level
-of "hackability"_ built in ;)
+Please don't get me wrong, GitHub Pages and Middleman are a great fit if you
+are working on a static website of its own but IMHO Viewdocs is a better tool
+for maintaining / hosting open source project's documentation (and it comes
+with a  _high level of "hackability"_ built in ;)
 
 
 ## Viewdocs is a building block!
