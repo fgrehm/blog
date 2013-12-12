@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "So I released a lot of Vagrant plugins... Now what's next?"
-description: "Please read this if you are using one of the plugins I've built"
+description: "Check this out in case you are using one of the plugins I've built"
 category: blog
 tags:
 - vagrant
