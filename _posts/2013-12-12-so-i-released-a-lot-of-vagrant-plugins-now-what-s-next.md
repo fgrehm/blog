@@ -140,7 +140,7 @@ On its current state, it is still **highly experimental** and relies on some
 **badass monkey patching**. It's probably broken on Vagrant 1.4 and I **strongly**
 recommend you holding back on upgrading to 1.4 while we don't get to [GH-26](https://github.com/fgrehm/bindler/issues/26).
 
-Even though things are broken on Vagrant's latest release, 1.4 [introduces](https://github.com/mitchellh/vagrant/pull/2437)
+Even though things are broken when using Vagrant's latest release, 1.4 [introduces](https://github.com/mitchellh/vagrant/pull/2437)
 a hook that might make things less "ugly" and experimental on Bindler's side.
 But, as I wrote on [this comment](https://github.com/fgrehm/bindler/issues/19#issuecomment-24460940),
 I still don't have a strong need for using Bindler on a daily basis so I added
