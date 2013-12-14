@@ -5,4 +5,4 @@ tags:
 ---
 
 * The asset pipeline will minify and compress for you
-* Its impossible to debug minified JS code
+* Its impossible to debug minified JS code during development
