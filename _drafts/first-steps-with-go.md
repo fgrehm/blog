@@ -1,3 +1,5 @@
+http://c7.se/from-ruby-to-go/
+
 I've been playing with Go every now and then and I have to say that it has been
 really cool to learn a new language after 3 / 4 years doing Ruby full time (and
 a little bit of C# along the way too).
