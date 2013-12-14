@@ -19,10 +19,11 @@ written in around **100 lines of Bash**, he has just open sourced [viewdocs](htt
 <blockquote class="twitter-tweet"><p>Easy, elegant project documentation in Markdown using Viewdocs -- Read the Docs meets Gist.io <a href="https://t.co/FIDrwPLgKc">https://t.co/FIDrwPLgKc</a></p>&mdash; Jeff Lindsay (@progrium) <a href="https://twitter.com/progrium/statuses/399734531592171520">November 11, 2013</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-As with Dokku, the project is pretty small and converts **~200 lines of Golang code**
-into a powerful tool for small to medium sized open source projects hosted on
-GitHub. Viewdocs combines the _dynamics_ of [Read the Docs](https://readthedocs.org/)
-and the _simplicity_ of [Gist.io](http://gist.io/) by rendering [Markdown](http://daringfireball.net/projects/markdown/)
+As with Dokku, the project is pretty small and (as of this writing) converts
+**~200 lines of Golang code** into a powerful tool for small to medium sized
+open source projects hosted on GitHub. Viewdocs combines the _dynamics_ of
+[Read the Docs](https://readthedocs.org/) and the _simplicity_ of
+[Gist.io](http://gist.io/) by rendering [Markdown](http://daringfireball.net/projects/markdown/)
 on the fly from your repository's `docs` directory as _simple static pages_.
 It even supports custom layouts and rendering specific [git references](http://git-scm.com/book/en/Git-Internals-Git-References)
 (like a tag, branch or a specific commit). How cool is that? :)

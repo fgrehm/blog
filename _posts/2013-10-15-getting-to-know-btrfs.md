@@ -152,4 +152,4 @@ To finish this up, I want to make clear that I've only done some initial experim
 with BTRFS and I have no idea how it behaves on the wild but I'll definitely look into
 adding some experimental support for `lxc-clone` in a future vagrant-lxc version. I'm
 not really sure how that will look like but on the spirit of eating my own dog food
-I'll try create a BTRFS partition on my physical HD soon as a start see how it goes :)
+I'll try to create a BTRFS partition on my physical HD soon as a start see how it goes :)

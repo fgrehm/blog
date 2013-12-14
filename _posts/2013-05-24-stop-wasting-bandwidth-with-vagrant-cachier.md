@@ -44,6 +44,10 @@ From the project's [README](https://github.com/fgrehm/vagrant-cachier/blob/maste
 >
 > Please keep in mind that this plugin won't do magic, if you are compiling things during provisioning or manually downloading packages that does not fit into a "cache bucket" you won't see that much of improvement.
 
+_**UPDATE**: Please refer to the project's [docs](http://fgrehm.viewdocs.io/vagrant-cachier/how-does-it-work)
+for the most up-to-date information about it. Things have changed a bit lately and are
+likely to change a bit more ;)_
+
 
 ## Show me the numbers!
 

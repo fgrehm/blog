@@ -169,7 +169,7 @@ when the VBox machine goes up to save you some trouble.
 state it won't work out of the box but I believe that it wouldn't be hard to automate
 that process and [I do have plans](https://github.com/fgrehm/vagrant-lxc/issues/23)
 to make it a no brainer as well.</s>
-_**UPDATE** (07 AUG 2013): As of [vagrant-lxc 0.5.0](/blog/2013/08/02/vagrant-lxc-0-5-0-and-beyond#promiscuous-port-forwarding)
+_**UPDATE**: As of [vagrant-lxc 0.5.0](/blog/2013/08/02/vagrant-lxc-0-5-0-and-beyond#promiscuous-port-forwarding)
 that now works!_
 
 ## "Worth mentioning" limitations
@@ -178,13 +178,15 @@ that now works!_
   to make it work with just `iptables` since it is bundled with pretty much every
   Linux installation and it seems that it is not possible. Ideally we should not
   depend on `redir` but for now it does the trick.
-* "Advanced networking" Vagrant features are not implemented yet. If you need
+* "Advanced networking" Vagrant features are not implemented yet. <s>If you need
   features like [automatic port collision handling](http://docs.vagrantup.com/v2/networking/forwarded_ports.html)
-  you'll need to wait a bit more (or send me a pull request :)
+  you'll need to wait a bit more</s> _**UPDATE**: as of [vagrant-lxc 0.5.0](https://github.com/fgrehm/vagrant-lxc/blob/master/CHANGELOG.md#050-aug-1-2013)
+  port collisions are now properly sorted out automatically._
 * Until [user namespaces](https://wiki.ubuntu.com/UserNamespace) get into the
-  mainstream kernel there will be a hell lot of `sudo`s involved. I'm looking
+  mainstream kernel there will be a hell lot of `sudo`s involved. <s>I'm looking
   into different approaches of working around them and reducing to a minimum,
-  nothing rock solid yet.
+  nothing rock solid yet.</s> _**UPDATE**: as of 0.5.0 there is support for using
+  a "[sudo wrapper script](/blog/2013/08/07/vagrant-lxc-0-5-0-and-beyond#support-for-a-sudo-wrapper-script-aka-no-more-sudo-passwords)"._
 * If you need a GUI inside your VMs you are on your own to properly set it up.
   Making it work from within vagrant-lxc is [also planned](https://github.com/fgrehm/vagrant-lxc/issues/44)
   but it is currently a low priority for me.

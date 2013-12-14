@@ -196,3 +196,7 @@ Of course the list is subject to change but here's what I have in mind:
 </ul>
 
 If you can think of something else or have any suggestion feel free to reach out ;)
+
+
+_**UPDATE**: Please check out [this other post](/blog/2013/12/12/so-i-released-a-lot-of-vagrant-plugins-now-what-s-next)
+to find out more about my latest plans regarding 1.0_
