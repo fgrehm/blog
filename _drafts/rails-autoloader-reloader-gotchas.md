@@ -1,0 +1,3 @@
+* Lance do modulo rails, etc...
+* Implementei no harbor
+  * https://github.com/sam/harbor/pull/73/files
