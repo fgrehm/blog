@@ -21,6 +21,7 @@ app that uses _everything_ I mentioned above and some other frontend goodies.
 
 
 
+* https://github.com/jgv/prototyper
 
 # Base packages
 * htop, psutils / psmisc
