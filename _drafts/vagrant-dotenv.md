@@ -1,3 +1,0 @@
-Docker
-Dokku
-vagrant-proxyconf
