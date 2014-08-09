@@ -1,6 +1,6 @@
 title:            Fábio Rehm
-tagline:          A short tagline
-description:      Describe your website.
+# tagline:          A short tagline
+# description:      Describe your website.
 url:              http://fabiorehm.com
 
 # Owner/author information
@@ -36,7 +36,7 @@ bing_verify:
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone:    America/Sao_Paulo
 future:      true
-pygments:    true
+highlighter: pygments
 markdown:    kramdown
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
