@@ -28,6 +28,7 @@
   * Lost stuff along the way
   * Restrictions
   * Not machine friendly
+  * Discipline
 
 * Priorize and categorize entries after everything is on a single place
 

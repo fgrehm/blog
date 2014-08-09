@@ -24,6 +24,9 @@ When it comes to Go, there is this [document]()....
 
 * Construção de arrays + append vs <<
 
+## Release to github
+
+* Use `gh`
 
 ## Looping
 
@@ -32,6 +35,10 @@ When it comes to Go, there is this [document]()....
 ## Automated testing
 
 * testes (?)
+NO TESTING FRAMEWORK
+NO MOCKING FRAMEWORK
+https://medium.com/@benbjohnson/structuring-tests-in-go-46ddee7a25c
+helpers_test
 
 ## No more monkey patching!
 
@@ -41,3 +48,8 @@ When it comes to Go, there is this [document]()....
 
 * go routines & walking tree
   * break half way through in go, how to do it in ruby?
+
+## Attribute tags
+
+## "Guard"
+https://facebook.github.io/watchman/ for running specs
