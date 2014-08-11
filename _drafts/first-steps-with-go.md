@@ -7,6 +7,10 @@ a little bit of C# along the way too).
 This blog post is basically a reference to myself that might help others willing
 to learn Go after spending a lot of time with Ruby.
 
+Nils have types!
+
+programming by interface
+
 ## Project structure
 
 Starting with the basics, in Ruby you'll likely to have.....
