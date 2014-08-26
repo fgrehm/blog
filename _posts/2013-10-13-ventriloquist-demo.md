@@ -94,3 +94,6 @@ Since Ventriloquist can be used to set things up across multiple Vagrant provide
 I'll soon try to get the numbers comparing VirtualBox with [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc)
 and [vagrant-digitalocean](https://github.com/smdahlen/vagrant-digitalocean) to
 see how it goes.
+
+_**UPDATE** (26 AUG 2014): I've stepped down as a maintainer of the plugin, feel
+free to [reach out in case you want to take over responsibility for the project](https://github.com/fgrehm/ventriloquist/issues/63)_

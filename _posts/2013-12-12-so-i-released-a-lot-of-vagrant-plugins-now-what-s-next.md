@@ -131,6 +131,11 @@ for a 1.0 release.
 
 ## [bindler](https://github.com/fgrehm/bindler)
 
+_**UPDATE** (26 AUG 2014): Since Vagrant 1.5 came out with a [tight integration](https://github.com/mitchellh/vagrant/pull/2769)
+with Bundler, Bindler is no longer being maintained as it would basically
+require a rewrite of the plugin. The functionality provided by the plugin is
+not yet provided by Vagrant itself but it is likely to be on some future release._
+
 The Vagrant plugin ecossystem just keep growing and Mitchell has already said
 more than once that he has plans to eventually add support for that on Vagrant's
 core. I personally have been using less that I thought I would but I know quite
@@ -156,6 +161,8 @@ covered by Bindler as of now.
 
 ## [vagrant-global-status](https://github.com/fgrehm/vagrant-global-status)
 
+_**UPDATE** (26 AUG 2014): The functionality provided by the plugin [landed into Vagrant 1.6](https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-global-status.html)_
+
 This is another plugin that I haven't been using as much as I thought I would.
 As I [wrote on this comment](https://github.com/fgrehm/vagrant-global-status/pull/5#issuecomment-29757526),
 I hardly fire up a VirtualBox VM these days and a plain old `lxc-list` gives me
@@ -171,9 +178,7 @@ I hope he'll be able to push things forward over there :)
 Vocker was extracted from Ventriloquist and had a short life (only 4 months) as
 it has just been [merged back](https://github.com/mitchellh/vagrant/pull/2549)
 into Vagrant's core on [1.4](http://www.vagrantup.com/blog/vagrant-1-4.html).
-Because of that the plugin is now deprecated and I'll just release a 1.0 version
-at some point for those people that can't live on the edge and are not able to
-upgrade to Vagrant 1.4+
+Because of that the plugin is now deprecated.
 
 Please note that Mitchell decided to make things simpler when pulling the provisioner
 into Vagrant's core. The DSL has changed and you should definitely have a look
@@ -182,6 +187,9 @@ find out how things will work from now on.
 
 
 ## [ventriloquist](https://github.com/fgrehm/ventriloquist)
+
+_**UPDATE** (26 AUG 2014): I've stepped down as a maintainer of the plugin, feel
+free to [reach out in case you want to take over responsibility for the project](https://github.com/fgrehm/ventriloquist/issues/63)_
 
 After successfuly using Ventriloquist to build VMs for my last 3 projects,
 I can say that feature-wise it is stable but I'll have to deal with the changes
@@ -201,6 +209,8 @@ development environments that I'm willing to have a shot at it :)
 
 
 ## [docker-provider](https://github.com/fgrehm/docker-provider)
+
+_**UPDATE** (26 AUG 2014): The plugin was merged into [Vagrant 1.6](https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-docker-dev-environments.html)_
 
 This is my most recent experiment on the Vagrant world and I'm not sure if someone
 is using it. There are a lot of [limitations](https://github.com/fgrehm/docker-provider#limitations)

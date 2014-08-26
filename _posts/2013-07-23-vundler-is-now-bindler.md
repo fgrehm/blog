@@ -28,3 +28,8 @@ and is still highly experimental so I decided not to worry about keeping it
 backwards compatible.
 
 So who's up for creating our logo? ;)
+
+**UPDATE** (26 AUG 2014): Since Vagrant 1.5 came out with a [tight integration](https://github.com/mitchellh/vagrant/pull/2769)
+with Bundler, Bindler is no longer being maintained as it would basically
+require a rewrite of the plugin. The functionality provided by the plugin is
+not yet provided by Vagrant itself but it is likely to be on some future release.

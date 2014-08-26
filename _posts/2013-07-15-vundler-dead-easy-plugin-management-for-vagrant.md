@@ -153,12 +153,25 @@ basically:
 * [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine)
 * [vagrant-vbox-snapshot](https://github.com/dergachev/vagrant-vbox-snapshot)
 
-If you look into the `.gemspec` of each plugin you'll notice that none of them have a
-dependency other than Vagrant itself, so I haven't been bitten by Dependency Hell (yet).
-But I'm willing to push the plugin development further as I do see myself using it
-on the future.
+<p>
+  If you look into the <code>.gemspec</code> of each plugin you'll notice that none of them have a
+  dependency other than Vagrant itself, so I haven't been bitten by Dependency Hell (yet).
+  <s>But I'm willing to push the plugin development further as I do see myself using it
+  on the future.</s>
+<p>
 
-I'll be more than happy to look into pull requests and discuss future directions for the
-plugin. I'm also planning to use the [Pull Request Hack](http://felixge.de/2013/03/11/the-pull-request-hack.html)
-as I did with [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier/issues/10)
-since I'm not gonna be able to do this alone ;)
+<p>
+  <s>
+    I'll be more than happy to look into pull requests and discuss future directions for the
+    plugin. I'm also planning to use the <a href="http://felixge.de/2013/03/11/the-pull-request-hack.html">Pull Request Hack</a>
+    as I did with <a href="https://github.com/fgrehm/vagrant-cachier/issues/10">vagrant-cachier</a>
+    since I'm not gonna be able to do this alone ;)
+  </s>
+</p>
+
+<p>
+  <b>UPDATE</b> (26 AUG 2014): Since Vagrant 1.5 came out with a <a href="https://github.com/mitchellh/vagrant/pull/2769">tight integration</a>
+  with Bundler, Bindler is no longer being maintained as it would basically
+  require a rewrite of the plugin. The functionality provided by the plugin is
+  not yet provided by Vagrant itself but it is likely to be on some future release.
+</p>

@@ -106,3 +106,6 @@ I would also love to know any kind of feedback you might have about the tool.
 If you are feeling specially charitable, share this post on Twitter / star the
 project on GitHub or drop by a comment. Oh, and don't hesitate to throw some
 tomatoes as well if you think I deserve :P
+
+_**UPDATE** (26 AUG 2014): I've stepped down as a maintainer of the plugin, feel
+free to [reach out in case you want to take over responsibility for the project](https://github.com/fgrehm/ventriloquist/issues/63)_
