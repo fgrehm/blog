@@ -19,7 +19,7 @@ abstraction that is based around a simple (yet ambitious) goal:
 > I want to git clone and run a single command to hack on any software project.
 
 Intrigued? Check out the demo below of my "canonical [Discourse](http://www.discourse.org/)
-example" and read on for more :smiley:
+example" and read on for more :)
 
 <div class="flash-video">
   <div>
@@ -116,7 +116,7 @@ I also plan to write some blog posts on bootstrapping projects for the currently
 supported environments, write about usage with Vagrant / Fig and also work on
 improving documentation in general. Stay tunned for more and feel free to join
 me on [Gitter](https://gitter.im/fgrehm/devstep) if you need help setting things
-up or just want to share some feedback :smiley:
+up or just want to share some feedback :)
 
 -----------------------------------------------------------------------------
 
