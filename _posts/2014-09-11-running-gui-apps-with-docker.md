@@ -43,16 +43,16 @@ ENV HOME /home/developer
 CMD /usr/bin/firefox
 {% endhighlight %}
 
-And then starting your container with:
+`docker build -t firefox .` it and run the container with:
 
 {% highlight sh %}
 docker run -ti --rm \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
-       <YOUR IMAGE>
+       firefox
 {% endhighlight %}
 
-If all goes well you should see Firefox running from within your container.
+If all goes well you should see Firefox running from within a Docker container.
 
 <figure class="center">
   <a href="/images/posts/2014-09-11/firefox-demo.gif"><img src="/images/posts/2014-09-11/firefox-demo.gif"></a>
@@ -61,14 +61,14 @@ If all goes well you should see Firefox running from within your container.
 ## Getting a NetBeans container up and running
 
 Preparing a NetBeans base image was not that straightforward since we need to
-install some additional dependencies in order to get it to connect to the X11
-socket properly. I also had trouble using OpenJDK and had to switch to Oracle's
-Java for it to work.
+install some additional dependencies (namely the `libxext-dev`, `libxrender-dev`
+and `libxtst-dev` packages) in order to get it to connect to the X11 socket
+properly. I also had trouble using OpenJDK and had to switch to Oracle's Java
+for it to work.
 
-After some trial and error, I was finally able to figure out the dependencies
-required for NetBeans to run and the result is a base image available at the
-[Docker Hub](https://registry.hub.docker.com/u/fgrehm/netbeans/) with sources
-on [GitHub](https://github.com/fgrehm/docker-netbeans).
+After lots of trial and error, I was finally able to make it work and the result
+is a base image available at the [Docker Hub](https://registry.hub.docker.com/u/fgrehm/netbeans/)
+with sources on [GitHub](https://github.com/fgrehm/docker-netbeans).
 
 Here's a quick demo of it in action:
 
