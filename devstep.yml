@@ -1,0 +1,4 @@
+repository: "my-blog"
+commands:
+  foreman:
+    publish: ['4000:4000']
