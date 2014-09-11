@@ -39,9 +39,9 @@ down around `47%` / `~9sec` of the time taken to bring a vagrant-lxc container
 up from scratch.
 
 <div class="asciicast-container">
-  <script type="text/javascript" src="http://ascii.io/a/3490.js" id="asciicast-3490" async="true"></script>
+  <script type="text/javascript" src="https://asciinema.org/a/3490.js" id="asciicast-3490" async></script>
   <p>
-    As a side note, I got to know <a href="http://ascii.io">ascii.io</a> since
+    As a side note, I got to know <a href="https://asciinema.org/">asciinema.org/</a> since
     the <a href="/blog/2013/04/28/lxc-provider-for-vagrant/">last video</a> I
     recorded and I'm pretty impressed by how easy it is to record a terminal
     session with it. You might want to check it out ;)
