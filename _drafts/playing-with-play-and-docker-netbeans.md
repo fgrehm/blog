@@ -3,7 +3,7 @@
 wget http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip -O /tmp/activator.zip
 sudo apt-get update && sudo apt-get install unzip -y
 cd /tmp/ && unzip activator.zip && mv activator-* $HOME/activator
-sudo ln -s $HOME/activator /usr/local/bin/activator
+sudo ln -s $HOME/activator/activator /usr/local/bin/activator
 cd /workspace
 activator new playing-with-play play-java
 ```
