@@ -4,23 +4,23 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
-{% include head.html %}
+{{ partial "head.html" . }}
 </head>
 
 <body class="article" itemscope itemtype="http://schema.org/WebPage">
 
-{% include browser-upgrade.html %}
+{{ partial "browser-upgrade.html" . }}
 
-{% include navigation.html %}
+{{ partial "navigation.html" . }}
 
-{% if page.image.feature %}<div class="image-wrap">
+{{ if page.image.feature }}<div class="image-wrap">
   <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
-  {% if page.image.credit %}<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>{% endif %}
-</div><!-- /.image-wrap -->{% endif %}
+  {{ if page.image.credit }}<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>{{ endif }}
+</div><!-- /.image-wrap -->{{ endif }}
 
 <div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   <div class="article-author-top">
-    {% include author-bio.html %}
+    {{ partial "author-bio.html" . }}
   </div>
   <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <div class="headline-wrap">
@@ -33,23 +33,23 @@
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
-          {% include author-bio.html %}
+          {{ partial "author-bio.html" . }}
         </div>
-        <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time>{% if page.modified %} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{% endif %} by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.owner.name }}</span></span>.</p>
+        <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time>{{ if page.modified }} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{{ endif }} by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.owner.name }}</span></span>.</p>
       </footer>
       <div id="page-navigation">
         <div class="left">
-        {% if page.previous.url %}
+        {{ if page.previous.url }}
           <a href="{{page.previous.url}}" title="Previous Post:
       {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
-        {% endif %}
+        {{ endif }}
         </div>
 
         <div class="right">
-        {% if page.next.url %}
+        {{ if page.next.url }}
           <a href="{{page.next.url}}" title="next Post:
       {{page.next.title}}">{{page.next.title}} &raquo; </a>
-        {% endif %}
+        {{ endif }}
         </div>
         <div class="clear">&nbsp;</div>
       </div>
@@ -81,29 +81,29 @@
 </div><!-- /#main -->
 
 <div class="footer-wrap">
-  {% if site.related_posts.size > 0 %}<div class="related-articles">
+  {{ if site.related_posts.size > 0 }}<div class="related-articles">
   <h4>You might also enjoy <small class="pull-right">(<a href="{{ site.url }}">View all articles</a>)</small></h4>
     <ul>
-    {% for post in site.related_posts limit:3 %}
-      {% assign match = false %}
-      {% for category in post.categories %}
-        {% if page.categories contains category %}
-          {% assign match = true %}
-        {% endif %}
-      {% endfor %}
-      {% if match %}
+    {{ for post in site.related_posts limit:3 }}
+      {{ assign match = false }}
+      {{ for category in post.categories }}
+        {{ if page.categories contains category }}
+          {{ assign match = true }}
+        {{ endif }}
+      {{ endfor }}
+      {{ if match }}
       <li><a href="{{ site.url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
-      {% endif %}
-    {% endfor %}
+      {{ endif }}
+    {{ endfor }}
     </ul>
     <hr />
-  </div><!-- /.related-articles -->{% endif %}
+  </div><!-- /.related-articles -->{{ endif }}
   <footer>
-    {% include footer.html %}
+    {{ partial "footer.html" . }}
   </footer>
 </div><!-- /.footer-wrap -->
 
-{% include scripts.html %}
+{{ partial "scripts.html" . }}
 
 </body>
 </html>

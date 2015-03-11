@@ -4,50 +4,50 @@
 <!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
-{% include head.html %}
+{{ partial "head.html" . }}
 </head>
 
 <body class="articles" itemscope itemtype="http://schema.org/WebPage">
 
-{% include browser-upgrade.html %}
+{{ partial "browser-upgrade.html" . }}
 
-{% include navigation.html %}
+{{ partial "navigation.html" . }}
 
-{% if page.image.feature %}<div class="image-wrap">
+{{ if page.image.feature }}<div class="image-wrap">
   <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
-  {% if page.image.credit %}<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>{% endif %}
-</div><!-- /.image-wrap -->{% endif %}
+  {{ if page.image.credit }}<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>{{ endif }}
+</div><!-- /.image-wrap -->{{ endif }}
 
 <div class="article-author-top">
-  {% include author-bio.html %}
+  {{ partial "author-bio.html" . }}
 </div>
 
 <div id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   <h1 itemprop="name">Blog posts</h1>
-  {% for post in site.posts %}
-    <!--{% unless post.next %}
+  {{ for post in site.posts }}
+    <!--{{ unless post.next }}
       <h3>{{ post.date | date: '%Y' }}</h3>
-    {% else %}
-      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-      {% if year != nyear %}
+    {{ else }}
+      {{ capture year }}{{ post.date | date: '%Y' }}{{ endcapture }}
+      {{ capture nyear }}{{ post.next.date | date: '%Y' }}{{ endcapture }}
+      {{ if year != nyear }}
         <h3>{{ post.date | date: '%Y' }}</h3>
-      {% endif %}
-    {% endunless %}-->
+      {{ endif }}
+    {{ endunless }}-->
     <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
       <h2 itemprop="headline"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2>
-      <p itemprop="text">{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
+      <p itemprop="text">{{ if post.description }}{{ post.description }}{{ else }}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{{ endif }}</p>
     </article>
-  {% endfor %}
+  {{ endfor }}
 </div><!-- /#index -->
 
 <div class="footer-wrap">
   <footer>
-    {% include footer.html %}
+    {{ partial "footer.html" . }}
   </footer>
 </div><!-- /.footer-wrap -->
 
-{% include scripts.html %}
+{{ partial "scripts.html" . }}
 
 </body>
 </html>
