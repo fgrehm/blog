@@ -19,12 +19,12 @@
 
 <div id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   <h3>Latest posts</h3>
-  {{ for post in site.categories.blog limit:5 }}
+  {{ range first 5 where .Data.Pages "Section" "blog" }}
   <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <h2 itemprop="headline"><a href="{{ site.url }}{{ post.url }}" rel="bookmark" title="{{ post.title }}">{{ post.title }}</a></h2>
-    <p itemprop="text">{{ if post.description }}{{ post.description }}{{ else }}{{ post.content | strip_html | strip_newlines | truncate: 200 }}{{ endif }}</p>
+    <h2 itemprop="headline"><a href="{{ .Site.BaseUrl }}{{ .Url }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a></h2>
+    <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
   </article>
-  {{ endfor }}
+  {{ end }}
 </div><!-- /#index -->
 
 <div class="footer-wrap">

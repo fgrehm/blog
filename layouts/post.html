@@ -13,43 +13,36 @@
 
 {{ partial "navigation.html" . }}
 
-{{ if page.image.feature }}<div class="image-wrap">
-  <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }} feature image" itemprop="primaryImageOfPage">
-  {{ if page.image.credit }}<span class="image-credit">Photo Credit: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></span>{{ endif }}
-</div><!-- /.image-wrap -->{{ endif }}
-
 <div id="main" role="main" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
   <div class="article-author-top">
     {{ partial "author-bio.html" . }}
   </div>
   <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <div class="headline-wrap">
-      <h1 itemprop="name">{{ page.title }}</h1>
-      <h2>{{ page.tagline }}</h2>
+      <h1 itemprop="name">{{ .Title }}</h1>
+      <h2>{{ .Tagline }}</h2>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap" itemprop="text">
-      {{ content }}
+      {{ .Content }}
       <div class="clearfix"></div>
       <hr />
       <footer role="contentinfo">
         <div class="article-author-bottom">
           {{ partial "author-bio.html" . }}
         </div>
-        <p class="byline"><strong>{{ page.title }}</strong> was published on <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%B %d, %Y" }}</time>{{ if page.modified }} and last modified on <time datetime="{{ page.modified | date: "%Y-%m-%d" }}" itemprop="dateModified">{{ page.modified | date: "%B %d, %Y" }}</time>{{ endif }} by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ site.owner.name }}</span></span>.</p>
+        <p class="byline"><strong>{{ .Title }}</strong> was published on <time datetime="{{ .Date }}" itemprop="datePublished">{{ dateFormat .Date "Monday, Jan 2, 2006" }}</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Param "name" }}</span></span>.</p>
       </footer>
       <div id="page-navigation">
         <div class="left">
-        {{ if page.previous.url }}
-          <a href="{{page.previous.url}}" title="Previous Post:
-      {{page.previous.title}}">&laquo; {{page.previous.title}}</a>
-        {{ endif }}
+        {{ if .PrevInSection and .PrevInSection.Url }}
+          <a href="{{ .PrevInSection.Url }}" title="Previous Post: {{ .PrevInSection.Title}}">&laquo; {{ .PrevInSection.Title }}</a>
+        {{ end }}
         </div>
 
         <div class="right">
-        {{ if page.next.url }}
-          <a href="{{page.next.url}}" title="next Post:
-      {{page.next.title}}">{{page.next.title}} &raquo; </a>
-        {{ endif }}
+        {{ if .NextInsection and .NextInsection.Url }}
+          <a href="{{ .NextInsection.Url }}" title="next Post: {{ .NextInsection.Title }}">{{ .NextInsection.Title }} &raquo; </a>
+        {{ end }}
         </div>
         <div class="clear">&nbsp;</div>
       </div>
