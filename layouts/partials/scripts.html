@@ -1,7 +1,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="{{ site.url }}/assets/js/scripts.min.js"></script>
-{% if site.google_analytics %}
+<script>window.jQuery || document.write('<script src="{{ .Url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ .Url }}/assets/js/scripts.min.js"></script>
+{{ if site.google_analytics }}
 <!-- Asynchronous Google Analytics snippet -->
 <script>
   //http://drawingablank.me/blog/fix-your-bounce-rate.html
@@ -25,4 +25,4 @@
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
   })();
 </script>
-{% endif %}
+{{ end }}
