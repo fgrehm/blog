@@ -1,13 +1,13 @@
 <!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+{{ `<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->` | safeHtml }}
+{{ `<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->` | safeHtml }}
+{{ `<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->` | safeHtml }}
+{{ `<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->` | safeHtml }}
 <head>
 {{ partial "head.html" . }}
 </head>
 
-<body class="article" itemscope itemtype="http://schema.org/WebPage">
+<body class="home" itemscope itemtype="http://schema.org/WebPage">
 
 {{ partial "browser-upgrade.html" . }}
 
@@ -20,7 +20,7 @@
   <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
     <div class="headline-wrap">
       <h1 itemprop="name">{{ .Title }}</h1>
-      <h2>{{ .Tagline }}</h2>
+      <h2>{{ .Description }}</h2>
     </div><!--/ .headline-wrap -->
     <div class="article-wrap" itemprop="text">
       {{ .Content }}
@@ -30,18 +30,18 @@
         <div class="article-author-bottom">
           {{ partial "author-bio.html" . }}
         </div>
-        <p class="byline"><strong>{{ .Title }}</strong> was published on <time datetime="{{ .Date }}" itemprop="datePublished">{{ dateFormat .Date "Monday, Jan 2, 2006" }}</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Param "name" }}</span></span>.</p>
+        <p class="byline"><strong>{{ .Title }}</strong> was published on <time datetime="{{ .Date }}" itemprop="datePublished">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Params.name }}</span></span>.</p>
       </footer>
       <div id="page-navigation">
         <div class="left">
-        {{ if .PrevInSection and .PrevInSection.Url }}
+        {{ if .PrevInSection }}
           <a href="{{ .PrevInSection.Url }}" title="Previous Post: {{ .PrevInSection.Title}}">&laquo; {{ .PrevInSection.Title }}</a>
         {{ end }}
         </div>
 
         <div class="right">
-        {{ if .NextInsection and .NextInsection.Url }}
-          <a href="{{ .NextInsection.Url }}" title="next Post: {{ .NextInsection.Title }}">{{ .NextInsection.Title }} &raquo; </a>
+        {{ if .NextInSection }}
+          <a href="{{ .NextInSection.Url }}" title="next Post: {{ .NextInSection.Title }}">{{ .NextInSection.Title }} &raquo; </a>
         {{ end }}
         </div>
         <div class="clear">&nbsp;</div>
