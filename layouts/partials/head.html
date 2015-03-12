@@ -7,16 +7,11 @@
 <meta name="keywords" content="{{ page.tags | join: ', ' }}">
 {% endif %}
 
-{% if site.owner.twitter %}<!-- Twitter Cards -->
-{% if page.image.feature %}<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="{{ site.url }}/images/{{ page.image.feature }}">
-{% else %}<meta name="twitter:card" content="summary">
+<!-- Twitter Cards -->
 <meta name="twitter:creator" content="@{{ site.owner.twitter }}">
 <meta name="twitter:site" content="@{{ site.owner.twitter }}">
 <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
 <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
-{% endif %}
-{% endif %}
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
