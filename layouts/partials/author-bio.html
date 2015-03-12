@@ -1,13 +1,13 @@
-<img src="{{ .Params.avatar }}" class="bio-photo" alt="{{ .Params.name }} bio photo"></a>
-<h3><a href="{{ .Url }}">{{ .Params.name }}</a></h3>
-{{ if .Params.bio }}<p>{{ .Params.bio }}</p>{{ end }}
-{{ if .Params.github }}<a href="http://github.com/{{ .Params.github }}" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>{{ end }}
-{{ if .Params.twitter }}<a href="http://twitter.com/{{ .Params.twitter }}" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>{{ end }}
-{{ if .Params.facebook }}<a href="http://facebook.com/{{ .Params.facebook }}" class="author-social" target="_blank"><i class="icon-facebook"></i> Facebook</a>{{ end }}
-{{ if .Params.google_plus }}<a href="{{ .Params.google_plus }}" class="author-social" target="_blank"><i class="icon-google-plus"></i> Google+</a>{{ end }}
-{{ if .Params.linkedin }}<a href="http://linkedin.com/in/{{ .Params.linkedin }}" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>{{ end }}
-{{ if .Params.instagram }}<a href="http://instagram.com/{{ .Params.instagram }}" class="author-social" target="_blank"><i class="icon-instagram"></i> Instagram</a>{{ end }}
-{{ if .Params.lastfm }}<a href="http://lastfm.com/{{ .Params.lastfm }}" class="author-social" target="_blank"><i class="icon-lastfm"></i> Last.fm</a>{{ end }}
-{{ if .Params.tumblr }}<a href="http://{{ .Params.tumblr }}.tumblr.com" class="author-social" target="_blank"><i class="icon-tumblr"></i> Tumblr</a>{{ end }}
+<img src="{{ .Site.Params.avatar }}" class="bio-photo" alt="{{ .Site.Params.name }} bio photo"></a>
+<h3><a href="{{ .Url }}">{{ .Site.Params.name }}</a></h3>
+{{ if .Site.Params.bio }}<p>{{ .Site.Params.bio }}</p>{{ end }}
+{{ if .Site.Params.github }}<a href="http://github.com/{{ .Site.Params.github }}" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>{{ end }}
+{{ if .Site.Params.twitter }}<a href="http://twitter.com/{{ .Site.Params.twitter }}" class="author-social" target="_blank"><i class="icon-twitter"></i> Twitter</a>{{ end }}
+{{ if .Site.Params.facebook }}<a href="http://facebook.com/{{ .Site.Params.facebook }}" class="author-social" target="_blank"><i class="icon-facebook"></i> Facebook</a>{{ end }}
+{{ if .Site.Params.google_plus }}<a href="{{ .Site.Params.google_plus }}" class="author-social" target="_blank"><i class="icon-google-plus"></i> Google+</a>{{ end }}
+{{ if .Site.Params.linkedin }}<a href="http://linkedin.com/in/{{ .Site.Params.linkedin }}" class="author-social" target="_blank"><i class="icon-linkedin"></i> LinkedIn</a>{{ end }}
+{{ if .Site.Params.instagram }}<a href="http://instagram.com/{{ .Site.Params.instagram }}" class="author-social" target="_blank"><i class="icon-instagram"></i> Instagram</a>{{ end }}
+{{ if .Site.Params.lastfm }}<a href="http://lastfm.com/{{ .Site.Params.lastfm }}" class="author-social" target="_blank"><i class="icon-lastfm"></i> Last.fm</a>{{ end }}
+{{ if .Site.Params.tumblr }}<a href="http://{{ .Site.Params.tumblr }}.tumblr.com" class="author-social" target="_blank"><i class="icon-tumblr"></i> Tumblr</a>{{ end }}
 <a href="http://feeds.feedburner.com/fabio-rehm" class="author-social" target="_blank" title="Atom/RSS feed"><i class="icon-feed"></i> Feed</a>
-{{ if .Params.coderwall }}<a href="https://coderwall.com/{{ .Params.coderwall }}" class="author-social" target="_blank"><img alt="endorse" src="https://api.coderwall.com/{{ .Params.coderwall }}/endorsecount.png" /></a>{{ end }}
+{{ if .Site.Params.coderwall }}<a href="https://coderwall.com/{{ .Site.Params.coderwall }}" class="author-social" target="_blank"><img alt="endorse" src="https://api.coderwall.com/{{ .Site.Params.coderwall }}/endorsecount.png" /></a>{{ end }}

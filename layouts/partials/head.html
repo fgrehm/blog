@@ -1,64 +1,57 @@
 <meta charset="utf-8">
-<title>{{ if .Page.Title }}{{ .Page.Title }} &#8211; {{ end }}{{ .Title }}</title>
-<meta name="description" content="{{ .Page.Description }}">
-{{ if page.tags == 'all' }}
-<meta name="keywords" content="{% for tag in site.tags %}{{ tag[0] }}, {% endfor %}">
-{{ else }}
-<meta name="keywords" content="{{ page.tags | join: ', ' }}">
+<title>{{ if not (eq .Title .Site.Title) }}{{ .Title }} &#8211; {{ end }}{{ .Site.Title }}</title>
+<meta name="description" content="{{ .Site.Title }}'s Blog">
+{{ if eq .Params.tags "all" }}
+<meta name="keywords" content="{{ delimit .Site.Taxonomies.tags "," }}">
+{{ else if .Params.tags }}
+<meta name="keywords" content="{{ delimit .Params.tags "," }}">
 {{ end }}
+{{ `<!-- Twitter Cards -->` | safeHtml }}
+<meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
+<meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
+<meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ end }}">
 
-<!-- Twitter Cards -->
-<meta name="twitter:creator" content="@{{ .Params.twitter }}">
-<meta name="twitter:site" content="@{{ .Params.twitter }}">
-<meta name="twitter:title" content="{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta name="twitter:description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Description }}{{ end }}">
-
-<!-- Open Graph -->
+{{ `<!-- Open Graph -->` | safeHtml }}
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="{{ if .Page.Title }}{{ .Page.Title }}{{ else }}{{ .Title }}{{ end }}">
-<meta property="og:description" content="{{ if .Page.Description }}{{ .Page.Description }}{{ else }}{{ .Description }}{{ end }}">
-<meta property="og:url" content="{{ .Url }}{{ .Page.Url }}">
+<meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ end }}">
+<meta property="og:url" content="{{ .Url }}">
 <meta property="og:site_name" content="{{ .Title }}">
 
-{{ if site.google_verify }}<!-- Webmaster Tools verfication -->
-<meta name="google-site-verification" content="{{ site.google_verify }}">{{ end }}
-{{ if site.bing_verify }}<meta name="msvalidate.01" content="{{ site.bing_verify }}">{{ end }}
-
-{% capture canonical %}{{ .Url }}{{ if site.permalink contains '.html' }}{{ .Page.Url }}{{ else }}{{ .Page.Url | remove:'index.html' | strip_slash }}{{ end }}{% endcapture %}
-<link rel="canonical" href="{{ canonical }}">
+<link rel="canonical" href="{{ .Site.BaseUrl }}{{ if not (eq .Url "/") }}{{ .Url }}{{ end }}">
 <link href="http://feeds.feedburner.com/fabio-rehm" type="application/atom+xml" rel="alternate" title="{{ .Title }} Feed">
-{{ if .Params.google_plus }}<link rel="author" href="{{ .Params.google_plus }}?rel=author">{{ end }}
 
-<!-- http://t.co/dKP3o1e -->
+{{ `<!-- http://t.co/dKP3o1e -->` | safeHtml }}
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Webfonts -->
+{{ `<!-- Google Webfonts -->` | safeHtml }}
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ .Url }}/assets/css/main.min.css">
+{{ `<!-- For all browsers -->` | safeHtml }}
+<link rel="stylesheet" href="{{ .Site.BaseUrl }}assets/css/main.min.css">
 
-<!--[if (lt IE 9) & (!IEMobile)]>
-<link rel="stylesheet" href="{{ .Url }}/assets/css/ie.min.css">
-<![endif]-->
+{{ `<!--[if (lt IE 9) & (!IEMobile)]>` | safeHtml }}
+{{ `<link rel="stylesheet" href="{{ .Url }}assets/css/ie.min.css">` | safeHtml }}
+{{ `<![endif]-->` | safeHtml }}
 
 <meta http-equiv="cleartype" content="on">
 
-<!-- Load Modernizr -->
+{{ `<!-- Load Modernizr -->` | safeHtml }}
 <script src="{{ .Url }}/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
-<!-- Icons -->
-<!-- 16x16 -->
+{{ `<!-- Icons -->` | safeHtml }}
+{{ `<!-- 16x16 -->` | safeHtml }}
 <link rel="shortcut icon" href="{{ .Url }}/favicon.ico">
-<!-- 32x32 -->
+{{ `<!-- 32x32 -->` | safeHtml }}
 <link rel="shortcut icon" href="{{ .Url }}/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+{{ `<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->` | safeHtml }}
 <link rel="apple-touch-icon-precomposed" href="{{ .Url }}/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+{{ `<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->` | safeHtml }}
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ .Url }}/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+{{ `<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->` | safeHtml }}
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ .Url }}/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+{{ `<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->` | safeHtml }}
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ .Url }}/images/apple-touch-icon-144x144-precomposed.png">
