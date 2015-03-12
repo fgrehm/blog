@@ -1,0 +1,16 @@
+title = "Fábio Rehm"
+baseUrl = "http://fabiorehm.com/"
+languageCode = "en-us"
+
+metaDataFormat = "yaml"
+
+log = true
+
+[params]
+  name = "Fábio Rehm"
+  avatar = "http://s.gravatar.com/avatar/b3b047bba1e0d0ed02158cf566884bef?s=150&r=g"
+  bio = "Software Developer and Open Source Enthusiast"
+  twitter = "fgrehm"
+  github = "fgrehm"
+  coderwall = "fgrehm"
+  linkedin = "fabiorehm"
