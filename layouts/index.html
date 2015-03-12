@@ -1,0 +1,39 @@
+<!doctype html>
+{{ `<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->` | safeHtml }}
+{{ `<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->` | safeHtml }}
+{{ `<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->` | safeHtml }}
+{{ `<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->` | safeHtml }}
+<head>
+{{ partial "head.html" . }}
+</head>
+
+<body class="home" itemscope itemtype="http://schema.org/WebPage">
+
+{{ partial "browser-upgrade.html" . }}
+
+{{ partial "navigation.html" . }}
+
+<div class="article-author-top">
+  {{ partial "author-bio.html" . }}
+</div>
+
+<div id="index" itemprop="mainContentOfPage" itemscope itemtype="http://schema.org/Blog">
+  <h3>Latest posts</h3>
+  {{ range first 5 (where .Data.Pages "Section" "blog") }}
+  <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+    <h2 itemprop="headline"><a href="{{ .Permalink }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a></h2>
+    <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
+  </article>
+  {{ end }}
+</div><!-- /#index -->
+
+<div class="footer-wrap">
+  <footer>
+    {{ partial "footer.html" . }}
+  </footer>
+</div><!-- /.footer-wrap -->
+
+{{ partial "scripts.html" . }}
+
+</body>
+</html>
