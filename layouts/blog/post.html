@@ -30,7 +30,7 @@
         <div class="article-author-bottom">
           {{ partial "author-bio.html" . }}
         </div>
-        <p class="byline"><strong>{{ .Title }}</strong> was published on <time datetime="{{ .Date }}" itemprop="datePublished">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Params.name }}</span></span>.</p>
+        <p class="byline"><strong>{{ .Title }}</strong> was published on <time datetime="{{ .Date }}" itemprop="datePublished">{{ dateFormat "Monday, Jan 2, 2006" .Date }}</time> by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ .Site.Params.name }}</span></span>.</p>
       </footer>
       <div id="page-navigation">
         <div class="left">
