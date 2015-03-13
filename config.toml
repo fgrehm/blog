@@ -6,12 +6,15 @@ metaDataFormat = "yaml"
 
 log = true
 
+pygmentsuseclasses = true
+
 [permalinks]
     blog = "/blog/:year/:month/:day/:slug/"
 
 [params]
   name = "Fábio Rehm"
   avatar = "http://s.gravatar.com/avatar/b3b047bba1e0d0ed02158cf566884bef?s=150&r=g"
+  avatarFun = "http://s.gravatar.com/avatar/a198addd98dd9f149c7964a1340c9772?s=150&r=g"
   bio = "Software Developer and Open Source Enthusiast"
   twitter = "fgrehm"
   github = "fgrehm"
