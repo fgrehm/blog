@@ -20,3 +20,6 @@ pygmentsuseclasses = true
   github = "fgrehm"
   coderwall = "fgrehm"
   linkedin = "fabiorehm"
+
+[author]
+  name = "Fábio Rehm"
