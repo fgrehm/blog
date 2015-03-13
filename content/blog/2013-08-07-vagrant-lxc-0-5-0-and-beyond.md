@@ -2,6 +2,7 @@
 date: "2013-08-07"
 layout: post
 title: vagrant-lxc 0.5.0 and beyond
+slug: 'vagrant-lxc-0-5-0-and-beyond'
 description: 'Find out more about the new version of the plugin and the upcoming work I have planned for it'
 tags:
 - vagrant-lxc

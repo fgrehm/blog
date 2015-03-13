@@ -6,6 +6,9 @@ metaDataFormat = "yaml"
 
 log = true
 
+[permalinks]
+    blog = "/blog/:year/:month/:day/:slug/"
+
 [params]
   name = "Fábio Rehm"
   avatar = "http://s.gravatar.com/avatar/b3b047bba1e0d0ed02158cf566884bef?s=150&r=g"
