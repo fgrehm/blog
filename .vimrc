@@ -1,2 +1,2 @@
 set wildignore+=*/node_modules/*
-set wildignore+=*/_site/*
+set wildignore+=*/public/*
