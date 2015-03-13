@@ -34,13 +34,13 @@
       <div id="page-navigation">
         <div class="left">
         {{ if .PrevInSection }}
-          <a href="{{ .PrevInSection.Url }}" title="Previous Post: {{ .PrevInSection.Title}}">&laquo; {{ .PrevInSection.Title }}</a>
+          <a href="{{ .PrevInSection.Permalink }}" title="Previous Post: {{ .PrevInSection.Title}}">&laquo; {{ .PrevInSection.Title }}</a>
         {{ end }}
         </div>
 
         <div class="right">
         {{ if .NextInSection }}
-          <a href="{{ .NextInSection.Url }}" title="next Post: {{ .NextInSection.Title }}">{{ .NextInSection.Title }} &raquo; </a>
+          <a href="{{ .NextInSection.Permalink }}" title="next Post: {{ .NextInSection.Title }}">{{ .NextInSection.Title }} &raquo; </a>
         {{ end }}
         </div>
         <div class="clear">&nbsp;</div>
