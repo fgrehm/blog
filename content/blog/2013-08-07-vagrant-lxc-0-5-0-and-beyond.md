@@ -149,14 +149,14 @@ between the VBox VM and vagrant-lxc container.
 into 2 recordings*
 
 <div class="asciicast-container">
-  <script type="text/javascript" src="http://ascii.io/a/4580.js" id="asciicast-4580" async="true"></script>
+  <script type="text/javascript" src="http://asciinema.org/a/4580.js" id="asciicast-4580" async></script>
   <p>
     Part I - Debugging and port forwarding
   </p>
 </div>
 
 <div class="asciicast-container">
-  <script type="text/javascript" src="http://ascii.io/a/4581.js" id="asciicast-4581" async="true"></script>
+  <script type="text/javascript" src="http://asciinema.org/a/4581.js" id="asciicast-4581" async></script>
   <p>
     Part II - vagrant-lxc container upstart and shared folders
   </p>
