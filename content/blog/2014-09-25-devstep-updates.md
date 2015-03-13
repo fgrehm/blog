@@ -55,7 +55,7 @@ command run.
 Starting with this initial release of the new CLI we now have a proper configuration file
 with a well defined format. For example, this is the global settings I have in place on my `$HOME/devstep.yml`:
 
-{% highlight yaml %}
+{{< highlight yaml >}}
 cache_dir: '{{env "HOME"}}/devstep/cache'
 volumes:
   - '{% raw %}{{env "HOME"}}{% endraw %}/.netrc:/.devstep/.netrc'
@@ -65,7 +65,7 @@ volumes:
   - '{% raw %}{{env "SSH_AUTH_SOCK"}}{% endraw %}:/tmp/ssh-auth-sock'
 environment:
   SSH_AUTH_SOCK: "/tmp/ssh-auth-sock"
-{% endhighlight %}
+{{< /highlight >}}
 
 What that does is make sure devstep cached packages persist between computer restarts and that
 I have a `devstep hack` experience inside the container as if I was working from my machine.
@@ -74,7 +74,7 @@ containers if I want / need to.
 
 As for a project specific config, here's a real world example from a Rails app I worked on recently:
 
-{% highlight yaml %}
+{{< highlight yaml >}}
 # Link containers with existing postgres / redis instances (not managed by devstep)
 links:
 - "postgres:db"
@@ -91,7 +91,7 @@ commands:
     # intentionally left blank
   rake:
     # intentionally left blank
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Aliases and binstubs
 
@@ -124,7 +124,7 @@ The current functionality is very rudimentary and is likely to be changed so rig
 now it is best explained by the [squid3-ssl proxy](https://github.com/fgrehm/devstep-squid3-ssl)
 plugin source which is currently the only plugin available:
 
-{% highlight js %}
+{{< highlight js >}}
 // `_currentPluginPath` is the host path where the JavaScript file is located
 // and is provided by Devstep's CLI plugin runtime, we keep its value on a
 // separate variable because its value gets changed for each plugin that
@@ -152,7 +152,7 @@ devstep.on('configLoaded', function(config) {
     .setEnv('http_proxy', 'http://squid3.dev:3128')
     .setEnv('https_proxy', 'http://squid3.dev:3128')
 });
-{% endhighlight %}
+{{< /highlight >}}
 
 The code above is the equivalent of passing in `-e`, `-v` and `--link` parameters
 to `devstep` commands.

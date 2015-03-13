@@ -26,7 +26,7 @@ figured out was to share my X11 socket with the container and use it directly.
 The idea is pretty simple and you can easily it give a try by running a Firefox
 container using the following `Dockerfile` as a starting point:
 
-{% highlight dockerfile %}
+{{< highlight dockerfile >}}
 FROM ubuntu:14.04
 
 RUN apt-get update && apt-get install -y firefox
@@ -43,16 +43,16 @@ RUN export uid=1000 gid=1000 && \
 USER developer
 ENV HOME /home/developer
 CMD /usr/bin/firefox
-{% endhighlight %}
+{{< /highlight >}}
 
 `docker build -t firefox .` it and run the container with:
 
-{% highlight sh %}
+{{< highlight sh >}}
 docker run -ti --rm \
        -e DISPLAY=$DISPLAY \
        -v /tmp/.X11-unix:/tmp/.X11-unix \
        firefox
-{% endhighlight %}
+{{< /highlight >}}
 
 If all goes well you should see Firefox running from within a Docker container.
 

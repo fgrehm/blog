@@ -50,21 +50,21 @@ First things first, so given you have Vagrant around, do a `vagrant plugin insta
 `git clone https://github.com/discourse/discourse.git` and replace the [Chef provisioner]()
 code on the `Vagrantfile` with the code below:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 config.vm.provision :ventriloquist do |env|
   env.services  << %w( redis pg:9.1 mailcatcher )
   env.platforms << %w( nodejs ruby )
 end
-{% endhighlight %}
+{{< /highlight >}}
 
 You'll also need to change the base box used to an Ubuntu 13.04 machine, in my
 case I've used [this](http://bit.ly/vagrant-lxc-raring64-2013-09-28-) vagrant-lxc
 box, so the related Vagrant section looks like:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 config.vm.box = 'raring64'
 config.vm.box_url = 'http://bit.ly/vagrant-lxc-raring64-2013-09-28-'
-{% endhighlight %}
+{{< /highlight >}}
 
 At this point your `Vagrantfile` should look like [this one](https://gist.github.com/fgrehm/db49cf1207d062f6f8ce)
 and you should be able to `vagrant up` the machine to watch Ventriloquist provisioning
@@ -74,14 +74,14 @@ so grab a coffee while it does its magic.
 Once provisioning has finished, go ahead and `vagrant ssh` into the VM and run the
 following commands to set things up:
 
-{% highlight bash %}
+{{< highlight bash >}}
 cd /vagrant
 ./script/setup_dev
 rake db:test:prepare
 gem install foreman --no-ri --no-rdoc
 cp .env.sample .env
 echo -e "\nPORT=3000" >> .env
-{% endhighlight %}
+{{< /highlight >}}
 
 To test that things are set up properly, run the specs with `rake spec`
 and fire up a server with `foreman start`. If everything went fine, you

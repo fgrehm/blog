@@ -33,9 +33,9 @@ and because other users might have `VAGRANT_DEFAULT_PROVIDER` set to something e
 (like `digitalocean` or `aws`) I ended up adding the line below to the project's
 [Vagrantfile](https://github.com/fgrehm/vagrant-lxc-vbox-hosts/blob/master/Vagrantfile#L6):
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
-{% endhighlight %}
+{{< /highlight >}}
 
 With that in place I can guarantee that anyone that tries to bring one of those
 VMs up (myself included) will end up using VirtualBox unless explicitly specified.

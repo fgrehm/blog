@@ -41,28 +41,28 @@ As stated on the [the README](https://github.com/fgrehm/vagrant-lxc#avoiding-sud
 right now the script I'm using is **really dumb AND INSECURE** but it does the
 trick. It's basically a ruby script that acts as a proxy for executing the commands:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 #!/usr/bin/env ruby
 exec ARGV.join(' ')
-{% endhighlight %}
+{{< /highlight >}}
 
 With that in place we can then add a single entry to our `/usr/bin/lxc-vagrant-wrapper`
 like the one below:
 
-{% highlight bash %}
+{{< highlight bash >}}
 USERNAME ALL=NOPASSWD:/usr/bin/lxc-vagrant-wrapper
-{% endhighlight %}
+{{< /highlight >}}
 
 And tell vagrant-lxc to use it on our `Vagrantfile`s:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 # Protip: Drop this into your ~/.vagrant.d/Vagrantfile to apply the configuration to all vagrant-lxc VMs
 Vagrant.configure("2") do |config|
   config.vm.provider :lxc do |lxc|
     lxc.sudo_wrapper = '/usr/bin/lxc-vagrant-wrapper'
   end
 end
-{% endhighlight %}
+{{< /highlight >}}
 
 That's it, no more typing in your password when using vagrant-lxc boxes :)
 
@@ -82,7 +82,7 @@ hitting the guest container directy from the host machine. Starting with 0.5.0 t
 up now works out of the box because the port forwarding will work for any of the
 configured VBox IP.
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 Vagrant.configure("2") do |config|
   config.vm.box = "quantal64"
 
@@ -98,7 +98,7 @@ Vagrant.configure("2") do |config|
     lxc_config.vm.network :forwarded_port, guest: 22, host: 2221
   end
 end
-{% endhighlight %}
+{{< /highlight >}}
 
 So using a Vagrantfile similiar to the one above you should be able to SSH into
 the `vbox` VM, bring up the `lxc` container and hit a web server running on the

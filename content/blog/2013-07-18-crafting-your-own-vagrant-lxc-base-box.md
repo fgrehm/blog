@@ -33,19 +33,19 @@ The first thing we'll do is create the base container with `lxc-create` with
 [vanilla templates](https://github.com/lxc/lxc/tree/staging/templates), for
 Ubuntu guests that means:
 
-{% highlight bash %}
+{{< highlight bash >}}
 RELEASE=precise
 ARCH=amd64
 sudo lxc-create -n ${RELEASE}-base -t ubuntu -- --release ${RELEASE} --arch ${ARCH}
-{% endhighlight %}
+{{< /highlight >}}
 
 And for Debian guests:
 
-{% highlight bash %}
+{{< highlight bash >}}
 SUITE=squeeze
 RELEASE=$SUITE
 sudo lxc-create -n ${RELEASE}-base -t debian
-{% endhighlight %}
+{{< /highlight >}}
 
 _Before you ask, I decided to set both a `SUITE` and a `RELEASE` variables because
 the debian template [expects](https://github.com/lxc/lxc/blob/staging/templates/lxc-debian.in#L23)
@@ -58,7 +58,7 @@ If you want to know more about the parameters a template accepts, try running
 To finish up this initial setup, some aditional steps are required to make sure
 the Debian containers will get to play well with Vagrant / vagrant-lxc:
 
-{% highlight bash %}
+{{< highlight bash >}}
 rootfs="/var/lib/lxc/${RELEASE}-base/rootfs"
 
 # This fixes some networking issues
@@ -70,7 +70,7 @@ sudo sed -i -e "s/\(127.0.0.1\s\+localhost\)/\1\n127.0.1.1\t${RELEASE}-base\n/g"
 sudo chroot $rootfs /usr/sbin/update-rc.d -f checkroot-bootclean.sh remove
 sudo chroot $rootfs /usr/sbin/update-rc.d -f mountall-bootclean.sh remove
 sudo chroot $rootfs /usr/sbin/update-rc.d -f mountnfs-bootclean.sh remove
-{% endhighlight %}
+{{< /highlight >}}
 
 
 ## Configure the vagrant user
@@ -80,25 +80,25 @@ an `ubuntu` user by default and we'll just rename it to `vagrant` in order to
 avoid the need to specify [Vagrant's](http://docs.vagrantup.com/v2/vagrantfile/ssh_settings.html)
 `config.default.username` on our Vagrantfiles:
 
-{% highlight bash %}
+{{< highlight bash >}}
 ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
 sudo chroot ${ROOTFS} usermod -l vagrant -d /home/vagrant ubuntu
-{% endhighlight %}
+{{< /highlight >}}
 
 The Debian template does not create any user so we'll just add it with `adduser`:
 
-{% highlight bash %}
+{{< highlight bash >}}
 ROOTFS=/var/lib/lxc/${RELEASE}-base/rootfs
 sudo chroot ${ROOTFS} useradd --create-home -s /bin/bash vagrant
-{% endhighlight %}
+{{< /highlight >}}
 
 At this point it is a good idea to set `vagrant` as the password too since most
 boxes I've used had this set up like that. The following applies to both Debian
 and Ubuntu guests:
 
-{% highlight bash %}
+{{< highlight bash >}}
 echo -n 'vagrant:vagrant' | sudo chroot ${ROOTFS} chpasswd
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Set up SSH access and passwordless `sudo`
 
@@ -110,15 +110,15 @@ for things to work properly.
 Before we get to that, make sure that `sudo` is installed on Debian guests and
 that the `vagrant` user belongs to the `sudo` group by running:
 
-{% highlight bash %}
+{{< highlight bash >}}
 sudo chroot ${ROOTFS} apt-get install sudo -y --force-yes
 sudo chroot ${ROOTFS} adduser vagrant sudo
-{% endhighlight %}
+{{< /highlight >}}
 
 If everything went fine, you should now be able to run the commands
 below to set up SSH access and enable passwordless `sudo`:
 
-{% highlight bash %}
+{{< highlight bash >}}
 # Configure SSH access
 sudo mkdir -p ${ROOTFS}/home/vagrant/.ssh
 sudo wget https://raw.github.com/mitchellh/vagrant/master/keys/vagrant.pub -O ${ROOTFS}/home/vagrant/.ssh/authorized_keys
@@ -129,7 +129,7 @@ sudo cp ${ROOTFS}/etc/sudoers{,.orig}
 sudo sed -i -e \
       's/%sudo\s\+ALL=(ALL\(:ALL\)\?)\s\+ALL/%sudo ALL=NOPASSWD:ALL/g' \
       ${ROOTFS}/etc/sudoers
-{% endhighlight %}
+{{< /highlight >}}
 
 This is basically enough for us to [export the container's rootfs and prepare
 the vagrant-lxc box](#build_box_package) but the container is pretty <s>dumb</s> rough
@@ -151,50 +151,50 @@ If you try to install some package on the container you'll notice that a warning
 shows up saying that the packages cannot be authenticated. In order to make it go
 away you'll need to install the `ca-certificates` package and run a `apt-get update`:
 
-{% highlight bash %}
+{{< highlight bash >}}
 sudo apt-get install -y --force-yes ca-certificates
 sudo apt-get update
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Add some basic packages
 
 Make your container a better place and install some "must-have" packages:
 
-{% highlight bash %}
+{{< highlight bash >}}
 PACKAGES=(vim curl wget manpages bash-completion)
 sudo apt-get install ${PACKAGES[*]} -y --force-yes
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Install Chef
 
 If you want to have [Chef](http://www.opscode.com/chef/) pre installed on the
 base box, you can run:
 
-{% highlight bash %}
+{{< highlight bash >}}
 curl -L https://www.opscode.com/chef/install.sh -k | sudo bash
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Install Puppet
 
 If you want to have [Puppet](https://puppetlabs.com/) pre installed on the base
 box, you can run:
 
-{% highlight bash %}
+{{< highlight bash >}}
 wget http://apt.puppetlabs.com/puppetlabs-release-stable.deb -O "/tmp/puppetlabs-release-stable.deb"
 dpkg -i "/tmp/puppetlabs-release-stable.deb"
 sudo apt-get update
 sudo apt-get install puppet -y --force-yes
-{% endhighlight %}
+{{< /highlight >}}
 
 ### Free up some disk space
 
 When you are done configuring the container, make sure you run the code below from
 within the container to reduce the rootfs / box size:
 
-{% highlight bash %}
+{{< highlight bash >}}
 sudo rm -rf /tmp/*
 sudo apt-get clean
-{% endhighlight %}
+{{< /highlight >}}
 
 
 ## Build box package
@@ -202,7 +202,7 @@ sudo apt-get clean
 After configuring the container, shut it down by running `sudo halt` and follow
 the steps below from the host to build the `.box` file:
 
-{% highlight bash %}
+{{< highlight bash >}}
 # Set up a working dir
 mkdir -p /tmp/vagrant-lxc-${RELEASE}
 
@@ -220,7 +220,7 @@ chmod +x lxc-template
 
 # Vagrant box!
 tar -czf vagrant-lxc-${RELEASE}.box ./*
-{% endhighlight %}
+{{< /highlight >}}
 
 
 ## Try it out
@@ -228,11 +228,11 @@ tar -czf vagrant-lxc-${RELEASE}.box ./*
 To make sure you are able to use the container with vagrant-lxc, try importing
 the base box and bring it up with:
 
-{% highlight bash %}
+{{< highlight bash >}}
 mkdir -p /tmp/test-import && cd /tmp/test-import
 vagrant init my-box /tmp/vagrant-lxc-${RELEASE}/vagrant-lxc-${RELEASE}.box
 vagrant up --provider=lxc
-{% endhighlight %}
+{{< /highlight >}}
 
 If everything went fine, you should be able to SSH into it with `vagrant ssh`
 without issues.

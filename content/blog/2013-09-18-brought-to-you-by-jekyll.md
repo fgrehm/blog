@@ -82,10 +82,10 @@ make things easier for my brain, I wrote a simple `Procfile` for usage with [for
 so that I can just `cd` to the blog's folder and run `foreman start` to start
 writing. If you like the idea, go ahead and adapt the code below:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 jekyll: bundle exec jekyll serve -w --verbose -c _config.yml,_config.yml.dev --drafts
 grunt: grunt watch
-{% endhighlight %}
+{{< /highlight >}}
 
 
 ## Deployment
@@ -95,7 +95,7 @@ This was also an easy one to change. I was using [middleman-deploy](https://gith
 up writing some pretty simple [Rake](http://rake.rubyforge.org/) tasks to automate
 the process:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 desc 'Build the site using Jekyll + Grunt'
 task :build do
   sh 'grunt'
@@ -106,7 +106,7 @@ desc 'Deploy to production'
 task :deploy => :build do
   sh "rsync -avze 'ssh -p PORT' --delete _site/ SERVER_URL:REMOTE_PATH"
 end
-{% endhighlight %}
+{{< /highlight >}}
 
 
 ## So you are saying that jekyll is better than middleman?

@@ -63,10 +63,10 @@ save a few keystrokes and avoid the `-o` parameter by specifying the `cookbook_p
 option. As a result, I've added my client key to `~/.chef/client.pem` and created a
 `~/.chef/knife.rb` file with:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 client_key "#{ENV['HOME']}/.chef/client.pem"
 cookbook_path "#{ENV['HOME']}/projects/chef-cookbooks"
-{% endhighlight %}
+{{< /highlight >}}
 
 With that in place I tried to share the Cookbook again without luck:
 
@@ -132,10 +132,10 @@ off to Chef sources to find out where that should come from. Looking at [these l
 I found out that that parameter comes from the `node_name` defined on our knife
 configs and I added it my `~/.chef/knife.rb`:
 
-{% highlight ruby %}
+{{< highlight ruby >}}
 # Replace with your Opscode username
 node_name "fgrehm"
-{% endhighlight %}
+{{< /highlight >}}
 
 But that still wasn't enough and the error message changed one more time:
 

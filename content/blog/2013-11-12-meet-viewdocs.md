@@ -49,12 +49,12 @@ Although GH Pages have the automatic page generator, in my opinion they lack tha
 awesome "live documentation" feeling as it requires _human intervention_ in order
 to be updated, either in the form of a few clicks on the automatic generator or a:
 
-{% highlight sh %}
+{{< highlight sh >}}
 git checkout gh-pages
 ...hack & commit...
 git push
 git checkout master
-{% endhighlight %}
+{{< /highlight >}}
 
 For bigger projects with lots of contributors, having a separate branch _and_
 ensuring it is always up to date _might_ not be an issue but for smaller ones
