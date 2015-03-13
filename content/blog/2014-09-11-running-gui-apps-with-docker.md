@@ -3,6 +3,7 @@ date: "2014-09-11"
 layout: post
 title: Running GUI apps with Docker
 category: blog
+description: "I've been doing all of my real (paid) work on VMs / containers for a while now but when it comes to writing Java code..."
 tags:
 - docker
 - x11
