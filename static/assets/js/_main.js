@@ -34,3 +34,13 @@ $(document).ready(function() {
     mainClass: 'mfp-fade'
   });
 });
+
+$(function() {
+  $('.bio-photo').hover(function(e) {
+    var $this      = $(this),
+        currentSrc = $this.prop('src');
+
+    $this.prop('src', $this.data('hover-image'));
+    $this.data('hover-image', currentSrc);
+  });
+});

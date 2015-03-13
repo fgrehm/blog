@@ -1,4 +1,4 @@
-<img src="{{ .Site.Params.avatar }}" class="bio-photo" alt="{{ .Site.Params.name }} bio photo"></a>
+<img src="{{ .Site.Params.avatar }}" class="bio-photo" alt="{{ .Site.Params.name }} bio photo" data-hover-image="{{ .Site.Params.avatarFun }}"></a>
 <h3><a href="{{ .Site.BaseUrl }}">{{ .Site.Params.name }}</a></h3>
 {{ if .Site.Params.bio }}<p>{{ .Site.Params.bio }}</p>{{ end }}
 {{ if .Site.Params.github }}<a href="http://github.com/{{ .Site.Params.github }}" class="author-social" target="_blank"><i class="icon-github"></i> Github</a>{{ end }}
