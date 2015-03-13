@@ -1,4 +1,5 @@
 ---
+date: "2013-07-15"
 layout: post
 title: 'Vundler: Dead easy plugin management for Vagrant'
 description: 'Avoid Vagrant plugins Dependency Hell with Vundler'

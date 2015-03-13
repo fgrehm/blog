@@ -1,4 +1,5 @@
 ---
+date: "2013-01-17"
 layout: post
 title: 100% on Vagrant
 description: 'Some tips on getting the most out of Vagrant'

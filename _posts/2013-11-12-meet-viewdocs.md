@@ -1,4 +1,5 @@
 ---
+date: "2013-11-12"
 layout: post
 title: 'Meet Viewdocs'
 description: 'Put those long and boring READMEs on a diet with this awesome new project'

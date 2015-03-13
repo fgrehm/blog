@@ -1,4 +1,5 @@
 ---
+date: "2013-01-22"
 layout: post
 title: Announcing letter_opener_web 1.0
 description: 'An inbox for Ruby on Rails ActionMailer on your browser'

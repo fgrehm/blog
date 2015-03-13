@@ -1,4 +1,5 @@
 ---
+date: "2014-09-11"
 layout: post
 title: Running GUI apps with Docker
 category: blog

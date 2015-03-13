@@ -1,4 +1,5 @@
 ---
+date: "2013-05-24"
 layout: post
 title: Stop wasting bandwith with vagrant-cachier
 description: 'Reduce Vagrant provisioning time with a local cache'

@@ -1,4 +1,5 @@
 ---
+date: "2013-10-13"
 layout: post
 title: Ventriloquist demo
 description: 'From zero to Discourse in a few lines of code'

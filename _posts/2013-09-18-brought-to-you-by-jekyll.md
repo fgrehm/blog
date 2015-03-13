@@ -1,4 +1,5 @@
 ---
+date: "2013-09-18"
 layout: post
 title: Brought to you by jekyll
 description: 'Some information on migrating from middleman to jekyll'

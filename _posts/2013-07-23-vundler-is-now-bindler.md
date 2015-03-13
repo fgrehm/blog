@@ -1,4 +1,5 @@
 ---
+date: "2013-07-23"
 layout: post
 title: 'Vundler is now Bindler!'
 description: 'Quick update about Vundler (Vagrant plugin)'

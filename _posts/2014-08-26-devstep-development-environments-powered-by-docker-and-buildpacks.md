@@ -1,4 +1,5 @@
 ---
+date: "2014-08-26"
 layout: post
 title: "Devstep: Development environments powered by Docker and Buildpacks"
 description: "'devstep hack' and BOOM!"

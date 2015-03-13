@@ -1,4 +1,5 @@
 ---
+date: "2013-01-09"
 layout: post
 title: How do you find out about new gems?
 description: 'How do you keep up to the with the RubyGems "ecossystem"?'

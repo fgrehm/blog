@@ -1,4 +1,5 @@
 ---
+date: "2014-08-09"
 layout: post
 title: "Get notified of long running CLI tasks completion with 'lmk'"
 description: 'My very first Golang project'

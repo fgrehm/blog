@@ -1,4 +1,5 @@
 ---
+date: "2013-11-12"
 layout: post
 title: Set the default Vagrant provider from your Vagrantfile
 description: 'Just in case you need to do that'

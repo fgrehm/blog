@@ -1,4 +1,5 @@
 ---
+date: "2013-12-12"
 layout: post
 title: "So I released a lot of Vagrant plugins... Now what's next?"
 description: "Check this out in case you are using one of the plugins I've built"

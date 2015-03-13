@@ -1,4 +1,5 @@
 ---
+date: "2013-10-15"
 layout: post
 title: 'Getting to know BTRFS'
 description: 'Or why lxc-clone will probably be the next "big thing" on vagrant-lxc'

@@ -1,4 +1,5 @@
 ---
+date: "2013-04-28"
 layout: post
 title: 'LXC provider for Vagrant'
 description: "Run your Vagrant boxes as Linux Containers"

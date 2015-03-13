@@ -1,4 +1,5 @@
 ---
+date: "2013-06-10"
 layout: post
 title: Improving vagrant-lxc boxes
 description: 'Updates about V3 vagrant-lxc base boxes'

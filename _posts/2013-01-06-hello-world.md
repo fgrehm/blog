@@ -1,4 +1,5 @@
 ---
+date: "2013-01-06"
 layout: post
 title: Hello world!
 description: 'Every blog needs to have one right?'

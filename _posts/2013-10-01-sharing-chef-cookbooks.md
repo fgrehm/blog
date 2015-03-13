@@ -1,4 +1,5 @@
 ---
+date: "2013-10-01"
 layout: post
 title: 'Sharing Chef Cookbooks'
 description: 'My journey on setting things up to push chef-dokku to Opscode Community'

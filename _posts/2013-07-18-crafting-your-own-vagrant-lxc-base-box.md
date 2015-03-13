@@ -1,4 +1,5 @@
 ---
+date: "2013-07-18"
 layout: post
 title: Crafting your own vagrant-lxc base box
 description: 'How to build your own vagrant-lxc base boxes'

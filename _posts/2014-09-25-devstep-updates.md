@@ -1,4 +1,5 @@
 ---
+date: "2014-09-25"
 layout: post
 title: "Devstep updates"
 description: "Check out the latest Devstep goodies"

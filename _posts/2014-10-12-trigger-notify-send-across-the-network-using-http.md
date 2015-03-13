@@ -1,4 +1,5 @@
 ---
+date: "2014-10-12"
 layout: post
 title: "Trigger notify-send across the network using HTTP"
 description: "Useful for forwarding notifications from local VMs / Containers to your own computer"
