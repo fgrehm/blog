@@ -2,9 +2,7 @@
 layout: post
 category: blog
 draft: true
----
----
-layout: post
+date: '2030-01-01'
 title: 'Hipster development with Ventriloquist'
 description: 'Set up a polyglot development environment with lots of stuff to build a Gist-like service'
 tags:

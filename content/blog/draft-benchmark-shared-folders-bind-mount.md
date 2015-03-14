@@ -2,6 +2,7 @@
 layout: post
 category: blog
 draft: true
+date: '2030-01-01'
 ---
  * Dentro do virtualbox limitado, pasta compartilhada
  * Dentro do virtualbox limitado, pasta compartilhada (NFS)

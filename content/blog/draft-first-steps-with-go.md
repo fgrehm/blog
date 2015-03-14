@@ -2,6 +2,7 @@
 layout: post
 category: blog
 draft: true
+date: '2030-01-01'
 ---
 http://c7.se/from-ruby-to-go/
 

@@ -2,6 +2,7 @@
 layout: post
 category: blog
 draft: true
+date: '2030-01-01'
 ---
 Rewrite of devstep cli, make it more robust, better evolve, add tests...
 devstep deserve a post of its own that is on the works
