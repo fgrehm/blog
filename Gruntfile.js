@@ -35,6 +35,12 @@ module.exports = function(grunt) {
           'static/assets/js/scripts.min.js': [
             'assets/js/plugins/*.js',
             'assets/js/_*.js'
+          ],
+          'static/assets/js/vendor/modernizr-2.6.2.custom.min.js': [
+            'assets/js/vendor/modernizr-2.6.2.custom.min.js'
+          ],
+          'static/assets/js/vendor/jquery-1.9.1.min.js': [
+            'assets/js/vendor/jquery-1.9.1.min.js'
           ]
         }
       }
@@ -81,7 +87,10 @@ module.exports = function(grunt) {
     clean: {
       dist: [
         'static/assets/css/main.min.css',
-        'static/assets/js/scripts.min.js'
+        'static/assets/css/ie.min.css',
+        'static/assets/js/scripts.min.js',
+        'static/assets/js/vendor/modernizr-2.6.2.custom.min.js'
+        'static/assets/js/vendor/jquery-1.9.1.min.js'
       ]
     }
   });
