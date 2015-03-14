@@ -23,3 +23,7 @@ pygmentsuseclasses = true
 
 [author]
   name = "Fábio Rehm"
+  email = "fgrehm@gmail.com"
+
+[blackfriday]
+  plainIdAnchors = true
