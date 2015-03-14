@@ -21,8 +21,13 @@
   <h1>Blog posts</h1>
   {{ range where .Data.Pages "Section" "blog" }}
   <article itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <h2 itemprop="headline"><a href="{{ .Permalink }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a></h2>
-    <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
+    {{ if not .Draft }}
+      <h2 itemprop="headline"><a href="{{ .Permalink }}" rel="bookmark" title="{{ .Title }}">{{ .Title }}</a></h2>
+      <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
+    {{ else }}
+      <h2 itemprop="headline"><a href="{{ .Permalink }}" rel="bookmark" title="{{ .Title }}">DRAFT {{ .Title }}</a></h2>
+      <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
+    {{ end }}
   </article>
   {{ end }}
 </div>{{ `<!-- /#index -->` | safeHtml }}
