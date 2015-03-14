@@ -1,5 +1,10 @@
 ---
 layout: post
+category: blog
+draft: true
+---
+---
+layout: post
 title: 'Hipster development with Ventriloquist'
 description: 'Set up a polyglot development environment with lots of stuff to build a Gist-like service'
 tags:

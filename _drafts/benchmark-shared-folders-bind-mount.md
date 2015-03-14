@@ -1,3 +1,8 @@
+---
+layout: post
+category: blog
+draft: true
+---
  * Dentro do virtualbox limitado, pasta compartilhada
  * Dentro do virtualbox limitado, pasta compartilhada (NFS)
  * Com minha maquina e tudo liberado

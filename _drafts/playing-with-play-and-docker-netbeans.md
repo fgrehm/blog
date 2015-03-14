@@ -1,3 +1,8 @@
+---
+layout: post
+category: blog
+draft: true
+---
 - bootstrap project from $HOME/projects
 ```
 wget http://downloads.typesafe.com/typesafe-activator/1.2.10/typesafe-activator-1.2.10-minimal.zip -O /tmp/activator.zip

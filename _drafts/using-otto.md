@@ -1,3 +1,8 @@
+---
+layout: post
+category: blog
+draft: true
+---
 * Couldn't get a simple push to a string array to work (push to JS array works)
   -> Solution: Expose a method for performing the merge and / or global object
                Something like a DSL

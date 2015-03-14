@@ -1,3 +1,8 @@
+---
+layout: post
+category: blog
+draft: true
+---
 Rewrite of devstep cli, make it more robust, better evolve, add tests...
 devstep deserve a post of its own that is on the works
 Couldnt make it work

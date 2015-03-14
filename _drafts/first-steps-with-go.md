@@ -1,3 +1,8 @@
+---
+layout: post
+category: blog
+draft: true
+---
 http://c7.se/from-ruby-to-go/
 
 I've been playing with Go every now and then and I have to say that it has been
