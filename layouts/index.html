@@ -25,13 +25,13 @@
     <p itemprop="text">{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary }}{{ end }}</p>
   </article>
   {{ end }}
-</div><!-- /#index -->
+</div>{{ `<!-- /#index -->` | safeHtml }}
 
 <div class="footer-wrap">
   <footer>
     {{ partial "footer.html" . }}
   </footer>
-</div><!-- /.footer-wrap -->
+</div>{{ `<!-- /.footer-wrap -->` | safeHtml }}
 
 {{ partial "scripts.html" . }}
 
