@@ -8,8 +8,8 @@ module.exports = function(grunt) {
       },
       all: [
         'Gruntfile.js',
-        'static/assets/js/*.js',
-        '!static/assets/js/plugins/*.js',
+        'assets/js/*.js',
+        '!assets/js/plugins/*.js',
         '!static/assets/js/scripts.min.js'
       ]
     },
@@ -21,10 +21,10 @@ module.exports = function(grunt) {
         },
         files: {
           'static/assets/css/main.min.css': [
-            'static/assets/less/main.less'
+            'assets/less/main.less'
           ],
           'static/assets/css/ie.min.css': [
-            'static/assets/less/ie.less'
+            'assets/less/ie.less'
           ]
         }
       }
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'static/assets/js/scripts.min.js': [
-            'static/assets/js/plugins/*.js',
-            'static/assets/js/_*.js'
+            'assets/js/plugins/*.js',
+            'assets/js/_*.js'
           ]
         }
       }
@@ -47,9 +47,9 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'static/images/',
           src: ['**/*.{png,jpg,jpeg,gif}'],
-          dest: 'images/'
+          dest: 'static/images/'
         }]
       }
     },
@@ -57,9 +57,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: 'images/',
+          cwd: 'static/images/',
           src: '{,*/}*.svg',
-          dest: 'images/'
+          dest: 'static/images/'
         }]
       }
     },
