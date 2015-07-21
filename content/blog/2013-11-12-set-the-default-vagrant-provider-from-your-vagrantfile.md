@@ -39,3 +39,10 @@ ENV['VAGRANT_DEFAULT_PROVIDER'] = 'virtualbox'
 
 With that in place I can guarantee that anyone that tries to bring one of those
 VMs up (myself included) will end up using VirtualBox unless explicitly specified.
+
+
+## UPDATE: This is wrong!
+
+Vagrant 1.7+ has a smart mechanism to handle default providers, please see the
+`Default Provider` section of the documentation at: https://docs.vagrantup.com/v2/providers/basic_usage.html
+for more

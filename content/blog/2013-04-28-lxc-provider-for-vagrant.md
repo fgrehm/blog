@@ -11,6 +11,9 @@ tags:
 category: blog
 ---
 
+_**UPDATE**: This post is likely to be out of date, please see [this post](/blog/2015/07/21/quick-update-about-some-vagrant-plugins)
+for more_
+
 It's been nearly 2 months since I open sourced my "not so pretty" [initial spike](https://github.com/fgrehm/vagrant-lxc/tree/55c9be772db32d4f49bf61af1801d2d6f14a880e)
 and [announced](https://groups.google.com/d/topic/vagrant-up/fp3UfclJDg8/discussion) on
 Vagrant's mailing list that I was going to work on this. By that time, Vagrant 1.1 wasn't

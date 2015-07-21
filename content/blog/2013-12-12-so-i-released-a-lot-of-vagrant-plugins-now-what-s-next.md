@@ -24,15 +24,15 @@ went crazy releasing plugins (10 to be more specific) and ended [becoming a Vagr
 back in June. To give you an idea, this is what I've released over the year:
 
 * [vagrant-notify](https://github.com/fgrehm/vagrant-notify) - Released at the end of 2012, but "matured" by beginning of 2013
-* [vagrant-boxen](https://github.com/fgrehm/vagrant-boxen) (deprecated) - February 17th
+* [vagrant-boxen](https://github.com/fgrehm/vagrant-boxen) **(deprecated)** - February 17th
 * [vagrant-lxc](https://github.com/fgrehm/vagrant-lxc) - March 12th
 * [vagrant-cachier](https://github.com/fgrehm/vagrant-cachier) - May 22nd
-* [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine) - July 11th
-* [bindler](https://github.com/fgrehm/bindler) - Public release on July 15th as Vundler and later renamed to Bindler
-* [vagrant-global-status](https://github.com/fgrehm/vagrant-global-status) - August 8th
-* [vocker](https://github.com/fgrehm/vocker) (deprecated) - August 14th
-* [ventriloquist](https://github.com/fgrehm/ventriloquist) - September 10th
-* [docker-provider](https://github.com/fgrehm/docker-provider) - November 5th
+* [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine) **(deprecated)** - July 11th
+* [bindler](https://github.com/fgrehm/bindler) - **(deprecated)** Public release on July 15th as Vundler and later renamed to Bindler
+* [vagrant-global-status](https://github.com/fgrehm/vagrant-global-status) **(deprecated)** - August 8th
+* [vocker](https://github.com/fgrehm/vocker) **(deprecated)** - August 14th
+* [ventriloquist](https://github.com/fgrehm/ventriloquist) **(deprecated)** - September 10th
+* [docker-provider](https://github.com/fgrehm/docker-provider) **(deprecated)** - November 5th
 
 Before you think I'm going nuts, I have a reason behind releasing each plugin and
 I have a separate blog post lined up explaining that but for the scope of this post
@@ -123,7 +123,11 @@ and will just drop support for Vagrant < 1.4 after that for the same reasons as
 I'll do it for vagrant-lxc.
 
 
-## [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine)
+## [vagrant-pristine](https://github.com/fgrehm/vagrant-pristine) (deprecated)
+
+_**UPDATE** (21 JUL 2015): Similar functionality is likely to be provided by a future
+Vagrant release, see the following links for more https://github.com/mitchellh/vagrant/issues/5378,
+https://github.com/mitchellh/vagrant/pull/5410, https://github.com/mitchellh/vagrant/pull/5613_
 
 This is a really tiny plugin that has been saving me lots of keystrokes when
 rebuilding VMs from scratch. There's not a lot for it to be improved apart from
@@ -131,7 +135,7 @@ rebuilding VMs from scratch. There's not a lot for it to be improved apart from
 for a 1.0 release.
 
 
-## [bindler](https://github.com/fgrehm/bindler)
+## [bindler](https://github.com/fgrehm/bindler) (deprecated)
 
 _**UPDATE** (26 AUG 2014): Since Vagrant 1.5 came out with a [tight integration](https://github.com/mitchellh/vagrant/pull/2769)
 with Bundler, Bindler is no longer being maintained as it would basically
@@ -161,7 +165,7 @@ with Bindler but I think that will handle some use cases that are currently
 covered by Bindler as of now.
 
 
-## [vagrant-global-status](https://github.com/fgrehm/vagrant-global-status)
+## [vagrant-global-status](https://github.com/fgrehm/vagrant-global-status) (deprecated)
 
 _**UPDATE** (26 AUG 2014): The functionality provided by the plugin [landed into Vagrant 1.6](https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-global-status.html)_
 
@@ -188,7 +192,7 @@ at the [official docs](http://docs.vagrantup.com/v2/provisioning/docker.html) to
 find out how things will work from now on.
 
 
-## [ventriloquist](https://github.com/fgrehm/ventriloquist)
+## [ventriloquist](https://github.com/fgrehm/ventriloquist) (deprecated)
 
 _**UPDATE** (26 AUG 2014): I've stepped down as a maintainer of the plugin, feel
 free to [reach out in case you want to take over responsibility for the project](https://github.com/fgrehm/ventriloquist/issues/63)_
@@ -210,7 +214,7 @@ but there seems to be enough interest on a developer friendly tool for building
 development environments that I'm willing to have a shot at it :)
 
 
-## [docker-provider](https://github.com/fgrehm/docker-provider)
+## [docker-provider](https://github.com/fgrehm/docker-provider) (deprecated)
 
 _**UPDATE** (26 AUG 2014): The plugin was merged into [Vagrant 1.6](https://www.vagrantup.com/blog/feature-preview-vagrant-1-6-docker-dev-environments.html)_
 
