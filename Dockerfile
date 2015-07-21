@@ -1,4 +1,4 @@
-FROM node:0.12
+FROM node:0.10
 
 RUN curl -Ls https://godist.herokuapp.com/projects/ddollar/forego/releases/current/linux-amd64/forego \
        > /usr/local/bin/forego \
@@ -12,10 +12,12 @@ RUN curl -sL https://github.com/spf13/hugo/releases/download/v0.14/hugo_0.14_lin
     && rm -rf /tmp/*
 
 RUN apt-get update \
-    && apt-get install sudo \
+    && apt-get install -y sudo \
+                          python-pip \
     && apt-get autoremove -yqq \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && pip install Pygments \
     && echo "developer:x:1000:1000:Developer,,,:/home/developer:/bin/bash" >> /etc/passwd \
     && echo "developer:x:1000:" >> /etc/group \
     && mkdir -p /home/developer \
