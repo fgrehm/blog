@@ -1,5 +1,5 @@
 title = "Fábio Rehm"
-baseUrl = "http://fabiorehm.com/"
+baseURL = "http://fabiorehm.com/"
 languageCode = "en-us"
 
 metaDataFormat = "yaml"
@@ -9,7 +9,7 @@ log = true
 pygmentsuseclasses = true
 
 [permalinks]
-    blog = "/blog/:year/:month/:day/:slug/"
+  blog = "/blog/:year/:month/:day/:slug/"
 
 [params]
   name = "Fábio Rehm"
@@ -20,6 +20,7 @@ pygmentsuseclasses = true
   github = "fgrehm"
   coderwall = "fgrehm"
   linkedin = "fabiorehm"
+  google_analytics = "UA-37437857-1"
 
 [author]
   name = "Fábio Rehm"

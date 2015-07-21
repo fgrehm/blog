@@ -1,7 +1,7 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
-<script src="{{ .Site.BaseUrl }}assets/js/scripts.min.js"></script>
-{{ if .Params.google_analytics }}
+<script src="{{ .Site.BaseURL }}assets/js/scripts.min.js"></script>
+{{ if .Site.Params.google_analytics }}
 <!-- Asynchronous Google Analytics snippet -->
 <script>
   //http://drawingablank.me/blog/fix-your-bounce-rate.html
@@ -9,7 +9,7 @@
   var pluginUrl =
  '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
   _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', '{{ .Params.google_analytics }}']);
+  _gaq.push(['_setAccount', '{{ .Site.Params.google_analytics }}']);
   _gaq.push(['_trackPageview']);
 
   setTimeout(function() {

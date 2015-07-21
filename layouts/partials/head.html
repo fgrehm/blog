@@ -6,52 +6,52 @@
 {{ else if .Params.tags }}
 <meta name="keywords" content="{{ delimit .Params.tags "," }}">
 {{ end }}
-{{ `<!-- Twitter Cards -->` | safeHtml }}
+{{ `<!-- Twitter Cards -->` | safeHTML }}
 <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
 <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
 <meta name="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ end }}">
 
-{{ `<!-- Open Graph -->` | safeHtml }}
+{{ `<!-- Open Graph -->` | safeHTML }}
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ end }}">
-<meta property="og:url" content="{{ .Url }}">
+<meta property="og:url" content="{{ .URL }}">
 <meta property="og:site_name" content="{{ .Title }}">
 
-<link rel="canonical" href="{{ .Site.BaseUrl }}{{ if not (eq .Url "/") }}{{ .Url }}{{ end }}">
+<link rel="canonical" href="{{ .Site.BaseURL }}{{ if not (eq .URL "/") }}{{ .URL }}{{ end }}">
 <link href="http://feeds.feedburner.com/fabio-rehm" type="application/atom+xml" rel="alternate" title="{{ .Title }} Feed">
 
-{{ `<!-- http://t.co/dKP3o1e -->` | safeHtml }}
+{{ `<!-- http://t.co/dKP3o1e -->` | safeHTML }}
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-{{ `<!-- Google Webfonts -->` | safeHtml }}
+{{ `<!-- Google Webfonts -->` | safeHTML }}
 <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Serif:400,700,400italic' rel='stylesheet' type='text/css'>
-{{ `<!-- For all browsers -->` | safeHtml }}
-<link rel="stylesheet" href="{{ .Site.BaseUrl }}assets/css/main.min.css">
+{{ `<!-- For all browsers -->` | safeHTML }}
+<link rel="stylesheet" href="{{ .Site.BaseURL }}assets/css/main.min.css">
 
-{{ `<!--[if (lt IE 9) & (!IEMobile)]>` | safeHtml }}
-{{ `<link rel="stylesheet" href="{{ .Url }}assets/css/ie.min.css">` | safeHtml }}
-{{ `<![endif]-->` | safeHtml }}
+{{ `<!--[if (lt IE 9) & (!IEMobile)]>` | safeHTML }}
+{{ `<link rel="stylesheet" href="{{ .URL }}assets/css/ie.min.css">` | safeHTML }}
+{{ `<![endif]-->` | safeHTML }}
 
 <meta http-equiv="cleartype" content="on">
 
-{{ `<!-- Load Modernizr -->` | safeHtml }}
-<script src="{{ .Site.BaseUrl }}/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
+{{ `<!-- Load Modernizr -->` | safeHTML }}
+<script src="{{ .Site.BaseURL }}/assets/js/vendor/modernizr-2.6.2.custom.min.js"></script>
 
-{{ `<!-- Icons -->` | safeHtml }}
-{{ `<!-- 16x16 -->` | safeHtml }}
-<link rel="shortcut icon" href="{{ .Url }}/favicon.ico">
-{{ `<!-- 32x32 -->` | safeHtml }}
-<link rel="shortcut icon" href="{{ .Url }}/favicon.png">
-{{ `<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->` | safeHtml }}
-<link rel="apple-touch-icon-precomposed" href="{{ .Url }}/images/apple-touch-icon-precomposed.png">
-{{ `<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->` | safeHtml }}
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ .Url }}/images/apple-touch-icon-72x72-precomposed.png">
-{{ `<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->` | safeHtml }}
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ .Url }}/images/apple-touch-icon-114x114-precomposed.png">
-{{ `<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->` | safeHtml }}
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ .Url }}/images/apple-touch-icon-144x144-precomposed.png">
+{{ `<!-- Icons -->` | safeHTML }}
+{{ `<!-- 16x16 -->` | safeHTML }}
+<link rel="shortcut icon" href="{{ .URL }}/favicon.ico">
+{{ `<!-- 32x32 -->` | safeHTML }}
+<link rel="shortcut icon" href="{{ .URL }}/favicon.png">
+{{ `<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->` | safeHTML }}
+<link rel="apple-touch-icon-precomposed" href="{{ .URL }}/images/apple-touch-icon-precomposed.png">
+{{ `<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->` | safeHTML }}
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ .URL }}/images/apple-touch-icon-72x72-precomposed.png">
+{{ `<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->` | safeHTML }}
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ .URL }}/images/apple-touch-icon-114x114-precomposed.png">
+{{ `<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->` | safeHTML }}
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ .URL }}/images/apple-touch-icon-144x144-precomposed.png">
