@@ -15,5 +15,5 @@ build: docker.build
 
 deploy: build
 	TAG=$$(date +%Y%m%d%H%M%S) && \
-		rsync -avze 'ssh -p 536' --delete public/ 'fabiorehm.com':'/var/www/fabiorehm.com' && \
+		rsync -avze 'ssh -p 4363' --delete public/ 'fabiorehm.com':'/home/fabio/docker-nginx/sites/fabiorehm.com/' && \
 		git tag $$TAG && git push && git push --tags
