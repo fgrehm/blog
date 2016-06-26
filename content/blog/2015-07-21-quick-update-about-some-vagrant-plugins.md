@@ -1,7 +1,6 @@
 ---
 date: "2015-07-21"
 layout: post
-draft: true
 title: "Quick update about some Vagrant plugins"
 description: "Please check this out if you use one of the plugin I created on the past"
 tags:
