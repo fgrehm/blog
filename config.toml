@@ -7,8 +7,11 @@ disqusShortname = "fgrehm"
 googleAnalytics = "UA-37437857-1"
 # Number of posts per page
 Paginate = 5
-enableRobotsTXT = true 
+enableRobotsTXT = true
 
+# pygmentsUseClassic=true
+pygmentsuseclasses = true
+# linenos=table
 
 [params.assets]
 customCSS = ["css/custom.css"]
