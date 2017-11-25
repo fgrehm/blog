@@ -1,0 +1,16 @@
+.content h1 code,
+.content h2 code,
+.content h3 code,
+.content h4 code,
+.content h5 code,
+.content h6 code {
+  background-color: transparent;
+}
+
+.section.list .title:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.section.list article+article {
+  margin-top: 40px;
+}
