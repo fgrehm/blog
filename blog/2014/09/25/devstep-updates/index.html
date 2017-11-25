@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Devstep updates | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Devstep updates - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='Check out the latest Devstep goodies'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2014/09/25/devstep-updates/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='docker'><meta property='article:tag' content='devstep'><meta property='article:tag' content='golang'><meta property='article:published_time' content='2014-09-25T00:00:00Z'/><meta property='article:modified_time' content='2014-09-25T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/docker">#docker</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/devstep">#devstep</a>
+  
+  | <a class="subtitle is-6" href="/tags/golang">#golang</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">September 25, 2014</h2>
+    <h1 class="title">Devstep updates</h1>
+      
+    <div class="content">
+      
+
+<p>The third release of the <a href="http://fgrehm.viewdocs.io/devstep" target="_blank">Devstep</a> Docker image
+came out last night along with a brand new Golang CLI featuring some very nice
+improvements and new functionality. The CHANGELOG is <a href="https://github.com/fgrehm/devstep/releases/tag/v0.2.0" target="_blank">here</a>
+and on this post I&rsquo;ll cover some exciting new stuff I was able to get in place.</p>
+
+<h2 id="docker-image-updates">Docker image updates</h2>
+
+<p>Starting with the base image updates, the 0.2.0 release dropped from <code>1.168GB</code> down to <code>867.7MB</code> MB
+representing a <code>~25%</code> reduction on disk usage. This is a big win for those who live short on disk space
+like me and you can expect it to shrink even more on upcoming releases. If you are interested on
+updates about that, keep an eye on <a href="https://github.com/fgrehm/devstep/issues/62" target="_blank">GH-62</a>.</p>
+
+<p>Another change I made was related to the image we use as a starting point for Devstep&rsquo;s base image. Prior to
+this release we were basing the <code>fgrehm/devstep</code> image from <code>progrium/cedarish</code> and <a href="https://github.com/heroku/stack-images/blob/master/bin/cedar.sh" target="_blank">Heroku&rsquo;s Cedar script</a>,
+on 0.2.0 I switched it to <code>progrium/cedarish:cedar14</code> which not only helped to reduce the disk usage but
+also got us closer to <a href="https://blog.heroku.com/archives/2014/8/19/cedar-14-public-beta" target="_blank">Heroku&rsquo;s next <code>cedar-14</code> stack</a>
+(big win if you are deploying apps to Heroku).</p>
+
+<h2 id="heroku-rubies">Heroku rubies</h2>
+
+<p>On the previous releases I chose to leverage <a href="https://rvm.io/" target="_blank">rvm</a> to install rubies but on
+0.2.0 we&rsquo;ll now use the exact same Ruby installation that you&rsquo;ll get on Heroku. If you are
+deploying your apps there, this is as close as you might get to <a href="http://12factor.net/dev-prod-parity" target="_blank">production parity</a>
+when it comes to the Ruby version used in prod.</p>
+
+<p>We are not using the default Heroku buildpack to set things up yet but Devstep&rsquo;s custom Ruby buildpack
+has been updated to download and install rubies from the same source as the default buildpack. I did
+try my best to adapt the default buildpack for usage with Devstep but it ended up becoming a huge mess
+of monkey patches.</p>
+
+<h2 id="new-golang-cli">New Golang CLI</h2>
+
+<p>The new Golang CLI is a big one. Not because it is the first &ldquo;non-trivial&rdquo; Golang I wrote but
+because of the new features it brings to the table.</p>
+
+<h3 id="yaml-configs">YAML configs</h3>
+
+<p>Support for configuration files is something that is not new to the CLI, with the Bash version
+of it we were able to specify configurations on project&rsquo;s <code>.devsteprc</code> (or globally from <code>$HOME/.devsteprc</code>)
+in the form of environmental variables. Those files would be bash <code>source</code>d on every <code>devstep</code>
+command run.</p>
+
+<p>Starting with this initial release of the new CLI we now have a proper configuration file
+with a well defined format. For example, this is the global settings I have in place on my <code>$HOME/devstep.yml</code>:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">cache_dir<span class="p">:</span><span class="w"> </span><span class="s1">&#39;{{env &#34;HOME&#34;}}/devstep/cache&#39;</span><span class="w">
+</span><span class="w"></span>volumes<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="s1">&#39;{% raw %}{{env &#34;HOME&#34;}}{% endraw %}/.netrc:/.devstep/.netrc&#39;</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="s1">&#39;{% raw %}{{env &#34;HOME&#34;}}{% endraw %}/.gem/credentials:/.devstep/.gem/credentials&#39;</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="s1">&#39;{% raw %}{{env &#34;HOME&#34;}}{% endraw %}/.gitconfig:/.devstep/.gitconfig&#39;</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="s1">&#39;{% raw %}{{env &#34;HOME&#34;}}{% endraw %}/.ssh:/.devstep/.ssh&#39;</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span><span class="s1">&#39;{% raw %}{{env &#34;SSH_AUTH_SOCK&#34;}}{% endraw %}:/tmp/ssh-auth-sock&#39;</span><span class="w">
+</span><span class="w"></span>environment<span class="p">:</span><span class="w">
+</span><span class="w">  </span>SSH_AUTH_SOCK<span class="p">:</span><span class="w"> </span><span class="s2">&#34;/tmp/ssh-auth-sock&#34;</span></code></pre></div>
+
+<p>What that does is make sure devstep cached packages persist between computer restarts and that
+I have a <code>devstep hack</code> experience inside the container as if I was working from my machine.
+Meaning I can <code>ssh</code> / <code>git pull</code> / <code>git commit</code> / <code>gem push</code> / <code>heroku run</code> from within
+containers if I want / need to.</p>
+
+<p>As for a project specific config, here&rsquo;s a real world example from a Rails app I worked on recently:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Link containers with existing postgres / redis instances (not managed by devstep)</span><span class="w">
+</span><span class="w"></span>links<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;postgres:db&#34;</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="s2">&#34;redis:redis&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Custom commands section that can be run with `devstep run -- CMD`</span><span class="w">
+</span><span class="w"></span>commands<span class="p">:</span><span class="w">
+</span><span class="w">  </span>server<span class="p">:</span><span class="w">
+</span><span class="w">    </span>cmd<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;rails&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;server&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">    </span>publish<span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;3000:3000&#34;</span><span class="p">]</span><span class="w">
+</span><span class="w">  </span><span class="c"># No custom options, used only for generating binstubs</span><span class="w">
+</span><span class="w">  </span><span class="c"># (more on that below)</span><span class="w">
+</span><span class="w">  </span>guard<span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="c"># intentionally left blank</span><span class="w">
+</span><span class="w">  </span>rake<span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="c"># intentionally left blank</span></code></pre></div>
+
+<h3 id="aliases-and-binstubs">Aliases and binstubs</h3>
+
+<p>As you might have noticed on the example above, custom devstep commands can be specified on
+configuration files. Those commands will be made available from <code>devstep run -- CMD</code> and they
+will get the Docker options you specify on <code>devstep.yml</code>s.</p>
+
+<p>Aliases can save you a few keystrokes (like omitting <code>-p 3000:3000</code> with the <code>server</code> command
+above) but its true power comes in combination with some custom binstubs. By appending an
+<code>export PATH=&quot;.devstep/bin:${PATH}&quot;</code> to our <code>$BASH/.bashrc</code>, we can even ommit the
+<code>devstep run</code> prefix when running custom commands. It&rsquo;s pretty cool to run just <code>rake spec</code>
+on Ruby projects from my laptop and let devstep take care of the rest without the need to
+<code>devstep hack</code> first in order to get into a shell with project&rsquo;s dependencies in place :)</p>
+
+<h3 id="experimental-plugins-support">Experimental plugins support</h3>
+
+<p>Last but not least, the new CLI leverages the <a href="https://github.com/robertkrimen/otto" target="_blank">otto</a>
+project and comes with an experimental support for JavaScript plugins that can be used to
+hook into the CLI runtime to modify its configuration at specific points
+during commands execution. With that I was able to write a <a href="https://github.com/fgrehm/devstep-squid3-ssl" target="_blank">pretty cool plugin</a>
+that does some magic to configure devstep containers with a Squid3 caching proxy that has
+SSL enabled and will cache both <code>http://</code> and <code>https://</code> requests, reducing the overall
+dependencies installation time even more.</p>
+
+<p>Plugins are be installed to <code>$HOME/devstep/plugins/&lt;PLUGIN_NAME&gt;/plugin.js</code>
+on the machine that is executing <code>devstep</code> commands and the only requirement is
+that a plugin folder should have a <code>plugin.js</code> file.</p>
+
+<p>The current functionality is very rudimentary and is likely to be changed so right
+now it is best explained by the <a href="https://github.com/fgrehm/devstep-squid3-ssl" target="_blank">squid3-ssl proxy</a>
+plugin source which is currently the only plugin available:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="c1">// `_currentPluginPath` is the host path where the JavaScript file is located
+</span><span class="c1">// and is provided by Devstep&#39;s CLI plugin runtime, we keep its value on a
+</span><span class="c1">// separate variable because its value gets changed for each plugin that
+</span><span class="c1">// gets loaded.
+</span><span class="c1"></span><span class="nx">squidRoot</span> <span class="o">=</span> <span class="nx">_currentPluginPath</span><span class="p">;</span>
+
+<span class="c1">// squidShared is the path were squid will keep both downloaded files on the host
+</span><span class="c1">// machine and also the generated self signed certificate so that Devstep
+</span><span class="c1">// containers can trust.
+</span><span class="c1"></span><span class="nx">squidShared</span> <span class="o">=</span> <span class="nx">squidRoot</span> <span class="o">+</span> <span class="s2">&#34;/shared&#34;</span><span class="p">;</span>
+
+<span class="c1">// Hook into the `configLoaded` event that gets triggered right after configuration
+</span><span class="c1">// files are loaded (eg: `$HOME/devstep.yml` and `CURRENT_DIR/devstep.yml`)
+</span><span class="c1"></span><span class="nx">devstep</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;configLoaded&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">config</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">config</span>
+    <span class="c1">// Link CLI created containers with the squid container
+</span><span class="c1"></span>    <span class="p">.</span><span class="nx">addLink</span><span class="p">(</span><span class="s1">&#39;squid3:squid3.dev&#39;</span><span class="p">)</span>
+    <span class="c1">// Share the certificate file with Devstep containers
+</span><span class="c1"></span>    <span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">squidShared</span> <span class="o">+</span> <span class="s1">&#39;/certs/squid3.dev.crt:/usr/share/ca-certificates/squid3.dev.crt&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setEnv</span><span class="p">(</span><span class="s1">&#39;HTTPS_PROXY_CERT&#39;</span><span class="p">,</span> <span class="s1">&#39;squid3.dev.crt&#39;</span><span class="p">);</span>
+    <span class="c1">// Inject the script that will trust the squid container certificate
+</span><span class="c1"></span>    <span class="p">.</span><span class="nx">addVolume</span><span class="p">(</span><span class="nx">squidRoot</span> <span class="o">+</span> <span class="s1">&#39;/proxy.sh:/etc/my_init.d/proxy.sh&#39;</span><span class="p">)</span>
+
+    <span class="c1">// Sets environmental variables so that programs make use of the cache
+</span><span class="c1"></span>    <span class="p">.</span><span class="nx">setEnv</span><span class="p">(</span><span class="s1">&#39;http_proxy&#39;</span><span class="p">,</span> <span class="s1">&#39;http://squid3.dev:3128&#39;</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">setEnv</span><span class="p">(</span><span class="s1">&#39;https_proxy&#39;</span><span class="p">,</span> <span class="s1">&#39;http://squid3.dev:3128&#39;</span><span class="p">)</span>
+<span class="p">});</span></code></pre></div>
+
+<p>The code above is the equivalent of passing in <code>-e</code>, <code>-v</code> and <code>--link</code> parameters
+to <code>devstep</code> commands.</p>
+
+<blockquote>
+<p>The current functionality provided by the plugin runtime is pretty rudimentary
+so if you have ideas for other plugins that you think would be useful, feel free to
+reach out on the <a href="https://github.com/fgrehm/devstep-cli/issues/new" target="_blank">CLI issue tracker</a>
+or on <a href="https://gitter.im/fgrehm/devstep" target="_blank">Gitter</a> so that it can be further discussed
+as it will likely involve changes on the CLI itself.</p>
+</blockquote>
+
+<h2 id="that-s-it">That&rsquo;s it</h2>
+
+<p>For now those are the cool new stuff I&rsquo;ve got around, stay tunned for more :)</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

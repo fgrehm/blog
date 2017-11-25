@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Ventriloquist demo | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Ventriloquist demo - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='From zero to Discourse in a few lines of code'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2013/10/13/ventriloquist-demo/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='vagrant'><meta property='article:tag' content='ventriloquist'><meta property='article:tag' content='docker'><meta property='article:tag' content='lxc'><meta property='article:tag' content='discourse'><meta property='article:published_time' content='2013-10-13T00:00:00Z'/><meta property='article:modified_time' content='2013-10-13T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/vagrant">#vagrant</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/ventriloquist">#ventriloquist</a>
+  
+  | <a class="subtitle is-6" href="/tags/docker">#docker</a>
+  
+  | <a class="subtitle is-6" href="/tags/lxc">#lxc</a>
+  
+  | <a class="subtitle is-6" href="/tags/discourse">#discourse</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">October 13, 2013</h2>
+    <h1 class="title">Ventriloquist demo</h1>
+      
+    <div class="content">
+      
+
+<p>A while ago I stumbled across <a href="https://www.stackmachine.com/blog/web-development-on-a-vm-is-it-slower" target="_blank">this benchmark</a>
+by Brandon Liu on <a href="https://www.stackmachine.com" target="_blank">StackMachine</a>&rsquo;s blog comparing
+the numbers for performing some typical tasks on his physical machine and doing
+the same thing using virtual machines.</p>
+
+<p>The measurements <a href="https://www.stackmachine.com/blog/web-development-on-a-vm-is-it-slower#test_setup" target="_blank">were made</a>
+using <a href="https://github.com/discourse/discourse" target="_blank">Discourse</a> and compared the numbers
+of doing things on VirtualBox and VMware Fusion so I <a href="https://twitter.com/fgrehm/status/359445585738211330" target="_blank">got curious</a>
+to see how well <a href="https://github.com/fgrehm/vagrant-lxc" target="_blank">vagrant-lxc</a> shared folders
+would perform. What I ended up finding is that it seems that Discourse provides a
+base box that was configured <a href="https://github.com/discourse/discourse/blob/master/docs/DEVELOPER-ADVANCED.md#building-your-own-vagrant-vm" target="_blank">by hand</a>
+and the Chef cookbooks <a href="https://github.com/discourse/discourse/blob/aca567b4d7b9a7a654e12a5de35bee7d9c36e881/Vagrantfile#L37-L48" target="_blank">used</a>
+only deal with <a href="https://github.com/discourse/discourse/blob/aca567b4d7b9a7a654e12a5de35bee7d9c36e881/chef/cookbooks/discourse/recipes/default.rb" target="_blank">some basic stuff</a>
+and I&rsquo;d have to either do things by hand or write some provisioning scripts on
+my own.</p>
+
+<p>That was actually one of the reasons that made me push <a href="https://github.com/fgrehm/ventriloquist" target="_blank">Ventriloquist</a>
+development forward on its &ldquo;last miles&rdquo; before open sourcing it (and it is the
+reason why it is used as an example on the project&rsquo;s README BTW ;) While I could
+contribute back a set of Chef cookbooks, I decided to set Discourse needs as my
+target for deciding when to open source Ventriloquist.</p>
+
+<p>If you want to see the Ventriloquist in action check out the following Asciicast
+or read the step by step right below it.</p>
+
+<div class="asciicast-container">
+  <script type="text/javascript" src="http://asciinema.org/a/5900.js" id="asciicast-5900" async="true" data-speed="2"></script>
+</div>
+
+<h2 id="try-it-out">Try it out</h2>
+
+<p>First things first, so given you have Vagrant around, do a <code>vagrant plugin install ventriloquist</code>,
+<code>git clone https://github.com/discourse/discourse.git</code> and replace the [Chef provisioner]()
+code on the <code>Vagrantfile</code> with the code below:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">provision</span> <span class="ss">:ventriloquist</span> <span class="k">do</span> <span class="o">|</span><span class="n">env</span><span class="o">|</span>
+  <span class="n">env</span><span class="o">.</span><span class="n">services</span>  <span class="o">&lt;&lt;</span> <span class="sx">%w( redis pg:9.1 mailcatcher )</span>
+  <span class="n">env</span><span class="o">.</span><span class="n">platforms</span> <span class="o">&lt;&lt;</span> <span class="sx">%w( nodejs ruby )</span>
+<span class="k">end</span></code></pre></div>
+
+<p>You&rsquo;ll also need to change the base box used to an Ubuntu 13.04 machine, in my
+case I&rsquo;ve used <a href="http://bit.ly/vagrant-lxc-raring64-2013-09-28-" target="_blank">this</a> vagrant-lxc
+box, so the related Vagrant section looks like:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box</span> <span class="o">=</span> <span class="s1">&#39;raring64&#39;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">vm</span><span class="o">.</span><span class="n">box_url</span> <span class="o">=</span> <span class="s1">&#39;http://bit.ly/vagrant-lxc-raring64-2013-09-28-&#39;</span></code></pre></div>
+
+<p>At this point your <code>Vagrantfile</code> should look like <a href="https://gist.github.com/fgrehm/db49cf1207d062f6f8ce" target="_blank">this one</a>
+and you should be able to <code>vagrant up</code> the machine to watch Ventriloquist provisioning
+take place. It will take a while to finish depending on your internet connection
+so grab a coffee while it does its magic.</p>
+
+<p>Once provisioning has finished, go ahead and <code>vagrant ssh</code> into the VM and run the
+following commands to set things up:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /vagrant
+./script/setup_dev
+rake db:test:prepare
+gem install foreman --no-ri --no-rdoc
+cp .env.sample .env
+<span class="nb">echo</span> -e <span class="s2">&#34;\nPORT=3000&#34;</span> &gt;&gt; .env</code></pre></div>
+
+<p>To test that things are set up properly, run the specs with <code>rake spec</code>
+and fire up a server with <code>foreman start</code>. If everything went fine, you
+should see a green build and verify that Discourse is running by visiting <a href="http://localhost:4000" target="_blank">http://localhost:4000</a>
+on your browser and signing up. To read the confirmation mail, please visit [MailCatcher]()&rsquo;s
+web interface at <a href="http://localhost:4080" target="_blank">http://localhost:4080</a>.</p>
+
+<h2 id="coming-up">Coming up</h2>
+
+<p>Since Ventriloquist can be used to set things up across multiple Vagrant providers,
+I&rsquo;ll soon try to get the numbers comparing VirtualBox with <a href="https://github.com/fgrehm/vagrant-lxc" target="_blank">vagrant-lxc</a>
+and <a href="https://github.com/smdahlen/vagrant-digitalocean" target="_blank">vagrant-digitalocean</a> to
+see how it goes.</p>
+
+<p><em><strong>UPDATE</strong> (26 AUG 2014): I&rsquo;ve stepped down as a maintainer of the plugin, feel
+free to <a href="https://github.com/fgrehm/ventriloquist/issues/63" target="_blank">reach out in case you want to take over responsibility for the project</a></em></p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Blogs | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Blogs - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='http://fabiorehm.com/blog/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='website'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='og:updated_time' content='2015-07-22T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <article>
+      <h2 class="subtitle is-6">August 26, 2014</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2014/08/26/devstep-development-environments-powered-by-docker-and-buildpacks/">Devstep: Development environments powered by Docker and Buildpacks</a></h1>
+      <div class="content">
+        Devstep is a relatively new project that I I&rsquo;ve been working on since February 2014 and had its second release last friday. On its current state, Devstep is a dead simple, no frills development environment builder powered by Docker and the buildpack abstraction that is based around a simple (yet ambitious) goal:
+ I want to git clone and run a single command to hack on any software project.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2014/08/26/devstep-development-environments-powered-by-docker-and-buildpacks/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">August 9, 2014</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2014/08/09/get-notified-of-long-running-cli-tasks-completion-with-lmk/">Get notified of long running CLI tasks completion with &#39;lmk&#39;</a></h1>
+      <div class="content">
+        lmk is a simple command line tool written in Go that I released last February. I wrote it to draw my attention to a terminal when some long command finishes running.
+WTF?!? Yeah, it may sound silly but how often do you run a command that you know that takes a lot of time to complete, you go do something else and forget that the command was running? Even worse, what about when you get side tracked for a bit longer than you should and when you Alt+Tab to check if the command has finished it actually errored along the way?
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2014/08/09/get-notified-of-long-running-cli-tasks-completion-with-lmk/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">December 12, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/12/12/so-i-released-a-lot-of-vagrant-plugins-now-what-s-next/">So I released a lot of Vagrant plugins... Now what&#39;s next?</a></h1>
+      <div class="content">
+        2013 was the year I went 100% on Vagrant, went crazy releasing plugins (10 to be more specific) and ended becoming a Vagrant core commiter back in June. To give you an idea, this is what I&rsquo;ve released over the year:
+ vagrant-notify - Released at the end of 2012, but &ldquo;matured&rdquo; by beginning of 2013 vagrant-boxen (deprecated) - February 17th vagrant-lxc - March 12th vagrant-cachier - May 22nd vagrant-pristine (deprecated) - July 11th bindler - (deprecated) Public release on July 15th as Vundler and later renamed to Bindler vagrant-global-status (deprecated) - August 8th vocker (deprecated) - August 14th ventriloquist (deprecated) - September 10th docker-provider (deprecated) - November 5th  Before you think I&rsquo;m going nuts, I have a reason behind releasing each plugin and I might blog about that someday but for the scope of this post I&rsquo;ll focus on what you should expect for each one of them over 2014.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/12/12/so-i-released-a-lot-of-vagrant-plugins-now-what-s-next/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">November 12, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/11/12/meet-viewdocs/">Meet Viewdocs</a></h1>
+      <div class="content">
+        Last week @progrium striked again with one more great example of how we should strive for keeping things simple. Five months after releasing Dokku which is a Docker powered mini-Heroku written in around 100 lines of Bash, he has just open sourced viewdocs:
+Easy, elegant project documentation in Markdown using Viewdocs &ndash; Read the Docs meets Gist.io https://t.co/FIDrwPLgKc
+&mdash; Jeff Lindsay (@progrium) November 11, 2013 
+As with Dokku, the project is pretty small and (as of this writing) converts ~200 lines of Golang code into a powerful tool for small to medium sized open source projects hosted on GitHub.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/11/12/meet-viewdocs/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">November 12, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/11/12/set-the-default-vagrant-provider-from-your-vagrantfile/">Set the default Vagrant provider from your Vagrantfile</a></h1>
+      <div class="content">
+        There are times that you might need / want to use a specific provider for your Vagrant boxes that differs from VirtualBox or whatever provider you have set on your VAGRANT_DEFAULT_PROVIDER environmental variable.
+For experienced Ruby users this might seem something trivial to do but since Vagrant&rsquo;s community is made of people from many different programming languages background, I thought it would be nice to share this little trick I find useful when I need to make sure the VMs goes up with the right provider.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/11/12/set-the-default-vagrant-provider-from-your-vagrantfile/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          
+          <a class="button" href="/blog/">
+            <span class="icon is-small is-marginless">
+              <svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <polyline points="15 18 9 12 15 6"/>
+    
+  </svg>
+            </span>
+            Newer
+          </a>  
+                    
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button" href="/blog/page/3/">
+            Older
+            <span class="icon is-small is-marginless">
+              <svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <polyline points="14 6 20 12 14 18"/>
+    
+  </svg>
+            </span>
+          </a>      
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>
+

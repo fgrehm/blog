@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Vagrant | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Tag: Vagrant - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content=''>
+<meta property='og:url' content='http://fabiorehm.com/tags/vagrant/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='website'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Tags'><meta property='og:updated_time' content='2015-07-22T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    
+    <article>
+      <h2 class="subtitle is-6">July 15, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/07/15/vundler-dead-easy-plugin-management-for-vagrant/">Vundler: Dead easy plugin management for Vagrant</a></h1>
+      <div class="content">
+        UPDATE (23 JUL 2013): Vundler has been renamed to Bindler!
+Vagrant&rsquo;s plugin &ldquo;ecossystem&rdquo; just keep growing and recently there has been a lot of interest on having an easy way for managing project&rsquo;s specific plugin dependencies to avoid Dependency Hell and / or to reduce the amount of steps someone has to take when joining an ongoing project. There are at least 4 issues on Vagrant&rsquo;s issue tracker (#1874, #1789, #1700 and #1574) and one initiative by @tknerr to solve the problem.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/07/15/vundler-dead-easy-plugin-management-for-vagrant/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">June 10, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/06/10/improving-vagrant-lxc-boxes/">Improving vagrant-lxc boxes</a></h1>
+      <div class="content">
+        So I&rsquo;ve played with Docker once again and have been looking around its codebase to find out how things work over there. Even though I&rsquo;ve never wrote a single line of Go, it gave me some interesting insights about LXC itself and about packing up containers which influenced heavily the &ldquo;next generation&ldquo; vagrant-lxc base boxes and the upcoming work I have in mind for the provider.
+Starting with V3 boxes, vagrant-lxc will introduce a better approach for building base boxes and will also simplify the process of &ldquo;promoting&rdquo; existing containers to base vagrant boxes.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/06/10/improving-vagrant-lxc-boxes/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">May 24, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/05/24/stop-wasting-bandwidth-with-vagrant-cachier/">Stop wasting bandwidth with vagrant-cachier</a></h1>
+      <div class="content">
+        If you have done any kind of Puppet manifests / Chef cookbooks development using Vagrant chances are that you&rsquo;ve been staring at your screen waiting for the machine to be provisioned for really long periods of time, specially when you need to destroy the VM and start over.
+A while ago I came across this gist which solves part of the issue by caching downloaded packages on the host machine and sharing them among similar VM instances.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/05/24/stop-wasting-bandwidth-with-vagrant-cachier/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">April 28, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/04/28/lxc-provider-for-vagrant/">LXC provider for Vagrant</a></h1>
+      <div class="content">
+        UPDATE: This post is likely to be out of date, please see this post for more
+It&rsquo;s been nearly 2 months since I open sourced my &ldquo;not so pretty&rdquo; initial spike and announced on Vagrant&rsquo;s mailing list that I was going to work on this. By that time, Vagrant 1.1 wasn&rsquo;t even released yet and it was a long way to get where it is now.
+Almost two weeks after &ldquo;releasing&rdquo; the spike, Vagrant 1.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/04/28/lxc-provider-for-vagrant/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <h2 class="subtitle is-6">January 22, 2013</h2>
+      <h1 class="title"><a href="http://fabiorehm.com/blog/2013/01/22/announcing-letter_opener_web-1-0/">Announcing letter_opener_web 1.0</a></h1>
+      <div class="content">
+        One of the things I missed the most after going 100% on Vagrant was the ability to preview Rails apps sent mails on my browser. I got used to the awesome letter_opener gem which depends on launchy to fire up a new browser window with the email preview instead of sending. As launchy on its own wouldn&rsquo;t be able to open up a browser window on the host machine from the guest box, I started to look around for alternatives and wasn&rsquo;t able to find something else that worked for me.
+        
+        <a class="button is-link" href="http://fabiorehm.com/blog/2013/01/22/announcing-letter_opener_web-1-0/" style="height:28px">
+          Read more
+          <span class="icon is-small">
+            <i class="fa fa-angle-double-right"></i>
+          </span>
+        </a>
+        
+      </div>
+    </article>
+    
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          
+          <a class="button" href="/tags/vagrant/page/2/">
+            <span class="icon is-small is-marginless">
+              <svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <polyline points="15 18 9 12 15 6"/>
+    
+  </svg>
+            </span>
+            Newer
+          </a>  
+                    
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button" href="/tags/vagrant/page/4/">
+            Older
+            <span class="icon is-small is-marginless">
+              <svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <polyline points="14 6 20 12 14 18"/>
+    
+  </svg>
+            </span>
+          </a>      
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>
+

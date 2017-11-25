@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Fabio Rehm&#39;s Blog</title>
+    <link>http://fabiorehm.com/tags/</link>
+    <description>Recent content in Tags on Fabio Rehm&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ribice&#34;&gt;Fabio Rehm&lt;/a&gt; 2017</copyright>
+    <lastBuildDate>Fri, 24 May 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://fabiorehm.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apt</title>
+      <link>http://fabiorehm.com/tags/apt/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/apt/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bindler</title>
+      <link>http://fabiorehm.com/tags/bindler/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/bindler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Btrfs</title>
+      <link>http://fabiorehm.com/tags/btrfs/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/btrfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Buildpacks</title>
+      <link>http://fabiorehm.com/tags/buildpacks/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/buildpacks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bundler</title>
+      <link>http://fabiorehm.com/tags/bundler/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/bundler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cache</title>
+      <link>http://fabiorehm.com/tags/cache/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/cache/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chef</title>
+      <link>http://fabiorehm.com/tags/chef/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/chef/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cookbook</title>
+      <link>http://fabiorehm.com/tags/cookbook/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/cookbook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Copy on Write</title>
+      <link>http://fabiorehm.com/tags/copy-on-write/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/copy-on-write/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>http://fabiorehm.com/tags/devops/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devstep</title>
+      <link>http://fabiorehm.com/tags/devstep/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/devstep/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Discourse</title>
+      <link>http://fabiorehm.com/tags/discourse/</link>
+      <pubDate>Sun, 13 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/discourse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>http://fabiorehm.com/tags/docker/</link>
+      <pubDate>Wed, 22 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dockerize</title>
+      <link>http://fabiorehm.com/tags/dockerize/</link>
+      <pubDate>Wed, 22 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/dockerize/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Documentation</title>
+      <link>http://fabiorehm.com/tags/documentation/</link>
+      <pubDate>Tue, 12 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/documentation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dokku</title>
+      <link>http://fabiorehm.com/tags/dokku/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/dokku/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Firefox</title>
+      <link>http://fabiorehm.com/tags/firefox/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/firefox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gems</title>
+      <link>http://fabiorehm.com/tags/gems/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/gems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Github</title>
+      <link>http://fabiorehm.com/tags/github/</link>
+      <pubDate>Tue, 12 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/github/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>http://fabiorehm.com/tags/golang/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>http://fabiorehm.com/tags/java/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Letter_opener_web</title>
+      <link>http://fabiorehm.com/tags/letter_opener_web/</link>
+      <pubDate>Tue, 22 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/letter_opener_web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux Containers</title>
+      <link>http://fabiorehm.com/tags/linux-containers/</link>
+      <pubDate>Thu, 18 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/linux-containers/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lmk</title>
+      <link>http://fabiorehm.com/tags/lmk/</link>
+      <pubDate>Sat, 09 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/lmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lxc</title>
+      <link>http://fabiorehm.com/tags/lxc/</link>
+      <pubDate>Tue, 15 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/lxc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Netbeans</title>
+      <link>http://fabiorehm.com/tags/netbeans/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/netbeans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notify Send</title>
+      <link>http://fabiorehm.com/tags/notify-send/</link>
+      <pubDate>Sun, 12 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/notify-send/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Oss</title>
+      <link>http://fabiorehm.com/tags/oss/</link>
+      <pubDate>Tue, 12 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/oss/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pacman</title>
+      <link>http://fabiorehm.com/tags/pacman/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/pacman/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Phantomjs</title>
+      <link>http://fabiorehm.com/tags/phantomjs/</link>
+      <pubDate>Wed, 22 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/phantomjs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Provisioning</title>
+      <link>http://fabiorehm.com/tags/provisioning/</link>
+      <pubDate>Wed, 11 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/provisioning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Puppet</title>
+      <link>http://fabiorehm.com/tags/puppet/</link>
+      <pubDate>Wed, 11 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/puppet/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rails</title>
+      <link>http://fabiorehm.com/tags/rails/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/rails/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ruby</title>
+      <link>http://fabiorehm.com/tags/ruby/</link>
+      <pubDate>Tue, 26 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/ruby/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Rubygems</title>
+      <link>http://fabiorehm.com/tags/rubygems/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/rubygems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tmux</title>
+      <link>http://fabiorehm.com/tags/tmux/</link>
+      <pubDate>Thu, 17 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/tmux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>http://fabiorehm.com/tags/vagrant/</link>
+      <pubDate>Tue, 21 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Boxen</title>
+      <link>http://fabiorehm.com/tags/vagrant-boxen/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-boxen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Cachier</title>
+      <link>http://fabiorehm.com/tags/vagrant-cachier/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-cachier/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Global Status</title>
+      <link>http://fabiorehm.com/tags/vagrant-global-status/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-global-status/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Lxc</title>
+      <link>http://fabiorehm.com/tags/vagrant-lxc/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-lxc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Notify</title>
+      <link>http://fabiorehm.com/tags/vagrant-notify/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-notify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Plugins</title>
+      <link>http://fabiorehm.com/tags/vagrant-plugins/</link>
+      <pubDate>Mon, 15 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant Pristine</title>
+      <link>http://fabiorehm.com/tags/vagrant-pristine/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vagrant-pristine/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ventriloquist</title>
+      <link>http://fabiorehm.com/tags/ventriloquist/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/ventriloquist/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video</title>
+      <link>http://fabiorehm.com/tags/video/</link>
+      <pubDate>Sun, 28 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/video/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Virtualization</title>
+      <link>http://fabiorehm.com/tags/virtualization/</link>
+      <pubDate>Thu, 17 Jan 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/virtualization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vocker</title>
+      <link>http://fabiorehm.com/tags/vocker/</link>
+      <pubDate>Thu, 12 Dec 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vocker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vundler</title>
+      <link>http://fabiorehm.com/tags/vundler/</link>
+      <pubDate>Tue, 23 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/vundler/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>X11</title>
+      <link>http://fabiorehm.com/tags/x11/</link>
+      <pubDate>Thu, 11 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/x11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Yum</title>
+      <link>http://fabiorehm.com/tags/yum/</link>
+      <pubDate>Fri, 24 May 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/tags/yum/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

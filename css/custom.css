@@ -1,0 +1,54 @@
+.content h1 code,
+.content h2 code,
+.content h3 code,
+.content h4 code,
+.content h5 code,
+.content h6 code {
+  background-color: transparent;
+}
+
+.section.list .title:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.section.list article+article {
+  margin-top: 40px;
+}
+
+.flash-video, .asciicast-container {
+  text-align: center;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.asciicast-container iframe {
+  margin-left: auto;
+  margin-right: auto;
+}
+.asciicast-container p {
+  text-align: center;
+  font-style: italic;
+  font-size: 85%;
+  margin-top: -30px;
+}
+
+#asciicast-container-4580 iframe ,
+#asciicast-container-4581 iframe {
+  height: 417px;
+}
+
+#asciicast-container-5900 iframe {
+  height: 505px;
+}
+
+#asciicast-container-5922 iframe {
+  height: 565px;
+}
+
+.fluid-width-video-wrapper iframe, .fluid-width-video-wrapper object, .fluid-width-video-wrapper embed {
+  position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

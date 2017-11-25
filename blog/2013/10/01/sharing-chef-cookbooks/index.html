@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Sharing Chef Cookbooks | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Sharing Chef Cookbooks - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='My journey on setting things up to push chef-dokku to Opscode Community'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2013/10/01/sharing-chef-cookbooks/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='chef'><meta property='article:tag' content='cookbook'><meta property='article:tag' content='dokku'><meta property='article:tag' content='devops'><meta property='article:published_time' content='2013-10-01T00:00:00Z'/><meta property='article:modified_time' content='2013-10-01T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/chef">#chef</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/cookbook">#cookbook</a>
+  
+  | <a class="subtitle is-6" href="/tags/dokku">#dokku</a>
+  
+  | <a class="subtitle is-6" href="/tags/devops">#devops</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">October 1, 2013</h2>
+    <h1 class="title">Sharing Chef Cookbooks</h1>
+      
+    <div class="content">
+      <p>I&rsquo;ve been trying to publish my <a href="https://github.com/progrium/dokku" target="_blank">Dokku</a> Cookbook
+to <a href="http://www.opscode.com/community/" target="_blank">Opscode Community</a> since I <a href="https://github.com/fgrehm/chef-dokku" target="_blank">open sourced it</a>
+a couple weeks ago but didn&rsquo;t have much success until last night. The initial
+configuration was not so straightforward to me so I thought I&rsquo;d write it down
+in case I need to do it again. The information on this post is probably documented
+somewhere but I failed to find it, feel free to comment with links to official docs
+or other blog posts related :)</p>
+
+<p><a href="https://github.com/fgrehm/chef-dokku" target="_blank">chef-dokku</a> is the result of my initial
+interaction with <a href="http://www.opscode.com/chef/" target="_blank">Chef</a> which I&rsquo;ve been using as
+part of another project which I plan to release &ldquo;soon&rdquo;. It allows you to manage
+a Dokku installation, allowing configuration of application&rsquo;s <a href="https://github.com/progrium/dokku#environment-setup" target="_blank">environment variables</a>
+and installation of <a href="https://github.com/progrium/dokku/wiki/Plugins" target="_blank">Dokku plugins</a>.</p>
+
+<p>Since I come from a <a href="http://puppetlabs.com/puppet/what-is-puppet" target="_blank">Puppet</a> background,
+I had no idea what to do in order to publish the Cookbook to Opscode Community.
+Thanks to <a href="https://twitter.com/juanjeojeda/status/376398727822340096" target="_blank">@juanjeojeda</a>
+I got to know the command used for publishing but sadly that wasn&rsquo;t enough to
+make it work.</p>
+
+<p>I&rsquo;ve been using the plugin from within Vagrant machines only and didn&rsquo;t have the
+<a href="http://docs.opscode.com/knife.html" target="_blank"><code>knife</code></a> command available on my laptop so
+first thing I had to do was a <code>gem install chef</code> to get <code>knife</code> around. With Chef
+installed, my first attempt was to run the command Juanje suggested from a clean
+<code>git clone</code> but had no luck:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other
+WARNING: No knife configuration file found
+ERROR: Chef::Exceptions::CookbookNotFoundInRepo: Cannot find a cookbook named dokku;
+did you forget to add metadata to a cookbook? (http://wiki.opscode.com/display/chef/Metadata)</pre>
+</div>
+
+<p>It turns out that <code>knife</code> <a href="http://starkandwayne.com/articles/2013/05/07/tdd-your-devops-with-test-kitchen/#sharing_the_cookbook" target="_blank">doesn&rsquo;t like the chef-dokku folder name and you need to pass in some extra options</a>,
+so I created a <code>chef-cookbooks</code> folder under my <code>~/projects</code> to keep Chef
+cookbooks, moved <code>chef-dokku</code>&rsquo;s code into <code>~/projects/chef-cookbooks/dokku</code> and
+the error message changed:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other -o ../
+WARNING: No knife configuration file found
+ERROR: Your private key could not be loaded from /etc/chef/client.pem
+Check your configuration file and ensure that your private key is readable</pre>
+</div>
+
+<p>That error message led me to the <code>knife.rb</code> <a href="http://docs.opscode.com/config_rb_knife.html" target="_blank">docs</a>
+and I found out that I need to specify the <code>client_key</code> config on <code>~/.chef/knife.rb</code>
+or on <code>.chef/knife.rb</code> under the project&rsquo;s root. I also found out that I could
+save a few keystrokes and avoid the <code>-o</code> parameter by specifying the <code>cookbook_path</code>
+option. As a result, I&rsquo;ve added my client key to <code>~/.chef/client.pem</code> and created a
+<code>~/.chef/knife.rb</code> file with:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="n">client_key</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;HOME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">/.chef/client.pem&#34;</span>
+<span class="n">cookbook_path</span> <span class="s2">&#34;</span><span class="si">#{</span><span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;HOME&#39;</span><span class="o">]</span><span class="si">}</span><span class="s2">/projects/chef-cookbooks&#34;</span></code></pre></div>
+
+<p>With that in place I tried to share the Cookbook again without luck:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other
+ERROR: Errno::EACCES: Permission denied - /var/chef</pre>
+</div>
+
+<p>It turns out that knife / chef needs some folders in order to do its job. I
+couldn&rsquo;t find a way to change the folder it uses so after some trial and error
+I ended up creating the directories required with <code>sudo mkdir -p /var/chef/cache/checksums</code>,
+<code>chown</code>ed it to my user with <code>sudo chown -R fabio: /var/chef</code> to avoid using
+<code>sudo</code> and the error message changed again:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other
+Generating metadata for dokku from /tmp/chef-dokku-build20131001-18021-ypq6jp/dokku/metadata.rb
+Making tarball dokku.tgz
+ERROR: Error uploading cookbook dokku to the Opscode Cookbook Site:
+undefined method `strip' for nil:NilClass. Set log level to debug (-l debug) for more information.</pre>
+</div>
+
+<p>I&rsquo;ve tried to enable debug logging with <code>-l debug</code> as the error message suggests
+but it didn&rsquo;t work. Looking at <code>knife -h</code> I found out that the proper way to enable
+debugging is to provide <code>-VV</code> to the <code>knife</code> command and that gave me a pretty
+stacktrace to look into:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other -VV
+# ... lots of debugging statements ...
+Making tarball dokku.tgz
+DEBUG: Executing tar -czf dokku.tgz dokku
+DEBUG: ---- Begin output of tar -czf dokku.tgz dokku ----
+DEBUG: STDOUT:
+DEBUG: STDERR:
+DEBUG: ---- End output of tar -czf dokku.tgz dokku ----
+DEBUG: Ran tar -czf dokku.tgz dokku returned 0
+DEBUG: Signing: method: post, path: /api/v1/cookbooks, file: #< File:0x007f584a01ed08 >, User-id: , Timestamp: 2013-10-01T14:39:46Z
+ERROR: Error uploading cookbook dokku to the Opscode Cookbook Site: undefined method `strip' for nil:NilClass. Set log level to debug (-l debug) for more information.
+DEBUG:
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http/header.rb:17:in `block in initialize_http_header'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http/header.rb:15:in `each'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http/header.rb:15:in `initialize_http_header'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http/generic_request.rb:44:in `initialize'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/2.0.0/net/http/request.rb:14:in `initialize'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/cookbook_site_streaming_uploader.rb:137:in `new'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/cookbook_site_streaming_uploader.rb:137:in `make_request'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/cookbook_site_streaming_uploader.rb:67:in `post'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/knife/cookbook_site_share.rb:89:in `do_upload'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/knife/cookbook_site_share.rb:67:in `run'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/knife.rb:466:in `run_with_pretty_exceptions'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/knife.rb:173:in `run'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/lib/chef/application/knife.rb:123:in `run'
+/home/fabio/.rbenv/versions/2.0.0-p247/lib/ruby/gems/2.0.0/gems/chef-11.6.0/bin/knife:25:in `< top (required)>'
+/home/fabio/.rbenv/versions/2.0.0-p247/bin/knife:23:in load'
+/home/fabio/.rbenv/versions/2.0.0-p247/bin/knife:23:in `< main>'
+/home/fabio/.rbenv/versions/2.0.0-p247/bin/ruby_noexec_wrapper:14:in `eval'
+/home/fabio/.rbenv/versions/2.0.0-p247/bin/ruby_noexec_wrapper:14:in `< main>'</pre>
+</div>
+
+<p>Looking at that stacktrace I noticed that the <code>User-id</code> was missing and I went
+off to Chef sources to find out where that should come from. Looking at <a href="https://github.com/opscode/chef/blob/56a5ae1f9b7f7d5854c6532566995d1c8a276e6e/lib/chef/knife/cookbook_site_share.rb#L67" target="_blank">these lines</a>
+I found out that that parameter comes from the <code>node_name</code> defined on our knife
+configs and I added it my <code>~/.chef/knife.rb</code>:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-ruby" data-lang="ruby"><span class="c1"># Replace with your Opscode username</span>
+<span class="n">node_name</span> <span class="s2">&#34;fgrehm&#34;</span></code></pre></div>
+
+<p>But that still wasn&rsquo;t enough and the error message changed one more time:</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other
+knife cookbook site share dokku Other
+Generating metadata for dokku from /tmp/chef-dokku-build20131001-3501-1srzrdt/dokku/metadata.rb
+Making tarball dokku.tgz
+ERROR: Error uploading cookbook dokku to the Opscode Cookbook Site:
+wrong number of arguments (2 for 1). Set log level to debug (-l debug) for more information.</pre>
+</div>
+
+<p>Some googling led me to <a href="https://tickets.opscode.com/browse/CHEF-4456" target="_blank">this issue</a>
+on Chef&rsquo;s issue tracker and I found out that I had to downgrade to Ruby 1.9 as I
+was using 2.0.  After downgrading and installing Chef again I was finally able to
+share the cookbook \o/</p>
+
+<div class="highlight">
+  <pre>$ knife cookbook site share dokku Other
+Generating metadata for dokku from /tmp/chef-dokku-build20131001-16730-1rlofvz/dokku/metadata.rb
+Making tarball dokku.tgz
+Upload complete!</pre>
+</div>
+
+<p>Summing up, here&rsquo;s what you need to share your cookbook:</p>
+
+<ul>
+<li>Ruby 1.9</li>
+<li>Chef gem</li>
+<li><a href="https://getchef.opscode.com/signup?ref=community" target="_blank">An account at Opscode</a></li>
+<li>Make sure the cookbooks are kept on a folder with the same name as the cookbook itself (ex: <code>chef-dokku</code> should be cloned to <code>dokku</code>)</li>
+<li><code>~/.chef/knife.rb</code> or <code>./.chef/knife.rb</code> configured with:
+
+<ul>
+<li><code>client_key</code>: you should have seen it while registering with Opscode, if you didn&rsquo;t save it get a new one at <a href="https://www.opscode.com/account/password" target="_blank">https://www.opscode.com/account/password</a></li>
+<li><code>node_name</code>: your Opscode username</li>
+<li><code>cookbook_path</code>: this is optional and will allow you to omit the <code>-o</code> parameter when sharing your cookbooks</li>
+</ul></li>
+</ul>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

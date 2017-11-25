@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Stop wasting bandwidth with vagrant-cachier | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Stop wasting bandwidth with vagrant-cachier - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='Reduce Vagrant provisioning time with a local cache'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2013/05/24/stop-wasting-bandwidth-with-vagrant-cachier/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='vagrant'><meta property='article:tag' content='cache'><meta property='article:tag' content='apt'><meta property='article:tag' content='yum'><meta property='article:tag' content='pacman'><meta property='article:tag' content='rubygems'><meta property='article:tag' content='gems'><meta property='article:published_time' content='2013-05-24T00:00:00Z'/><meta property='article:modified_time' content='2013-05-24T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/vagrant">#vagrant</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/cache">#cache</a>
+  
+  | <a class="subtitle is-6" href="/tags/apt">#apt</a>
+  
+  | <a class="subtitle is-6" href="/tags/yum">#yum</a>
+  
+  | <a class="subtitle is-6" href="/tags/pacman">#pacman</a>
+  
+  | <a class="subtitle is-6" href="/tags/rubygems">#rubygems</a>
+  
+  | <a class="subtitle is-6" href="/tags/gems">#gems</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">May 24, 2013</h2>
+    <h1 class="title">Stop wasting bandwidth with vagrant-cachier</h1>
+      
+    <div class="content">
+      
+
+<p>If you have done any kind of Puppet manifests / Chef cookbooks development using
+Vagrant chances are that you&rsquo;ve been staring at your screen waiting for the machine
+to be provisioned for really long periods of time, specially when you need to
+destroy the VM and start over.</p>
+
+<p>A while ago I came across this <a href="http://gist.github.com/juanje/3797297" target="_blank">gist</a> which
+solves part of the issue by caching downloaded packages on the host machine and
+sharing them among similar VM instances. After copying and pasting it on different
+projects, I decided to extract it to a Vagrant plugin and expand its usage by
+supporting multiple Linux distros and package managers allowing others to benefit
+from it as well.</p>
+
+<p>I started spiking the plugin a while ago and after using it on a couple projects
+today I went ahead and <a href="https://github.com/fgrehm/vagrant-cachier" target="_blank">open sourced it</a>.
+The code is not the best you&rsquo;ll find around and right now it supports caching for
+APT, Yum, Pacman and RubyGems packages and I&rsquo;m planning to add others as needed.</p>
+
+<p>On a side note, this is probably the first Vagrant plugin to make use of
+<a href="http://docs.vagrantup.com/v2/plugins/guest-capabilities.html" target="_blank">guest capabilities</a>
+that I&rsquo;m aware of ;)</p>
+
+<h2 id="how-does-it-work">How does it work?</h2>
+
+<p>From the project&rsquo;s <a href="https://github.com/fgrehm/vagrant-cachier/blob/master/README.md" target="_blank">README</a>:</p>
+
+<blockquote>
+<p>Under the hood, the plugin will hook into calls to <code>Vagrant::Builtin::Provision</code> during <code>vagrant up</code> / <code>vagrant reload</code> and will set things up for each configured cache bucket. Before halting the machine, it will revert the changes required to set things up by hooking into calls to <code>Vagrant::Builtin::GracefulHalt</code> so that you can repackage the machine for others to use without requiring users to install the plugin as well.</p>
+
+<p>Cache buckets will be available from <code>/tmp/vagrant-cachier</code> on your guest and the appropriate folders will get symlinked to the right path <em>after</em> the machine is up but <em>right before</em> it gets provisioned. We <em>could</em> potentially do it on one go and share bucket&rsquo;s folders directly to the right path if we were only using VirtualBox since it shares folders <em>after</em> booting the machine, but the LXC provider does that <em>as part of</em> the boot process (shared folders are actually <code>lxc-start</code> parameters) and as of now we are not able to get some information that this plugin requires about the guest machine before it is actually up and running.</p>
+
+<p>Please keep in mind that this plugin won&rsquo;t do magic, if you are compiling things during provisioning or manually downloading packages that does not fit into a &ldquo;cache bucket&rdquo; you won&rsquo;t see that much of improvement.</p>
+</blockquote>
+
+<p><em><strong>UPDATE</strong>: Please refer to the project&rsquo;s <a href="http://fgrehm.viewdocs.io/vagrant-cachier/how-does-it-work" target="_blank">docs</a>
+for the most up-to-date information about it. Things have changed a bit lately and are
+likely to change a bit more ;)</em></p>
+
+<h2 id="show-me-the-numbers">Show me the numbers!</h2>
+
+<p>I&rsquo;ve done some pretty basic testing on four different boxes doing something along
+the lines of <a href="https://gist.github.com/fgrehm/1b4025f65a66bdbccc12" target="_blank">this script</a>
+on VirtualBox VMs with <a href="/blog/2013/01/17/100-percent-on-vagrant/#enable_nfs">NFS</a>
+and <a href="https://github.com/fgrehm/vagrant-cachier#cache-scope" target="_blank">machine cache scope</a>
+enabled:</p>
+
+<ul>
+<li>vagrant-lxc&rsquo;s Ubuntu 12.10 <a href="https://github.com/fgrehm/vagrant-lxc#using-virtualbox-for-development" target="_blank">dev box</a></li>
+<li><a href="https://github.com/rails/rails-dev-box" target="_blank">rails-dev-box</a></li>
+<li>My own <a href="https://github.com/fgrehm/rails-base-box" target="_blank">rails-base-box</a></li>
+<li>Discourse&rsquo;s <a href="https://github.com/discourse/discourse/blob/master/Vagrantfile" target="_blank">dev box</a></li>
+</ul>
+
+<p>The times shown below are just for provisioning after the machine has already been
+brought up on a 35mb connection:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>First provision</th>
+<th>Second provision</th>
+<th>Diff.</th>
+<th>APT cache</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>rails-dev-box</td>
+<td>4m45s</td>
+<td>3m20s</td>
+<td>~29%</td>
+<td>66mb</td>
+</tr>
+
+<tr>
+<td>rails-base-box</td>
+<td>11m56s</td>
+<td>7m54s</td>
+<td>~34%</td>
+<td>77mb</td>
+</tr>
+
+<tr>
+<td>vagrant-lxc</td>
+<td>10m16s</td>
+<td>5m9s</td>
+<td>~50%</td>
+<td>124mb</td>
+</tr>
+
+<tr>
+<td>discourse</td>
+<td>1m41s</td>
+<td>49s</td>
+<td>~51%</td>
+<td>62mb</td>
+</tr>
+</tbody>
+</table>
+
+<p>As I said, the plugin does not do any magic and it will just save you from downloading
+packages. For instance, my rails-base-box compiles Ruby 2.0 from source using <a href="https://github.com/sstephenson/ruby-build" target="_blank">ruby-build</a>
+and there&rsquo;s nothing much we can do about it (apart from using precompiled rubies of course).</p>
+
+<p>If you do the maths, on average those numbers represents <code>~41%</code> drop on provisioning time.
+In my opinion this alone represents a huge win, specially if you are running
+a CI server as it means a faster feedback loop. It also means that if a mirror is slower
+that usual for some weird reason or if you are on a 3G connection, it&rsquo;ll save you a few mbs
+worth of downloading packages. Not to say that is &ldquo;<a href="https://github.com/sstephenson/ruby-build/pull/232" target="_blank">against etiquette towards package hosters</a>&ldquo;
+to download those files over and over throughout the day.</p>
+
+<p>So please, be nice and stop wasting yours and others bandwidth :)</p>
+
+<h2 id="update">UPDATE</h2>
+
+<p>I&rsquo;ve been <s>stalking</s> <a href="https://twitter.com/search?q=vagrant%20cachier" target="_blank">watching</a>
+what people have been saying about the plugin on twitter and looks like some have
+experienced an even bigger drop on provisioning time:</p>
+
+<p><blockquote class="twitter-tweet" data-cards="hidden"><p>vagrant-cachier took my vagrant spin up from 30 to 5 minutes and reduced my caffeine intake by 3 cups <a href="http://t.co/V0uYpr3U0y" title="http://bit.ly/114CIr3">bit.ly/114CIr3</a></p>&mdash; Russell Cardullo (@russellcardullo) <a href="https://twitter.com/russellcardullo/status/343070870744494080">June 7, 2013</a></blockquote>
+<blockquote class="twitter-tweet" data-cards="hidden"><p>Tested vagrant-cachier. Saved 60% of vagrant up time installing 10 rpms with chef. Pretty awesome. Check it out! <a href="https://t.co/HfbLJNP7GH" title="https://github.com/fgrehm/vagrant-cachier">github.com/fgrehm/vagrant…</a></p>&mdash; Miguel. (@miguelcnf) <a href="https://twitter.com/miguelcnf/status/343757107058847746">June 9, 2013</a></blockquote>
+<script async="true" src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

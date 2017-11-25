@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Video on Fabio Rehm&#39;s Blog</title>
+    <link>http://fabiorehm.com/tags/video/</link>
+    <description>Recent content in Video on Fabio Rehm&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/ribice&#34;&gt;Fabio Rehm&lt;/a&gt; 2017</copyright>
+    <lastBuildDate>Sun, 28 Apr 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://fabiorehm.com/tags/video/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>LXC provider for Vagrant</title>
+      <link>http://fabiorehm.com/blog/2013/04/28/lxc-provider-for-vagrant/</link>
+      <pubDate>Sun, 28 Apr 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://fabiorehm.com/blog/2013/04/28/lxc-provider-for-vagrant/</guid>
+      <description>UPDATE: This post is likely to be out of date, please see this post for more
+It&amp;rsquo;s been nearly 2 months since I open sourced my &amp;ldquo;not so pretty&amp;rdquo; initial spike and announced on Vagrant&amp;rsquo;s mailing list that I was going to work on this. By that time, Vagrant 1.1 wasn&amp;rsquo;t even released yet and it was a long way to get where it is now.
+Almost two weeks after &amp;ldquo;releasing&amp;rdquo; the spike, Vagrant 1.</description>
+    </item>
+    
+  </channel>
+</rss>

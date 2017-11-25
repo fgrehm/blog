@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Devstep: Development environments powered by Docker and Buildpacks | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Devstep: Development environments powered by Docker and Buildpacks - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='&#39;devstep hack&#39; and BOOM!'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2014/08/26/devstep-development-environments-powered-by-docker-and-buildpacks/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='docker'><meta property='article:tag' content='buildpacks'><meta property='article:tag' content='ruby'><meta property='article:tag' content='rails'><meta property='article:published_time' content='2014-08-26T00:00:00Z'/><meta property='article:modified_time' content='2014-08-26T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/docker">#docker</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/buildpacks">#buildpacks</a>
+  
+  | <a class="subtitle is-6" href="/tags/ruby">#ruby</a>
+  
+  | <a class="subtitle is-6" href="/tags/rails">#rails</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">August 26, 2014</h2>
+    <h1 class="title">Devstep: Development environments powered by Docker and Buildpacks</h1>
+      
+    <div class="content">
+      
+
+<p><a href="http://fgrehm.viewdocs.io/devstep" target="_blank">Devstep</a> is a relatively new project that I
+I&rsquo;ve been working on since February 2014 and had its second release last friday.
+On its current state, Devstep is a dead simple, no frills development environment
+builder powered by <a href="https://www.docker.com/" target="_blank">Docker</a> and the <a href="https://devcenter.heroku.com/articles/buildpacks" target="_blank">buildpack</a>
+abstraction that is based around a simple (yet ambitious) goal:</p>
+
+<blockquote>
+<p>I want to git clone and run a single command to hack on any software project.</p>
+</blockquote>
+
+<p>Intrigued? Check out the demo below of my &ldquo;canonical <a href="http://www.discourse.org/" target="_blank">Discourse</a>
+example&rdquo; and read on for more.</p>
+
+<div class="flash-video">
+  <iframe src="//player.vimeo.com/video/99212562" width="720" height="405" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+</div>
+
+<h2 id="a-bit-of-background">A bit of background</h2>
+
+<p>I&rsquo;ve mentioned this before but just to make sure everyone is on the same page,
+even though I&rsquo;ve wrote and done a lot of work on Vagrant / LXC in the past and
+have been playing with Docker for a good amount of my free time, I&rsquo;m not an DevOps /
+operations / sysadmin guy (but <a href="https://twitter.com/jeffsussna/status/377905545048756224" target="_blank">some people believe I am</a>
+:P)</p>
+
+<p>My day to day work still consists of building Ruby On Rails apps and some Golang
+for a couple side projects. While I&rsquo;m somewhat comfortable writing Puppet manifests
+/ Chef recipes, my daily work does not involve any kind of configuration management
+as pretty much all of the apps I&rsquo;ve worked on over the past 2 / 3 years have been
+deployed to Heroku.</p>
+
+<p>Because of that and because I don&rsquo;t see myself going back to developing on &ldquo;bare
+metal&rdquo; anytime soon, I&rsquo;ve been thinking and experimenting with different ways of
+simplifying the process of building virtualized development environments for a
+while now and Devstep is my third attempt at building a tool to make my life
+easier, being <a href="https://github.com/fgrehm/vagrant-boxen" target="_blank">vagrant-boxen</a> and
+<a href="https://github.com/fgrehm/ventriloquist" target="_blank">ventriloquist</a> the other two.</p>
+
+<p>That said, Devstep is not about building images for usage in production. Like
+Ventriloquist, it is a tool for developing other tools / libraries and for people
+that can&rsquo;t be bothered setting up a virtualized development environment from
+scratch and / or don&rsquo;t have control over their production environments.</p>
+
+<p>How&rsquo;s Devstep different from the other projects I&rsquo;ve created and why am I so
+excited about it? Because it is the simplest one and because it requires &ldquo;almost
+zero&rdquo; configuration to work. &ldquo;Almost zero&rdquo; because projects might require
+some additional service (like a database) and you&rsquo;ll probably need to set it up
+with some <a href="http://docs.docker.com/userguide/dockerlinks/" target="_blank">Docker links</a>.</p>
+
+<h2 id="motivation">Motivation</h2>
+
+<p>Have you ever deployed an app to a platform like Heroku? How awesome it is to
+<code>git push</code> some code and see it running without worrying about the infrastructure
+it is going to run on? Now imagine that idea applied to any type of project,
+regardless of whether they are web apps or not. This is what I&rsquo;m trying to achieve
+with Devstep.</p>
+
+<p>At Devstep&rsquo;s heart, there is a &ldquo;self suficient&rdquo; Docker <a href="http://docs.docker.com/introduction/understanding-docker/#docker-images" target="_blank">image</a>
+that leverages the <a href="https://devcenter.heroku.com/articles/buildpacks" target="_blank">buildpack</a>
+abstraction for automatic detection and installation of project dependencies. The
+base image comes with a script that takes your app&rsquo;s source as an input and installs
+everything that is required for hacking on it.</p>
+
+<p>Be it a CLI tool, a plugin for some framework or a web app, it doesn&rsquo;t matter,
+Devstep can do the heavy lifting of preparing an isolated and disposable
+environment using as close to zero configuration as possible so that we can
+<strong>focus on writing and delivering working software</strong>.</p>
+
+<h2 id="benefits">Benefits</h2>
+
+<p>Configuring a base system from scratch to hack on a project (using Docker or not)
+is not an easy task for many people. Yes, there are plenty of platform specific
+images available for download on <a href="https://hub.docker.com/" target="_blank">Docker Hub</a> but because
+Devstep&rsquo;s base image provides an environment that is <a href="https://github.com/progrium/cedarish" target="_blank">similar to Heroku&rsquo;s</a>,
+it should be capable of building and running a wide range of applications / tools
+/ libraries from a single image.</p>
+
+<p>Devstep is also capable of reducing the disk space and initial configuration times by
+(optionally) caching packages on the host machine using a strategy similar to <a href="http://fgrehm.viewdocs.io/vagrant-cachier/how-does-it-work" target="_blank">vagrant-cachier&rsquo;s cache buckets</a>,
+where project dependencies packages are kept on the host while its contents are
+extracted inside the container.</p>
+
+<h2 id="project-status-and-future-work">Project status and future work</h2>
+
+<p>Right now Devstep is the result of many different hacks that suits my needs for
+developing Ruby on Rails and Go CLI / Web apps. It has been working fine for my
+use cases since April / March 2014 and it also seems to play really well with
+other platforms based on my <a href="https://github.com/fgrehm/devstep-examples" target="_blank">testing</a>.</p>
+
+<p>As with any software project, there&rsquo;s always a lot that can be improved but in
+the short term my focus will be on <a href="http://en.wikipedia.org/wiki/Eating_your_own_dog_food" target="_blank">dogfooding</a>
+and converting the current Bash script that makes up for the CLI into a more
+robust Golang CLI that interacts with the Docker API (which is already <a href="https://github.com/fgrehm/devstep-cli" target="_blank">in the works</a>).</p>
+
+<p>From there I have many ideas of cool things that could be done to improve the
+project but I&rsquo;d rather keep them on GitHub issues to avoid making this blog post
+go &ldquo;stale&rdquo; as some of my Vagrant plugins posts I&rsquo;ve wrote on the past.</p>
+
+<p>I also plan to write some blog posts on bootstrapping projects for the currently
+supported environments, write about usage with Vagrant / Fig and also work on
+improving documentation in general. Stay tunned for more and feel free to join
+me on <a href="https://gitter.im/fgrehm/devstep" target="_blank">Gitter</a> if you need help setting things
+up or just want to share some feedback :)</p>
+
+<hr />
+
+<h2 id="ps-what-about-ventriloquist-blog-2013-09-11-announcing-ventriloquist">PS: What about <a href="/blog/2013/09/11/announcing-ventriloquist/">Ventriloquist</a>?</h2>
+
+<p>Ventriloquist served me well for many different projects over the 6 / 7 months
+period I used it more heavily. The reason why I started from scratch with Devstep
+was that I really wanted a more isolated environment that was simpler, smarter
+and faster to build with a very small need for configuration files.</p>
+
+<p>While Devstep is currently Docker only, it&rsquo;s core functionality is provided by
+handful of bash scripts and could be extracted and adapted to other environments
+(like your very own laptop or Vagrant VMs for example). On the other hand, Ventriloquist
+builds on top of Ruby and the Vagrant plugins infrastructure and making it work
+on other environments would be a PITA.</p>
+
+<p>To finish this up, I need to say that after almost an year after Ventriloquist&rsquo;s
+initial release I haven&rsquo;t received much feedback about it and I risk saying I was the
+only one that interacted with it on a daily basis. With that in mind, I&rsquo;m
+officially stepping down as a maintainer of the project and will
+<a href="https://github.com/fgrehm/ventriloquist/issues/63" target="_blank">hapilly hand it over to someone else that has the interest and time to maintain it</a>.</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Meet Viewdocs | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Meet Viewdocs - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='Put those long and boring READMEs on a diet with this awesome new project'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2013/11/12/meet-viewdocs/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='oss'><meta property='article:tag' content='github'><meta property='article:tag' content='documentation'><meta property='article:tag' content='golang'><meta property='article:published_time' content='2013-11-12T00:00:00Z'/><meta property='article:modified_time' content='2013-11-12T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/oss">#oss</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/github">#github</a>
+  
+  | <a class="subtitle is-6" href="/tags/documentation">#documentation</a>
+  
+  | <a class="subtitle is-6" href="/tags/golang">#golang</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">November 12, 2013</h2>
+    <h1 class="title">Meet Viewdocs</h1>
+      
+    <div class="content">
+      
+
+<p>Last week <a href="https://twitter.com/progrium" target="_blank">@progrium</a> striked again with one more
+great example of how we should strive for keeping things simple. Five months after
+releasing <a href="http://progrium.com/blog/2013/06/19/dokku-the-smallest-paas-implementation-youve-ever-seen" target="_blank">Dokku</a>
+which is a <a href="http://www.docker.io/" target="_blank">Docker</a> powered mini-<a href="https://www.heroku.com/" target="_blank">Heroku</a>
+written in around <strong>100 lines of Bash</strong>, he has just open sourced <a href="http://viewdocs.io/" target="_blank">viewdocs</a>:</p>
+
+<p><blockquote class="twitter-tweet"><p>Easy, elegant project documentation in Markdown using Viewdocs &ndash; Read the Docs meets Gist.io <a href="https://t.co/FIDrwPLgKc">https://t.co/FIDrwPLgKc</a></p>&mdash; Jeff Lindsay (@progrium) <a href="https://twitter.com/progrium/statuses/399734531592171520">November 11, 2013</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+
+<p>As with Dokku, the project is pretty small and (as of this writing) converts
+<strong>~200 lines of Golang code</strong> into a powerful tool for small to medium sized
+open source projects hosted on GitHub. Viewdocs combines the <em>dynamics</em> of
+<a href="https://readthedocs.org/" target="_blank">Read the Docs</a> and the <em>simplicity</em> of
+<a href="http://gist.io/" target="_blank">Gist.io</a> by rendering <a href="http://daringfireball.net/projects/markdown/" target="_blank">Markdown</a>
+on the fly from your repository&rsquo;s <code>docs</code> directory as <em>simple static pages</em>.
+It even supports custom layouts and rendering specific <a href="http://git-scm.com/book/en/Git-Internals-Git-References" target="_blank">git references</a>
+(like a tag, branch or a specific commit). How cool is that? :)</p>
+
+<p>Seriously, the project is so simple that when Jeff opened up the code, it didn&rsquo;t
+have support for rendering specific git revisions and even with <a href="https://github.com/fgrehm/go-tour/commit/13391f7c2cb19280b4cb273e50caa293db211ec7" target="_blank">less than a month</a>
+worth of Golang experience I was able to <a href="https://github.com/progrium/viewdocs/pull/2" target="_blank">implement the code to support that</a>.</p>
+
+<h2 id="why-not-github-pages-http-pages-github-com-static-site-generator-of-choice-wikis">Why not <a href="http://pages.github.com/" target="_blank">GitHub Pages</a> / <em>&lt;static site generator of choice&gt;</em> / Wikis?</h2>
+
+<p>If you&rsquo;ve never heard about <a href="https://help.github.com/articles/what-are-github-pages" target="_blank">GitHub Pages</a>,
+they are &ldquo;public webpages freely hosted and easily published through GitHub&rsquo;s site&rdquo;
+or with &ldquo;plain old <code>git push</code>&rdquo;. It differs from Viewdocs as it serves <em>html files</em>
+or <em><a href="https://help.github.com/articles/using-jekyll-with-pages" target="_blank">jekyll sites</a></em>
+available on the <a href="https://help.github.com/articles/user-organization-and-project-pages#project-pages" target="_blank"><code>gh-pages</code></a>
+branch of your project and it comes with an <a href="https://help.github.com/articles/creating-pages-with-the-automatic-generator" target="_blank">automatic page generator</a>
+that takes in a <code>README.md</code> + Google Analytics tracking code and spits
+out a HTML page with some <a href="https://github.com/blog/1081-instantly-beautiful-project-pages" target="_blank">nice looking templates</a>.</p>
+
+<p>Although GH Pages have the automatic page generator, in my opinion they lack that
+awesome &ldquo;live documentation&rdquo; feeling as it requires <em>human intervention</em> in order
+to be updated, either in the form of a few clicks on the automatic generator or a:</p>
+
+<div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">git checkout gh-pages
+...hack <span class="p">&amp;</span> commit...
+git push
+git checkout master</code></pre></div>
+
+<p>For bigger projects with lots of contributors, having a separate branch <em>and</em>
+ensuring it is always up to date <em>might</em> not be an issue but for smaller ones
+(where there are one or two main devs) there&rsquo;s a huge chance they&rsquo;ll end up
+forgetting to update the branch after a release. Apart from that, as <a href="https://github.com/patcon" target="_blank">@patcon</a>
+pointed out on this <a href="https://github.com/fgrehm/vagrant-cachier/issues/56#issuecomment-27989250" target="_blank">vagrant-cachier issue</a>,
+it&rsquo;s harder to &ldquo;enforce updated documentation as part of any Pull Request&rdquo;.</p>
+
+<p>An alternative to make docs more dynamic, you can use project&rsquo;s Wiki so that
+users can easily contribute back in case they think things can be improved. The
+drawbacks of that are probably the same of using GitHub Pages as you are not only
+on a separate branch but also on a different repository.</p>
+
+<p>The cool thing about Viewdocs is that documentation <em>just get updated</em> along
+with the the rest of the project&rsquo;s sources right there from <code>master</code>. Because
+it supports git references, you&rsquo;ll get <em>tagged documentation</em> like
+(<a href="http://ruby-doc.org/gems/docs/v/vagrant-lxc-0.6.4/" target="_blank">ruby-doc</a>) for free!
+For example, if your project goes through some drastic 2.0 changes that makes
+it incompatible with the previous 1.0 releases, you can just add a link to
+<code>http://&lt;user&gt;.viewdocs.io/&lt;project&gt;~v1.0/</code> somewhere on the new docs so that
+users can read the docs of the version they are using. Oh, and because it works
+across forks, you can even preview Pull Requests changes by visiting
+<code>http://&lt;other user&gt;.viewdocs.io/&lt;your project&gt;~&lt;pr-branch&gt;</code> from <em>anywhere</em>,
+there&rsquo;s no need to get into your laptop to run some commands or fire up a server
+in order to look at them.</p>
+
+<p>Please don&rsquo;t get me wrong, GitHub Pages and Middleman are a great fit if you
+are working on a static website of its own but IMHO Viewdocs is a better tool
+for maintaining / hosting open source project&rsquo;s documentation (and it comes
+with a  <em>high level of &ldquo;hackability&rdquo;</em> built in ;)</p>
+
+<h2 id="viewdocs-is-a-building-block">Viewdocs is a building block!</h2>
+
+<p>Would you imagine that we could have project&rsquo;s analytics with <a href="https://bitdeli.com/" target="_blank">a badge on project&rsquo;s
+READMEs</a>?</p>
+
+<p>Imagine if you could drop in some JS into your custom layout that reads things
+from some other service using AJAX and somehow enhances the static docs with
+some additional behavior? I&rsquo;m not sure what might come out of that but it looks
+promising.</p>
+
+<p>For now I&rsquo;ll just start by putting some <a href="https://github.com/fgrehm/vagrant-cachier/blob/master/README.md" target="_blank">fat</a>
+<a href="https://github.com/fgrehm/ventriloquist/blob/master/README.md" target="_blank">READMEs</a> on a
+diet :)</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>

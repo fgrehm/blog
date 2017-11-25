@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Getting to know BTRFS | Fabio Rehm&#39;s Blog</title>
+
+<meta property='og:title' content='Getting to know BTRFS - Fabio Rehm&#39;s Blog'>
+<meta property='og:description' content='Or why lxc-clone will probably be the next &#34;big thing&#34; on vagrant-lxc'>
+<meta property='og:url' content='http://fabiorehm.com/blog/2013/10/15/getting-to-know-btrfs/'>
+<meta property='og:site_name' content='Fabio Rehm&#39;s Blog'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/104b2f2e55cae5294ac961ce1547b13e?s=256'><meta property='article:section' content='Blog'><meta property='article:tag' content='vagrant'><meta property='article:tag' content='lxc'><meta property='article:tag' content='btrfs'><meta property='article:tag' content='copy on write'><meta property='article:published_time' content='2013-10-15T00:00:00Z'/><meta property='article:modified_time' content='2013-10-15T00:00:00Z'/><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@fgrehm'><meta name='twitter:creator' content='@fgrehm'>
+<link rel="stylesheet" href="http://fabiorehm.com/css/style.css"/><link rel='stylesheet' href='/css/custom.css'></head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://fabiorehm.com"><h1 class="title is-4">Fabio Rehm&#39;s Blog</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"><a class="level-item" href='mailto:fgrehm%20at%20gmail%20dot%20com' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://github.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://linkedin.com/in/fabiorehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path stroke-width="1.8" d="m5.839218,4.101561c0,1.211972 -0.974141,2.194011 -2.176459,2.194011s-2.176459,-0.982039 -2.176459,-2.194011c0,-1.211094 0.974141,-2.194011 2.176459,-2.194011s2.176459,0.982917 2.176459,2.194011zm0.017552,3.94922l-4.388022,0l0,14.04167l4.388022,0l0,-14.04167zm7.005038,0l-4.359939,0l0,14.04167l4.360816,0l0,-7.370999c0,-4.098413 5.291077,-4.433657 5.291077,0l0,7.370999l4.377491,0l0,-8.89101c0,-6.915523 -7.829986,-6.66365 -9.669445,-3.259423l0,-1.891237z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" href='https://twitter.com/fgrehm' target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="subtitle is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/vagrant">#vagrant</a>
+
+
+
+  
+  | <a class="subtitle is-6" href="/tags/lxc">#lxc</a>
+  
+  | <a class="subtitle is-6" href="/tags/btrfs">#btrfs</a>
+  
+  | <a class="subtitle is-6" href="/tags/copy-on-write">#copy on write</a>
+  
+
+      
+    </div>
+    <h2 class="subtitle is-6">October 15, 2013</h2>
+    <h1 class="title">Getting to know BTRFS</h1>
+      
+    <div class="content">
+      
+
+<p>I&rsquo;ve been playing a lot with <a href="http://docker.io" target="_blank">Docker</a> recently and while learning
+<a href="http://docs.docker.io/en/latest/terms/layer/#layers" target="_blank">more about it</a> I came across
+<a href="http://aufs.sourceforge.net/aufs.html" target="_blank">&ldquo;Another Union File System&rdquo;</a> (AUFS) + its
+<a href="http://en.wikipedia.org/wiki/Copy-on-write" target="_blank">Copy On Write</a> (COW) capabilities and have
+been pretty impressed by it. In short, by using a COW + <a href="http://en.wikipedia.org/wiki/Union_mount" target="_blank">union file system</a>
+Docker makes things <em>really cheap</em> when it comes to disk usage.</p>
+
+<p>The idea of COW filesystems along with <a href="https://github.com/dotcloud/docker/issues/443" target="_blank">a couple</a>
+<a href="https://github.com/fgrehm/vagrant-lxc/issues/81" target="_blank">GitHub issues</a>, some tweets
+exchanged with <a href="https://twitter.com/rcarmo" target="_blank">@rcarmo</a> and <a href="http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/" target="_blank">this post</a>
+on improvements made on <code>lxc-clone</code> was enough to trigger my interest on <a href="https://btrfs.wiki.kernel.org/index.php/Main_Page" target="_blank">BTRFS</a>
+and I went out to learn more about it.</p>
+
+<h2 id="what-s-with-copy-on-write-aka-cow">What&rsquo;s with Copy on Write (aka COW)?</h2>
+
+<p>Some googling pointed me to <a href="http://faif.objectis.net/download-copy-on-write-based-file-systems" target="_blank">this comprehensive</a>
+thesis on Copy On Write Based File Systems by Sakis Kasampalis and while I havent
+read the whole thesis yet, I found this pretty nice definition about COW on
+page 19:</p>
+
+<blockquote>
+<p>COW generally follows a simple principle. As long as multiple programs need
+read only access to a data structure, providing them only pointers which
+point to the same data structure, instead of copying the whole structure to
+a new one, is enough.</p>
+</blockquote>
+
+<p>If you&rsquo;ve never heard of COW take the time to grasp those words and think about
+applying that to a File System. If you can&rsquo;t get the big picture don&rsquo;t worry, just
+keep reading :)</p>
+
+<p>Going further, Kasampalis writes:</p>
+
+<blockquote>
+<p>If at least one of the programs needs at some point
+write access to the data structure, create a private copy for it. The same holds
+for each one of the programs which will need write access to the data structure.
+A new private copy will be created for them.</p>
+
+<p>Let&rsquo;s assume that we have an array data structure called &ldquo;foo&rdquo;, and two programs
+called &ldquo;Bob&rdquo; and &ldquo;Alice&rdquo; which need to access it in read/write mode. If during the
+access, none of the programs tries to change the contents of &ldquo;foo&rdquo;, both &ldquo;Bob&rdquo; and
+&ldquo;Alice&rdquo; will actually use exactly the same &ldquo;foo&rdquo; array. If at some point &ldquo;Bob&rdquo;
+changes the contents of &ldquo;foo&rdquo;, a private copy of the changed data of &ldquo;foo&rdquo; will
+automatically be created by the COW system and provided to &ldquo;Bob&rdquo;. Note
+that the unchanged data can still be shared between &ldquo;Bob&rdquo; and &ldquo;Alice&rdquo;. This
+is a powerful feature of COW.</p>
+</blockquote>
+
+<p>He also highlights the benefits of COW file systems on page 20:</p>
+
+<blockquote>
+<p>I believe that COW&rsquo;s major contributions to file systems are the support for (1)
+taking cheap snapshots, (2) ensuring both data and metadata consistency and
+integrity with acceptable performance.</p>
+</blockquote>
+
+<p>As another COW example, we have <a href="http://www.rubyenterpriseedition.com/faq.html#what_is_this" target="_blank">Ruby Enterprise Edition</a>,
+that shipped with a &ldquo;<em>copy-on-write friendly garbage collector, capable of reducing
+Ruby on Rails applications’ memory usage by 33% on average</em>&rdquo; and had its EOL
+anounced once a copy-on-write patch was checked into Ruby 2.0. For other use
+cases please refer to <a href="http://en.wikipedia.org/wiki/Copy-on-write#Other_applications_of_copy-on-write" target="_blank">Wikipedia</a>.</p>
+
+<h2 id="b-tree-data-structure">B-tree data structure</h2>
+
+<p>If you forgot about your data structure lessons, here&rsquo;s the definition from <a href="http://en.wikipedia.org/wiki/B-tree" target="_blank">Wikipedia</a>:</p>
+
+<blockquote>
+<p>In computer science, a B-tree is a tree data structure that keeps data sorted and
+allows searches, sequential access, insertions, and deletions in logarithmic time.
+The B-tree is a generalization of a binary search tree in that a node can have more
+than two children. (Comer 1979, p. 123) Unlike self-balancing binary search trees,
+the B-tree is optimized for systems that read and write large blocks of data.
+It is commonly used in databases and filesystems.</p>
+</blockquote>
+
+<h2 id="b-tree-file-system-aka-btrfs">B-tree file system (aka BTRFS)</h2>
+
+<p>From <a href="http://en.wikipedia.org/wiki/Btrfs" target="_blank">Wikipedia</a> again:</p>
+
+<blockquote>
+<p>Btrfs [&hellip;] is a GPL-licensed experimental copy-on-write file system for Linux.
+[&hellip;] Btrfs is intended to address the lack of pooling, snapshots, checksums
+and integral multi-device spanning in Linux file systems, these features being
+crucial as Linux use scales upward into the larger storage configurations common
+in enterprise. Chris Mason, the principal Btrfs author, has stated that its goal
+was &ldquo;to let Linux scale for the storage that will be available. Scaling is not
+just about addressing the storage but also means being able to administer and
+to manage it with a clean interface that lets people see what&rsquo;s being used and
+makes it more reliable.&rdquo;</p>
+</blockquote>
+
+<p>Although it looks pretty exciting from outside when you play with it, there are
+some things to keep in mind:</p>
+
+<blockquote>
+<p>It is still in heavy development and marked as unstable. Especially when the
+filesystem becomes full, no-space conditions arise which might make it
+challenging to delete files.</p>
+</blockquote>
+
+<h2 id="trying-it-out-aka-what-it-means-for-vagrant-lxc">Trying it out (aka &ldquo;What it means for vagrant-lxc?&rdquo;)</h2>
+
+<p>Enough theory and copy and pasting! Because an <a href="http://asciinema.org/" target="_blank">asciicast</a> is
+worth more than a thousand words, check out the one below. I used the <code>quantal</code>
+machine from <a href="https://github.com/fgrehm/vagrant-lxc-vbox-hosts" target="_blank">vagrant-lxc-vbox-hosts</a>
+to fire up a VBox machine ready to rock and recorded the asciicast from there.</p>
+
+<div class="asciicast-container">
+  <script type="text/javascript" src="http://asciinema.org/a/5922.js" id="asciicast-5922" async="true"></script>
+</div>
+
+<p>
+  You can find out more about and play with BTRFS by looking at
+  <a href="http://www.funtoo.org/BTRFS_Fun">this entry</a> from
+  <a href="http://www.funtoo.org/wiki/Welcome">Funtoo Linux</a> Wiki.
+</p>
+
+<p>I hope I gave you enough reason to watch the asciicast with the information above
+but if you ended up not watching it, I&rsquo;d just like to let you know that I was able
+to &ldquo;break&rdquo; one of the most basic Physics law that states that two things cannot occupy
+the same space at the same time by using <a href="https://help.ubuntu.com/lts/serverguide/lxc.html#lxc-cloning" target="_blank"><code>lxc-clone</code> and its snapshotting capabilities</a>
+:P Thanks to BTRFS I was capable of fitting <strong>22 GB</strong> of data into just <strong>405MB</strong>!</p>
+
+<p>So, can you guess what does that mean for vagrant-lxc? Basically even faster container
+creation times (under 0.1 millisecond for <code>lxc-clone</code> + BTRFS snapshotting) and lower
+disk usage. This also means that support for vagrant-lxc container <a href="https://github.com/fgrehm/vagrant-lxc/issues/32" target="_blank">snapshots</a>
+should be <em>easier</em> to implement once the cloning functionality is in place.</p>
+
+<h2 id="that-s-awesome-i-want-it-now">That&rsquo;s awesome! I want it now!</h2>
+
+<p>Well&hellip; Unfortunately I&rsquo;m not sure when this is going to be easily supported from
+vagrant-lxc, so for now you&rsquo;ll need to do things by hand. Please check the asciicast
+in order to find out how to set things up and to &ldquo;trick&rdquo; vagrant-lxc into using your
+cloned containers.</p>
+
+<p>One thing that I know for sure is that we&rsquo;ll have to wait for Vagrant 1.4 because
+of <a href="https://github.com/mitchellh/vagrant/pull/2327" target="_blank">this pull request</a> which enables
+us to <a href="https://github.com/mitchellh/vagrant/pull/2327/files#diff-5d84fa7a300da3b9958d69831795c066R49" target="_blank">hook</a>
+into Vagrant&rsquo;s process of removing base boxes. The reason behind that is that
+we&rsquo;ll need to keep a &ldquo;base container&rdquo; around in order to create our lxc clones
+from and without that we are not able to automatically delete the base
+container rootfs in case the user removes a vagrant-lxc base box, leaving
+unused containers behind.</p>
+
+<p>On a side note, I&rsquo;ve had some trouble using <code>lxc-clone</code> with vagrant-lxc containers
+on both an Ubuntu 13.04 VBox VM and my own laptop so I had to switch back to a
+12.10 VM in order to record the asciicast. I haven&rsquo;t had the chance to find out
+what&rsquo;s going on yet <a href="http://s3hh.wordpress.com/2013/05/02/lxc-improved-clone-support/#comment-902" target="_blank">but it seems that I&rsquo;m not the only one having trouble with it</a>.</p>
+
+<p>To finish this up, I want to make clear that I&rsquo;ve only done some initial experiments
+with BTRFS and I have no idea how it behaves on the wild but I&rsquo;ll definitely look into
+adding some experimental support for <code>lxc-clone</code> in a future vagrant-lxc version. I&rsquo;m
+not really sure how that will look like but on the spirit of eating my own dog food
+I&rsquo;ll try to create a BTRFS partition on my physical HD soon as a start see how it goes :)</p>
+
+    </div>
+    
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+    <script type="text/javascript">
+      var disqus_shortname = 'fgrehm';
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/ribice">Fabio Rehm</a> 2017</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-37437857-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+</body>
+</html>
