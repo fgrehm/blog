@@ -8,5 +8,9 @@ hugo
 cd public && git add --all && git commit -m "Publishing to gh-pages" && cd ..
 git push upstream gh-pages
 
+cd rm -rf public/*
+hugo
+cd public && git add --all && git commit -m "Publishing to gh-pages" && cd ..
+
 
 https://gohugo.io/content-management/syntax-highlighting/#generate-syntax-highlighter-css
