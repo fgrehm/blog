@@ -2,7 +2,7 @@ baseurl = "http://fabiorehm.com"
 languageCode = "en"
 title = "Fabio Rehm's Blog"
 theme = "kiss"
-copyright = "&copy; <a href=\"https://github.com/ribice\">Fabio Rehm</a> 2017"
+copyright = "&copy; <a href=\"https://github.com/fgrehm\">Fabio Rehm</a> 2017"
 disqusShortname = "fgrehm"
 googleAnalytics = "UA-37437857-1"
 # Number of posts per page
