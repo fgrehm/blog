@@ -6,7 +6,6 @@ tags:
 - serverless
 - serenata-de-amor
 - ocr
-draft: true
 ---
 
 As most people in tech know, Serverless is the new ~~buzzword~~ “hotness" and
@@ -28,21 +27,21 @@ Changelog](https://changelog.com/podcast/268).
 So far, the main focus of the team and where it currently excels is analyzing
 meal reimbursements from congresspeople. Those reimbursements are provided to
 them through the CEAP ("Cota para Exercício da Atividade Parlamentar" or "Quota
-for Exercising Parliamentary Activity" in English) by the Chamber of Deputies:
+for Exercising Parliamentary Activity" in English) by the [Chamber of Deputies](https://en.wikipedia.org/wiki/Chamber_of_Deputies_(Brazil)):
 
 <center>
   <img src="https://serenatadeamor.org/images/infographic.png" alt="serenata-infographic" />
   <em>A bit of context on some of the rationale behind the project (source: Serenata's Website).<br>As of today, R$1 = US$0.31</em>
 </center>
 
-One of the things of interest of the project is "reading" scanned reimbursements
-receipts provided by deputies in search for things like alcoholic beverages and
-exact timestamps of when a meal was purchased. That data can be used to flag
-congress person's reimbursements as suspicious given they should not reimbursed
-for alcohol. Another use case is crossing the timestamps found with other
-dataset we have about parliamentary activity: if a congress person was in a
-session and the meal receipt is around the same time in another city, it
-probably means he/she bought food for other people (also not allowed).
+One of the things of interest of the project is "reading" scanned reimbursement
+receipt PDFs provided by deputies in search for things like alcoholic beverages
+and exact timestamps of when a meal was purchased. That data can be used to flag
+congress person's reimbursements as suspicious given they should not be
+reimbursed for alcohol. Another use case is crossing the timestamps found in the
+receipt with other datasets we have about parliamentary activity: if a congress
+person was in a session and the meal receipt is around the same time in another
+city, it probably means he/she bought food for other people (also not allowed).
 
 ## Why do I think a serverless architecture makes sense for this?
 
@@ -51,8 +50,10 @@ for getting the job done.
 
 To solve the PDF to text problem we need to
 [OCR](https://en.wikipedia.org/wiki/Optical_character_recognition) those
-receipts. While we could put together some self hosted infra for this using OSS
-tools like
+receipts that are basically "scanned pieces of paper" (not a nice PDF generated
+by Word that you can search with Ctrl+F). In other words, they are actually
+_images_ inside a PDF! While we could put together some self hosted infra for
+this using OSS tools like
 [Tesseract](https://github.com/tesseract-ocr/tesseract#tesseract-ocr), big
 players like Google and Microsoft provide OCR as a service with a reasonable
 price so we don't have to worry about managing & monitoring our own boxes and
@@ -193,7 +194,7 @@ going from zero to OCR in a close to a minute:
 ## TL;DR
 
 The problem of _deploying_ applications that leverages Serverless
-infrastructures seems to be nicely handled by tool like the Serverless Framework
+infrastructures seems to be nicely handled by tools like the Serverless Framework
 CLI and Claudia.JS. While that can save us a bunch of time, given the issues
 outlined above I believe that deployment is going to be a small effort of your
 Serverless endeavours.
