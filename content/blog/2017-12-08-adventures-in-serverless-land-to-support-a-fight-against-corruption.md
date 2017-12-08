@@ -1,6 +1,6 @@
 ---
 title: "Adventures in Serverless land to Support a Fight Against Corruption"
-date: '2017-11-28'
+date: '2017-12-08'
 description: 'As most people in tech know, Serverless is the new "hotness". This post outlines my initial experience with it, the issues I had along the way and some considerations in case you, like me, are thinking about giving it a try for the first time'
 tags:
 - serverless
