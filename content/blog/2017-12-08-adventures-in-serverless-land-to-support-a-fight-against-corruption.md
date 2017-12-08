@@ -230,3 +230,9 @@ sizes](https://devcenter.heroku.com/articles/slug-compiler#slug-size).
 Finally, my main recommendation to people trying out serverless architectures
 for the first time is to embrace eXtreme Programming's baby steps and don't go
 too far with "Works in my machine." :)
+
+---
+
+_Many thanks to some fellow coworkers and Serenata de Amor core team members for
+reading drafts of this post and for giving me their feedback! A special thanks
+goes out to Aaron Moncivaiz for fixing my broken english :)_
